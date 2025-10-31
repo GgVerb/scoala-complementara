@@ -1,0 +1,8 @@
+<svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="40" fill="white" stroke="#004b93" stroke-width="1"/>
+  <text x="6" y="16" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#004b93">SCHOLZ</text>
+  <text x="4" y="28" font-family="Arial, sans-serif" font-size="5" fill="#004b93">Kompetenz im Schrott</text>
+  <rect x="55" y="8" width="20" height="24" fill="#004b93"/>
+  <text x="60" y="18" font-family="Arial, sans-serif" font-size="6" fill="white" font-weight="bold">SR</text>
+  <text x="57" y="28" font-family="Arial, sans-serif" font-size="4" fill="white">REMAT</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="40" fill="#00a651"/>
+  <text x="28" y="26" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">NCR</text>
+  <circle cx="12" cy="20" r="8" fill="white"/>
+  <text x="8" y="24" font-family="Arial, sans-serif" font-size="8" fill="#00a651" font-weight="bold">NEW</text>
+</svg>

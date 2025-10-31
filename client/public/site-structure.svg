@@ -1,0 +1,193 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .page-box { fill: #e8f5e8; stroke: #4ade80; stroke-width: 2; }
+      .article-box { fill: #fef3c7; stroke: #f59e0b; stroke-width: 2; }
+      .section-box { fill: #dbeafe; stroke: #3b82f6; stroke-width: 2; }
+      .main-page { fill: #fce7f3; stroke: #ec4899; stroke-width: 3; }
+      .text { font-family: Arial, sans-serif; font-size: 10px; fill: #374151; }
+      .title { font-family: Arial, sans-serif; font-size: 12px; fill: #1f2937; font-weight: bold; }
+      .link-arrow { stroke: #6b7280; stroke-width: 1; fill: none; marker-end: url(#arrowhead); }
+      .nav-link { stroke: #059669; stroke-width: 2; fill: none; }
+      .article-link { stroke: #d97706; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
+    </marker>
+  </defs>
+
+  <text x="600" y="25" text-anchor="middle" class="title" font-size="16px">Schiță Școala Complementară - Structura Site-ului</text>
+
+  <rect x="480" y="50" width="240" height="80" rx="8" class="main-page"/>
+  <text x="600" y="75" text-anchor="middle" class="title">PAGINA PRINCIPALĂ</text>
+  <text x="600" y="90" text-anchor="middle" class="text">/</text>
+  <text x="600" y="105" text-anchor="middle" class="text">Navigation + Hero + Despre</text>
+  <text x="600" y="118" text-anchor="middle" class="text">+ Pentru cine + Blog + Contact</text>
+
+  <rect x="50" y="180" width="140" height="60" rx="5" class="page-box"/>
+  <text x="120" y="200" text-anchor="middle" class="title">Pentru Elevi</text>
+  <text x="120" y="215" text-anchor="middle" class="text">/pentru-elevi</text>
+  <text x="120" y="228" text-anchor="middle" class="text">Programe pentru copii</text>
+
+  <rect x="210" y="180" width="140" height="60" rx="5" class="page-box"/>
+  <text x="280" y="200" text-anchor="middle" class="title">Pentru Adulți</text>
+  <text x="280" y="215" text-anchor="middle" class="text">/pentru-adulti</text>
+  <text x="280" y="228" text-anchor="middle" class="text">Cursuri pentru părinți</text>
+
+  <rect x="370" y="180" width="140" height="60" rx="5" class="page-box"/>
+  <text x="440" y="200" text-anchor="middle" class="title">Pentru Instituții</text>
+  <text x="440" y="215" text-anchor="middle" class="text">/pentru-institutii</text>
+  <text x="440" y="228" text-anchor="middle" class="text">Colaborări școli</text>
+
+  <rect x="530" y="180" width="140" height="60" rx="5" class="page-box"/>
+  <text x="600" y="200" text-anchor="middle" class="title">Pentru Mentori</text>
+  <text x="600" y="215" text-anchor="middle" class="text">/pentru-mentori</text>
+  <text x="600" y="228" text-anchor="middle" class="text">Ghid pentru mentori</text>
+
+  <rect x="690" y="180" width="140" height="60" rx="5" class="page-box"/>
+  <text x="760" y="200" text-anchor="middle" class="title">Despre Noi</text>
+  <text x="760" y="215" text-anchor="middle" class="text">/despre-noi</text>
+  <text x="760" y="228" text-anchor="middle" class="text">Echipa și viziunea</text>
+
+  <rect x="870" y="180" width="140" height="60" rx="5" class="page-box"/>
+  <text x="940" y="200" text-anchor="middle" class="title">Toate Articolele</text>
+  <text x="940" y="215" text-anchor="middle" class="text">/scrisori</text>
+  <text x="940" y="228" text-anchor="middle" class="text">Lista completă blog</text>
+
+  <text x="600" y="300" text-anchor="middle" class="title" font-size="14px">ARTICOLE BLOG (/articol/:id)</text>
+
+  <rect x="50" y="320" width="120" height="50" rx="3" class="article-box"/>
+  <text x="110" y="335" text-anchor="middle" class="text">Ghidul Educație</text>
+  <text x="110" y="347" text-anchor="middle" class="text">Inovatoare</text>
+  <text x="110" y="359" text-anchor="middle" class="text">17 iunie 2025</text>
+
+  <rect x="190" y="320" width="120" height="50" rx="3" class="article-box"/>
+  <text x="250" y="335" text-anchor="middle" class="text">Școala în</text>
+  <text x="250" y="347" text-anchor="middle" class="text">pădure</text>
+  <text x="250" y="359" text-anchor="middle" class="text">29 ianuarie 2025</text>
+
+  <rect x="330" y="320" width="120" height="50" rx="3" class="article-box"/>
+  <text x="390" y="335" text-anchor="middle" class="text">Școlile</text>
+  <text x="390" y="347" text-anchor="middle" class="text">democratice</text>
+  <text x="390" y="359" text-anchor="middle" class="text">17 ianuarie 2025</text>
+
+  <rect x="470" y="320" width="120" height="50" rx="3" class="article-box"/>
+  <text x="530" y="335" text-anchor="middle" class="text">Outward Bound</text>
+  <text x="530" y="347" text-anchor="middle" class="text">experimente</text>
+  <text x="530" y="359" text-anchor="middle" class="text">29 ianuarie 2025</text>
+
+  <rect x="610" y="320" width="120" height="50" rx="3" class="article-box"/>
+  <text x="670" y="335" text-anchor="middle" class="text">Educație</text>
+  <text x="670" y="347" text-anchor="middle" class="text">experiențială</text>
+  <text x="670" y="359" text-anchor="middle" class="text">15 iunie 2025</text>
+
+  <rect x="190" y="390" width="120" height="50" rx="3" class="article-box"/>
+  <text x="250" y="405" text-anchor="middle" class="text">Natura ca</text>
+  <text x="250" y="417" text-anchor="middle" class="text">profesor</text>
+  <text x="250" y="429" text-anchor="middle" class="text">15 iunie 2025</text>
+
+  <rect x="330" y="390" width="120" height="50" rx="3" class="article-box"/>
+  <text x="390" y="405" text-anchor="middle" class="text">Abilități</text>
+  <text x="390" y="417" text-anchor="middle" class="text">complementare</text>
+  <text x="390" y="429" text-anchor="middle" class="text">3 februarie 2025</text>
+
+  <rect x="470" y="390" width="120" height="50" rx="3" class="article-box"/>
+  <text x="530" y="405" text-anchor="middle" class="text">Problema</text>
+  <text x="530" y="417" text-anchor="middle" class="text">lui Einstein</text>
+  <text x="530" y="429" text-anchor="middle" class="text">29 ianuarie 2025</text>
+
+  <rect x="610" y="390" width="120" height="50" rx="3" class="article-box"/>
+  <text x="670" y="405" text-anchor="middle" class="text">Curriculum</text>
+  <text x="670" y="417" text-anchor="middle" class="text">propunere</text>
+  <text x="670" y="429" text-anchor="middle" class="text">28 ianuarie 2025</text>
+
+  <rect x="750" y="390" width="120" height="50" rx="3" class="article-box"/>
+  <text x="810" y="405" text-anchor="middle" class="text">De ce eu?</text>
+  <text x="810" y="429" text-anchor="middle" class="text">25 ianuarie 2025</text>
+
+  <text x="150" y="520" text-anchor="middle" class="title" font-size="14px">SECȚIUNI PAGINA PRINCIPALĂ</text>
+
+  <rect x="50" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="100" y="555" text-anchor="middle" class="text">Hero Section</text>
+  <text x="100" y="567" text-anchor="middle" class="text">#hero</text>
+
+  <rect x="170" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="220" y="555" text-anchor="middle" class="text">About Section</text>
+  <text x="220" y="567" text-anchor="middle" class="text">#despre</text>
+
+  <rect x="290" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="340" y="555" text-anchor="middle" class="text">Audience</text>
+  <text x="340" y="567" text-anchor="middle" class="text">#pentru-cine</text>
+
+  <rect x="410" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="460" y="555" text-anchor="middle" class="text">Gallery</text>
+  <text x="460" y="567" text-anchor="middle" class="text">#galerie</text>
+
+  <rect x="530" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="580" y="555" text-anchor="middle" class="text">Blog Section</text>
+  <text x="580" y="567" text-anchor="middle" class="text">#blog</text>
+
+  <rect x="650" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="700" y="555" text-anchor="middle" class="text">Newsletter</text>
+  <text x="700" y="567" text-anchor="middle" class="text">#newsletter</text>
+
+  <rect x="770" y="540" width="100" height="40" rx="3" class="section-box"/>
+  <text x="820" y="555" text-anchor="middle" class="text">Contact</text>
+  <text x="820" y="567" text-anchor="middle" class="text">#contact</text>
+
+  <line x1="550" y1="130" x2="120" y2="180" class="nav-link"/>
+  <line x1="580" y1="130" x2="280" y2="180" class="nav-link"/>
+  <line x1="600" y1="130" x2="440" y2="180" class="nav-link"/>
+  <line x1="620" y1="130" x2="600" y2="180" class="nav-link"/>
+  <line x1="650" y1="130" x2="760" y2="180" class="nav-link"/>
+  <line x1="680" y1="130" x2="940" y2="180" class="nav-link"/>
+
+  <line x1="940" y1="240" x2="110" y2="320" class="article-link"/>
+  <line x1="940" y1="240" x2="250" y2="320" class="article-link"/>
+  <line x1="940" y1="240" x2="390" y2="320" class="article-link"/>
+  <line x1="940" y1="240" x2="530" y2="320" class="article-link"/>
+  <line x1="940" y1="240" x2="670" y2="320" class="article-link"/>
+  <line x1="940" y1="240" x2="250" y2="390" class="article-link"/>
+  <line x1="940" y1="240" x2="390" y2="390" class="article-link"/>
+  <line x1="940" y1="240" x2="530" y2="390" class="article-link"/>
+  <line x1="940" y1="240" x2="670" y2="390" class="article-link"/>
+  <line x1="940" y1="240" x2="810" y2="390" class="article-link"/>
+
+  <line x1="600" y1="130" x2="100" y2="540" class="link-arrow"/>
+  <line x1="600" y1="130" x2="220" y2="540" class="link-arrow"/>
+  <line x1="600" y1="130" x2="340" y2="540" class="link-arrow"/>
+  <line x1="600" y1="130" x2="460" y2="540" class="link-arrow"/>
+  <line x1="600" y1="130" x2="580" y2="540" class="link-arrow"/>
+  <line x1="600" y1="130" x2="700" y2="540" class="link-arrow"/>
+  <line x1="600" y1="130" x2="820" y2="540" class="link-arrow"/>
+
+  <path d="M 170 345 Q 180 335 190 345" class="article-link"/>
+  <path d="M 310 345 Q 320 335 330 345" class="article-link"/>
+  <path d="M 450 345 Q 460 335 470 345" class="article-link"/>
+  <path d="M 590 345 Q 600 335 610 345" class="article-link"/>
+
+  <rect x="50" y="650" width="15" height="15" class="main-page"/>
+  <text x="75" y="662" class="text">Pagina principală</text>
+
+  <rect x="200" y="650" width="15" height="15" class="page-box"/>
+  <text x="225" y="662" class="text">Pagini principale</text>
+
+  <rect x="350" y="650" width="15" height="15" class="article-box"/>
+  <text x="375" y="662" class="text">Articole blog</text>
+
+  <rect x="500" y="650" width="15" height="15" class="section-box"/>
+  <text x="525" y="662" class="text">Secțiuni home</text>
+
+  <line x1="50" y1="690" x2="80" y2="690" class="nav-link"/>
+  <text x="90" y="695" class="text">Link navigare</text>
+
+  <line x1="200" y1="690" x2="230" y2="690" class="article-link"/>
+  <text x="240" y="695" class="text">Link articol</text>
+
+  <line x1="350" y1="690" x2="380" y2="690" class="link-arrow"/>
+  <text x="390" y="695" class="text">Flux secțiuni</text>
+
+  <text x="600" y="720" text-anchor="middle" class="text">Note: Formularele (Newsletter, Contact, Aplicare student) sunt integrate în secțiunile respective</text>
+  <text x="600" y="740" text-anchor="middle" class="text">și comunică cu backend-ul prin API-uri (/api/newsletter, /api/contact, /api/student-application)</text>
+</svg>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gheorghe Lungu - Curriculum Vitae</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Source Sans Pro', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background: white;
+            font-size: 12px;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .header .title {
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        
+        .header .contact {
+            font-size: 11px;
+            opacity: 0.8;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .summary {
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: justify;
+            color: #4a5568;
+        }
+        
+        .competencies {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .competency-item {
+            font-size: 11px;
+            color: #4a5568;
+            padding: 8px;
+            background: #f8fafc;
+            border-left: 3px solid #2563eb;
+            border-radius: 4px;
+        }
+        
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        
+        .language-item {
+            text-align: center;
+            padding: 10px;
+            background: #f0f9ff;
+            border-radius: 6px;
+            border: 1px solid #e0f2fe;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 11px;
+        }
+        
+        .language-level {
+            font-size: 10px;
+            color: #64748b;
+            margin-top: 2px;
+        }
+        
+        .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fefefe;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            position: relative;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e40af;
+        }
+        
+        .period {
+            font-size: 10px;
+            color: white;
+            background: #2563eb;
+            padding: 4px 8px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        
+        .company {
+            font-size: 12px;
+            color: #059669;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .description {
+            font-size: 11px;
+            color: #4a5568;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 6px;
+        }
+        
+        .industry {
+            font-size: 9px;
+            color: #6b7280;
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .skill-category-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            font-size: 10px;
+            color: #4a5568;
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+        }
+        
+        .skill-list li:before {
+            content: "▸";
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .certifications {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+        }
+        
+        .cert-item {
+            font-size: 11px;
+            color: #4a5568;
+            padding: 6px 12px;
+            background: #ecfdf5;
+            border-left: 3px solid #10b981;
+            border-radius: 4px;
+        }
+        
+        .cert-item:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .mission {
+            background: linear-gradient(135deg, #f0f9ff, #ecfdf5);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0f2fe;
+            text-align: center;
+        }
+        
+        .mission-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 12px;
+        }
+        
+        .mission-text {
+            font-size: 12px;
+            color: #374151;
+            line-height: 1.7;
+            font-style: italic;
+        }
+        
+        @media print {
+            body { 
+                font-size: 11px; 
+                padding: 15mm;
+            }
+            .section { 
+                margin-bottom: 20px; 
+            }
+            .experience-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Gheorghe Lungu</h1>
+        <div class="title">Environmental Educator | Wilderness Guide | Nature Steward</div>
+        <div class="contact">
+            Contact via website form | Romania<br>
+            Open as volunteer for guiding wilderness experiences and experiential teaching
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <div class="summary">Environmental professional with a unique journey from business leadership to nature conservation. Combining decades of experience in sales, HR, and management with current expertise in environmental protection and ecological education. Specialized in bridging the gap between digital world and natural authenticity through experiential education.</div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Core Competencies</div>
+        <div class="competencies">
+            <div class="competency-item">Environmental Protection & Conservation</div><div class="competency-item">Ecological Education & Tourism Management</div><div class="competency-item">Business Development & Operations</div><div class="competency-item">Multilingual Communication (EN, DE, FR)</div><div class="competency-item">Wilderness Guiding & Nature Survival</div><div class="competency-item">Cross-Cultural Mentoring & Storytelling</div><div class="competency-item">Protected Area Management (27,000+ hectares)</div><div class="competency-item">Team Leadership & Quality Management</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="languages-grid">
+            
+                <div class="language-item">
+                    <div class="language-name">Romanian</div>
+                    <div class="language-level">Native</div>
+                </div>
+            
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Fluent</div>
+                </div>
+            
+                <div class="language-item">
+                    <div class="language-name">German</div>
+                    <div class="language-level">Working</div>
+                </div>
+            
+                <div class="language-item">
+                    <div class="language-name">French</div>
+                    <div class="language-level">Conversational</div>
+                </div>
+            
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Professional Experience</div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Ranger</div>
+                    <div class="period">Aug 2020 - present</div>
+                </div>
+                <div class="company">Romsilva - Domogled-Valea Cernei National Park Administration</div>
+                <div class="description">Monitoring and managing 4,963 hectares of protected area, including over 2,500 hectares of Integral Protection Zone. Tasks related to the impact of nature protection and tourism on the remote culturally-rich mountain communities.</div>
+                <div class="industry">Environmental Protection</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Ecological Education Specialist</div>
+                    <div class="period">Dec 2018 - present</div>
+                </div>
+                <div class="company">Romsilva - Domogled-Valea Cernei National Park Administration</div>
+                <div class="description">Ecological education. Responsible for tourism. Responsible for communication. Working with 10 schools and around 1000 school-kids close to protected area.</div>
+                <div class="industry">Environmental Education</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Ranger</div>
+                    <div class="period">Aug 2016 - Sep 2018</div>
+                </div>
+                <div class="company">Romsilva - Iron Gates Natural Park Administration</div>
+                <div class="description">Monitoring and managing 22,725 hectares of protected area, including over 2,000 hectares of Integral Protection Zone. Tasks related to the impact of nature protection and tourism on the remote culturally-rich mountain communities.</div>
+                <div class="industry">Environmental Protection</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Graphic Design & Printing</div>
+                    <div class="period">Mar 2015 - Jun 2015</div>
+                </div>
+                <div class="company">Zonadepublicitate (Danart)</div>
+                <div class="description">Corel graphics design, printers, cutters, engravers. Printing on various materials with front-desk responsibilities.</div>
+                <div class="industry">Advertising & Design</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Mathematics Teacher</div>
+                    <div class="period">Sep 1997 - 2014</div>
+                </div>
+                <div class="company">Various Educational Institutions</div>
+                <div class="description">Teaching Mathematics for 2 years in Timisoara and another 6 years only in remote villages. Great anthropological first-hand lessons.</div>
+                <div class="industry">Education</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Supervisor - Scrap Recycling</div>
+                    <div class="period">2009 - 2011 & 2006 - 2008</div>
+                </div>
+                <div class="company">Remat Scholz Filiala Oltenia (German Company)</div>
+                <div class="description">Progressed from computer operator to site management. Supervised shipments by Danube for export. Responsible for quality management, stock reception, sorting, and delivery. Operated excavator and forklift.</div>
+                <div class="industry">Recycling & Environment</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Assets Manager</div>
+                    <div class="period">2008 - 2009</div>
+                </div>
+                <div class="company">New Company Recycling</div>
+                <div class="description">Managed scrap and electronics recycling operations. Organized work procedures and paper flow systems.</div>
+                <div class="industry">Recycling & Environment</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Computer Shop Sales & Repair</div>
+                    <div class="period">2004 - 2005</div>
+                </div>
+                <div class="company">CNDPI Romsoft SA</div>
+                <div class="description">Selling, assembling, and repairing computers serving up to 100 clients daily. Became Microsoft Licensed Specialist.</div>
+                <div class="industry">Technology & IT</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Independent Business Owner</div>
+                    <div class="period">2002 - 2003</div>
+                </div>
+                <div class="company">Verb Resurse</div>
+                <div class="description">Chemicals dealer in Mehedinti county. Representative of "Azur SA". Independent business operations.</div>
+                <div class="industry">Chemical Distribution</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Commercial Referent</div>
+                    <div class="period">2001 - 2002</div>
+                </div>
+                <div class="company">Petrom (Now OMV Petrom)</div>
+                <div class="description">Marketing assistant & stock supervisor across 12 locations in Mehedinti county. Romania's largest oil company.</div>
+                <div class="industry">Oil & Gas</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Financial Advisor</div>
+                    <div class="period">2000</div>
+                </div>
+                <div class="company">ING</div>
+                <div class="description">Selling life insurance products and providing financial advisory services. Giving financial advice instead of selling life insurances, they kicked me out after 6 months.</div>
+                <div class="industry">Financial Services</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">HR Business Owner</div>
+                    <div class="period">1996 - 1998</div>
+                </div>
+                <div class="company">Verb Human Resources</div>
+                <div class="description">One of the first HR companies in Romania. Owner and one-man operation specializing in selection, recruiting, training, and sales force supervision.</div>
+                <div class="industry">Human Resources</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Weekend Magazine Publisher</div>
+                    <div class="period">1994 - 1995</div>
+                </div>
+                <div class="company">EuroSatelit</div>
+                <div class="description">Weekend magazine publisher with focus on cultural and social content.</div>
+                <div class="industry">Media & Publishing</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Pepsi Representative</div>
+                    <div class="period">1993 - 1994</div>
+                </div>
+                <div class="company">Pepsi Cola Romania</div>
+                <div class="description">Sales representative for Pepsi products in Timiș County market development and distribution.</div>
+                <div class="industry">Food & Beverage</div>
+            </div>
+        
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="job-title">Account Executive</div>
+                    <div class="period">1991 - 1993</div>
+                </div>
+                <div class="company">Graffiti BBDO</div>
+                <div class="description">Advertising account management and client relations at one of Romania's leading advertising agencies during the early post-communist transition period.</div>
+                <div class="industry">Advertising & Marketing</div>
+            </div>
+        
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Specialized Skills</div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-category-title">Nature Survival</div>
+                <ul class="skill-list">
+                    <li>Wilderness Navigation</li><li>Fire Starting Methods</li><li>Plant & Wildlife Identification</li><li>Risk Assessment</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Experiential Teaching</div>
+                <ul class="skill-list">
+                    <li>Outdoor Education Programs</li><li>Environmental Storytelling</li><li>Group Leadership</li><li>Cultural Heritage Tours</li><li>Nature Photography</li><li>Adventure Tourism</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Communication Skills</div>
+                <ul class="skill-list">
+                    <li>BBDO Presentation Skills Training</li><li>Sales Training (ING/Pepsi)</li><li>Storytelling</li><li>Ecological Education Delivery</li><li>Multilingual Client Service</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="skill-category-title">Leadership & Management</div>
+                <ul class="skill-list">
+                    <li>Protected Area Management</li><li>Team Supervision</li><li>Business Operations</li><li>Quality Management</li><li>Risk Assessment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Certifications & Training</div>
+        <div class="certifications">
+            <div class="cert-item">Forest Technician Certification</div><div class="cert-item">Microsoft Licensed Specialist</div><div class="cert-item">Specializations C.R.F.F.P.A. Mehedinti as Trainer and Project Manager</div><div class="cert-item">WWF Nature Conservation Training Program</div><div class="cert-item">Outward Bound România Winter Course</div><div class="cert-item">BBDO Presentation Skills Workshop</div><div class="cert-item">ING/Pepsi Professional Sales Training</div>
+        </div>
+    </div>
+    
+    <div class="mission">
+        <div class="mission-title">Mission Statement</div>
+        <div class="mission-text">"From decades in diverse business to recycling and now meaningful environmental work, I am passionate about bridging the gap between digital world and natural authenticity. My mission is to inspire others through experiential education, sharing the profound unique connection between human life and the Life which is more than human: the Nature."</div>
+    </div>
+</body>
+</html>

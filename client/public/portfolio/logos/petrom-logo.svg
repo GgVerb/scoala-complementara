@@ -1,0 +1,6 @@
+<svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="40" fill="#ffcc00"/>
+  <text x="8" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#000">PETROM</text>
+  <rect x="5" y="22" width="70" height="12" fill="#e60012"/>
+  <text x="8" y="30" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">OMV PETROM</text>
+</svg>

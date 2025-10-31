@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gheorghe Lungu - Professional Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+            background: white;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            background: none;
+            padding: 0;
+        }
+
+        .language-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-btn.active {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+        }
+
+        .flag-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .experience-section {
+            padding: 64px 0;
+            background-color: #f1f5f9;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #64748b;
+        }
+
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: rgba(34, 197, 94, 0.2);
+        }
+
+        .experiences-list {
+            list-style: none;
+        }
+
+        .experience-item {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+
+        .timeline-dot-container {
+            flex-shrink: 0;
+            width: 64px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-content {
+            flex: 1;
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .experience-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
+        }
+
+        .experience-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .experience-period {
+            font-size: 14px;
+            font-weight: 500;
+            color: #22c55e;
+            background-color: rgba(34, 197, 94, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .company-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e40af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .company-name:hover {
+            color: #22c55e;
+        }
+
+        .company-name-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .experience-description {
+            color: #64748b;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .industry-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 500;
+            color: #64748b;
+            background-color: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        @media (min-width: 1024px) {
+            .experience-header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .experience-title {
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 36px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .experience-section {
+                padding: 48px 0;
+            }
+
+            .language-selector {
+                top: 10px;
+                right: 10px;
+                padding: 6px;
+            }
+
+            .language-btn {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <button class="language-btn active" onclick="switchLanguage('en')" data-lang="en">
+            <svg class="flag-icon" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                <rect width="60" height="30" fill="#012169"/>
+                <g stroke="#fff" stroke-width="6">
+                    <path d="m0 0 60 30m0-30L0 30"/>
+                </g>
+                <g stroke="#C8102E" stroke-width="4">
+                    <path d="m0 0 60 30m0-30L0 30"/>
+                </g>
+                <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60"/>
+                <path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/>
+            </svg>
+        </button>
+        <button class="language-btn" onclick="switchLanguage('de')" data-lang="de">
+            <svg class="flag-icon" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                <rect width="60" height="10" fill="#000"/>
+                <rect width="60" height="10" y="10" fill="#DD0000"/>
+                <rect width="60" height="10" y="20" fill="#FFCE00"/>
+            </svg>
+        </button>
+        <button class="language-btn" onclick="switchLanguage('fr')" data-lang="fr">
+            <svg class="flag-icon" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                <rect width="20" height="30" fill="#002395"/>
+                <rect width="20" height="30" x="20" fill="#FFFFFF"/>
+                <rect width="20" height="30" x="40" fill="#ED2939"/>
+            </svg>
+        </button>
+        <button class="language-btn" onclick="switchLanguage('ro')" data-lang="ro">
+            <svg class="flag-icon" viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+                <rect width="20" height="30" fill="#002B7F"/>
+                <rect width="20" height="30" x="20" fill="#FCD116"/>
+                <rect width="20" height="30" x="40" fill="#CE1126"/>
+            </svg>
+        </button>
+    </div>
+
+    <section class="experience-section">
+        <div class="container">
+            <!-- English Content -->
+            <div id="content-en" class="lang-content active">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                    <p class="section-subtitle">Professional journey across diverse industries</p>
+                </div>
+            </div>
+
+            <!-- German Content -->
+            <div id="content-de" class="lang-content">
+                <div class="section-header">
+                    <h2 class="section-title">Berufserfahrung</h2>
+                    <p class="section-subtitle">Berufliche Laufbahn in verschiedenen Branchen</p>
+                </div>
+            </div>
+
+            <!-- French Content -->
+            <div id="content-fr" class="lang-content">
+                <div class="section-header">
+                    <h2 class="section-title">Expérience</h2>
+                    <p class="section-subtitle">Parcours professionnel dans diverses industries</p>
+                </div>
+            </div>
+
+            <!-- Romanian Content -->
+            <div id="content-ro" class="lang-content">
+                <div class="section-header">
+                    <h2 class="section-title">Experiență</h2>
+                    <p class="section-subtitle">Parcurs profesional în diverse industrii</p>
+                </div>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                
+                <ul class="experiences-list">
+                    <!-- Current Environmental Roles -->
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="Ranger" data-de="Ranger" data-fr="Garde forestier" data-ro="Pădurar">Ranger</h3>
+                                <span class="experience-period">Aug 2020 - present</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <a href="https://domogled.ro/en/" target="_blank" rel="noopener noreferrer" class="company-name">
+                                    Romsilva - Domogled-Valea Cernei National Park Administration
+                                </a>
+                            </div>
+                            
+                            <p class="experience-description" 
+                               data-en="Monitoring and managing 4,963 hectares of protected area, including over 2,500 hectares of Integral Protection Zone. Tasks related to the impact of nature protection and tourism on the remote culturally-rich mountain communities."
+                               data-de="Überwachung und Verwaltung von 4.963 Hektar Schutzgebiet, einschließlich über 2.500 Hektar integraler Schutzzone. Aufgaben im Zusammenhang mit den Auswirkungen des Naturschutzes und Tourismus auf die abgelegenen kulturell reichen Berggemeinschaften."
+                               data-fr="Surveillance et gestion de 4 963 hectares d'aire protégée, incluant plus de 2 500 hectares de Zone de Protection Intégrale. Tâches liées à l'impact de la protection de la nature et du tourisme sur les communautés montagnardes éloignées riches culturellement."
+                               data-ro="Monitorizarea și administrarea a 4.963 hectare de zonă protejată, inclusiv peste 2.500 hectare de Zonă de Protecție Integrală. Sarcini legate de impactul protecției naturii și turismului asupra comunităților montane îndepărtate bogat culturale.">
+                                Monitoring and managing 4,963 hectares of protected area, including over 2,500 hectares of Integral Protection Zone. Tasks related to the impact of nature protection and tourism on the remote culturally-rich mountain communities.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Environmental Protection" data-de="Umweltschutz" data-fr="Protection Environnementale" data-ro="Protecția Mediului">Environmental Protection</span>
+                        </div>
+                    </li>
+
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="Ecological Education Specialist" data-de="Spezialist für Ökologische Bildung" data-fr="Spécialiste en Éducation Écologique" data-ro="Specialist în Educație Ecologică">Ecological Education Specialist</h3>
+                                <span class="experience-period">Dec 2018 - present</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <a href="https://domogled.ro/en/" target="_blank" rel="noopener noreferrer" class="company-name">
+                                    Romsilva - Domogled-Valea Cernei National Park Administration
+                                </a>
+                            </div>
+                            
+                            <p class="experience-description"
+                               data-en="Ecological education. Responsible for tourism. Responsible for communication. Working with 10 schools and around 1000 school-kids close to protected area."
+                               data-de="Ökologische Bildung. Verantwortlich für Tourismus. Verantwortlich für Kommunikation. Arbeit mit 10 Schulen und etwa 1000 Schulkindern in der Nähe des Schutzgebiets."
+                               data-fr="Éducation écologique. Responsable du tourisme. Responsable de la communication. Travail avec 10 écoles et environ 1000 écoliers près de la zone protégée."
+                               data-ro="Educație ecologică. Responsabil pentru turism. Responsabil pentru comunicare. Lucru cu 10 școli și aproximativ 1000 de școli din apropierea zonei protejate.">
+                                Ecological education. Responsible for tourism. Responsible for communication. Working with 10 schools and around 1000 school-kids close to protected area.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Environmental Education" data-de="Umweltbildung" data-fr="Éducation Environnementale" data-ro="Educație de Mediu">Environmental Education</span>
+                        </div>
+                    </li>
+
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="Ranger" data-de="Ranger" data-fr="Garde forestier" data-ro="Pădurar">Ranger</h3>
+                                <span class="experience-period">Aug 2016 - Sep 2018</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <a href="https://www.pnportiledefier.ro/" target="_blank" rel="noopener noreferrer" class="company-name">
+                                    Romsilva - Iron Gates Natural Park Administration
+                                </a>
+                            </div>
+                            
+                            <p class="experience-description"
+                               data-en="Monitoring and managing 22,725 hectares of protected area, including over 2,000 hectares of Integral Protection Zone. Tasks related to the impact of nature protection and tourism on the remote culturally-rich mountain communities."
+                               data-de="Überwachung und Verwaltung von 22.725 Hektar Schutzgebiet, einschließlich über 2.000 Hektar integraler Schutzzone. Aufgaben im Zusammenhang mit den Auswirkungen des Naturschutzes und Tourismus auf die abgelegenen kulturell reichen Berggemeinschaften."
+                               data-fr="Surveillance et gestion de 22 725 hectares d'aire protégée, incluant plus de 2 000 hectares de Zone de Protection Intégrale. Tâches liées à l'impact de la protection de la nature et du tourisme sur les communautés montagnardes éloignées riches culturellement."
+                               data-ro="Monitorizarea și administrarea a 22.725 hectare de zonă protejată, inclusiv peste 2.000 hectare de Zonă de Protecție Integrală. Sarcini legate de impactul protecției naturii și turismului asupra comunităților montane îndepărtate bogat culturale.">
+                                Monitoring and managing 22,725 hectares of protected area, including over 2,000 hectares of Integral Protection Zone. Tasks related to the impact of nature protection and tourism on the remote culturally-rich mountain communities.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Environmental Protection" data-de="Umweltschutz" data-fr="Protection Environnementale" data-ro="Protecția Mediului">Environmental Protection</span>
+                        </div>
+                    </li>
+
+                    <!-- Additional Positions -->
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="Graphic Design & Printing" data-de="Grafikdesign & Druck" data-fr="Design Graphique & Impression" data-ro="Design Grafic & Imprimare">Graphic Design & Printing</h3>
+                                <span class="experience-period">Mar 2015 - Jun 2015</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <a href="https://www.danart.ro" target="_blank" rel="noopener noreferrer" class="company-name">
+                                    Zonadepublicitate (Danart)
+                                </a>
+                            </div>
+                            
+                            <p class="experience-description"
+                               data-en="Corel graphics design, printers, cutters, engravers. Printing on various materials with front-desk responsibilities."
+                               data-de="Corel-Grafikdesign, Drucker, Schneider, Graveure. Druck auf verschiedenen Materialien mit Rezeptionsaufgaben."
+                               data-fr="Design graphique Corel, imprimantes, découpeuses, graveuses. Impression sur divers matériaux avec responsabilités d'accueil."
+                               data-ro="Design grafic Corel, imprimante, tăietoare, gravoare. Imprimare pe diverse materiale cu responsabilități de recepție.">
+                                Corel graphics design, printers, cutters, engravers. Printing on various materials with front-desk responsibilities.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Advertising & Design" data-de="Werbung & Design" data-fr="Publicité & Design" data-ro="Publicitate & Design">Advertising & Design</span>
+                        </div>
+                    </li>
+
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="Mathematics Teacher" data-de="Mathematiklehrer" data-fr="Professeur de Mathématiques" data-ro="Profesor de Matematică">Mathematics Teacher</h3>
+                                <span class="experience-period">Sep 1997 - 2014</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <span class="company-name-text" data-en="Various Educational Institutions" data-de="Verschiedene Bildungseinrichtungen" data-fr="Diverses Institutions Éducatives" data-ro="Diverse Instituții Educaționale">Various Educational Institutions</span>
+                            </div>
+                            
+                            <p class="experience-description"
+                               data-en="Teaching Mathematics for 2 years in Timisoara and another 6 years only in remote villages. Great anthropological first-hand lessons."
+                               data-de="Mathematikunterricht für 2 Jahre in Timisoara und weitere 6 Jahre nur in abgelegenen Dörfern. Großartige anthropologische Erfahrungen aus erster Hand."
+                               data-fr="Enseignement des mathématiques pendant 2 ans à Timisoara et 6 autres années uniquement dans des villages isolés. Excellentes leçons anthropologiques de première main."
+                               data-ro="Predarea matematicii timp de 2 ani în Timișoara și alți 6 ani doar în sate îndepărtate. Lecții antropologice excelente din prima mână.">
+                                Teaching Mathematics for 2 years in Timisoara and another 6 years only in remote villages. Great anthropological first-hand lessons.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Education" data-de="Bildung" data-fr="Éducation" data-ro="Educație">Education</span>
+                        </div>
+                    </li>
+
+                    <!-- Continue with more positions for brevity, I'll add a few key ones -->
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="HR Business Owner" data-de="Personalberatung Geschäftsinhaber" data-fr="Propriétaire d'Entreprise RH" data-ro="Proprietar Afacere HR">HR Business Owner</h3>
+                                <span class="experience-period">1996 - 1998</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <span class="company-name-text">Verb Human Resources</span>
+                            </div>
+                            
+                            <p class="experience-description"
+                               data-en="One of the first HR companies in Romania. Owner and one-man operation specializing in selection, recruiting, training, and sales force supervision."
+                               data-de="Eines der ersten Personalberatungsunternehmen in Rumänien. Eigentümer und Ein-Mann-Betrieb spezialisiert auf Auswahl, Rekrutierung, Schulung und Vertriebsüberwachung."
+                               data-fr="L'une des premières entreprises RH en Roumanie. Propriétaire et opération unipersonnelle spécialisée dans la sélection, le recrutement, la formation et la supervision de la force de vente."
+                               data-ro="Una dintre primele companii de HR din România. Proprietar și operațiune individua specializată în selecție, recrutare, formare și supervizare forță de vânzări.">
+                                One of the first HR companies in Romania. Owner and one-man operation specializing in selection, recruiting, training, and sales force supervision.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Human Resources" data-de="Personalwesen" data-fr="Ressources Humaines" data-ro="Resurse Umane">Human Resources</span>
+                        </div>
+                    </li>
+
+                    <li class="experience-item">
+                        <div class="timeline-dot-container">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        
+                        <div class="experience-content">
+                            <div class="experience-header">
+                                <h3 class="experience-title" data-en="Account Executive" data-de="Kundenberater" data-fr="Chargé de Clientèle" data-ro="Executive de Cont">Account Executive</h3>
+                                <span class="experience-period">1991 - 1993</span>
+                            </div>
+                            
+                            <div class="company-container">
+                                <a href="https://www.bbdo.com" target="_blank" rel="noopener noreferrer" class="company-name">
+                                    Graffiti BBDO
+                                </a>
+                            </div>
+                            
+                            <p class="experience-description"
+                               data-en="Advertising account management and client relations at one of Romania's leading advertising agencies during the early post-communist transition period."
+                               data-de="Werbungskontenmanagement und Kundenbeziehungen bei einer der führenden Werbeagenturen Rumäniens während der frühen postkommunistischen Übergangszeit."
+                               data-fr="Gestion de comptes publicitaires et relations clients dans l'une des principales agences de publicité de Roumanie pendant la période de transition post-communiste."
+                               data-ro="Managementul conturilor publicitare și relațiile cu clienții la una dintre agențiile de publicitate de frunte din România în timpul perioadei de tranziție post-comunistă.">
+                                Advertising account management and client relations at one of Romania's leading advertising agencies during the early post-communist transition period.
+                            </p>
+                            
+                            <span class="industry-tag" data-en="Advertising & Marketing" data-de="Werbung & Marketing" data-fr="Publicité & Marketing" data-ro="Publicitate & Marketing">Advertising & Marketing</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function switchLanguage(lang) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+            
+            // Hide all content sections
+            document.querySelectorAll('.lang-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected language content
+            document.getElementById(`content-${lang}`).classList.add('active');
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+                element.textContent = element.getAttribute('data-' + lang);
+            });
+            
+            // Update document language
+            document.documentElement.lang = lang;
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            switchLanguage('en');
+        });
+    </script>
+</body>
+</html>
