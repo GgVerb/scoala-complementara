@@ -1715,27 +1715,26 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
                 Întregul drum, de la capăt până la tine, are <span className="font-bold text-orange-600">4.6 kilometri</span>. Aceasta este întreaga istorie a Pământului, de la formarea sa până în prezent.
               </p>
               <p className="text-lg mb-4">Mergând pe acest drum, vei trece prin momente cheie:</p>
-              </li>
+              <ul className="space-y-3 mb-6 text-lg">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2 font-bold">•</span>
                   La doar <span className="font-bold text-orange-600">5.5 milimetri</span> de tine: A început istoria scrisă. <span className="font-bold">Toată</span> istoria cunoașterii umane, de la piramide la internet, se petrece pe o distanță mai mică decât un bob de orez.
-                  </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-500 mr-2 font-bold">•</span>
-                      La <span className="font-bold text-orange-600">20 de centimetri</span> distanță: Apare specia noastră, <em>Homo sapiens</em>.
-                 </li>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2 font-bold">•</span>
+                  La <span className="font-bold text-orange-600">20 de centimetri</span> distanță: Apare specia noastră, <em>Homo sapiens</em>.
+                </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2 font-bold">•</span>
                   La <span className="font-bold text-orange-600">66 de metri</span> distanță: Extincția dinozaurilor. Ei dominau Pământul, iar acum sunt la o aruncătură de băț! 
-                  </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-500 mr-2 font-bold">•</span>
-                      La <span className="font-bold text-orange-600">800 de metri</span> distanță: Apar primele forme de viață multicelulare. Animalele.
-                      </li>
+                </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2 font-bold">•</span>
-                  La <span className="font-bold text-orange-600">3.8 kilometri</span> distanță: Apare Viața! Primele forme de viață unicelulare. 
-                 <ul className="space-y-3 mb-6 text-lg">               
+                  La <span className="font-bold text-orange-600">800 de metri</span> distanță: Apar primele forme de viață multicelulare. Animalele.
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2 font-bold">•</span>
+                  La <span className="font-bold text-orange-600">3.8 kilometri</span> distanță: Apare Viața! Primele forme de viață unicelulare.
                 </li>
               </ul>
               <div className="bg-white p-4 rounded-lg border-l-4 border-orange-500 mt-4">

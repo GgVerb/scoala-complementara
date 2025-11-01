@@ -5,7 +5,6 @@ import AboutSection from "@/components/about-section";
 import AudienceSection from "@/components/audience-section";
 import GallerySection from "@/components/gallery-section";
 import BlogSection from "@/components/blog-section";
-import NewsletterSection from "@/components/newsletter-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { SectionTransition, FadeInWhenVisible } from "@/components/page-transition";
@@ -52,9 +51,6 @@ export default function Home() {
       </FadeInWhenVisible>
       <FadeInWhenVisible>
         <AudienceSection />
-      </FadeInWhenVisible>
-      <FadeInWhenVisible>
-        <NewsletterSection />
       </FadeInWhenVisible>
       <FadeInWhenVisible>
         <BlogSection />
