@@ -2,8 +2,26 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ContactSection() {
+  const { toast } = useToast();
+
+  const handleWhatsAppClick = () => {
+    const whatsappUrl = "https://wa.me/40721879347";
+    const whatsappWindow = window.open(whatsappUrl, '_blank');
+    
+    setTimeout(() => {
+      if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
+        toast({
+          title: "WhatsApp nu este instalat",
+          description: "Te rugăm să instalezi WhatsApp pe dispozitivul tău sau folosește aplicația web WhatsApp.",
+          variant: "destructive",
+        });
+      }
+    }, 1000);
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">        
@@ -60,10 +78,14 @@ export default function ContactSection() {
                         <a href="tel:+40721879347" className="hover:text-accent transition-colors">
                           +40 721 879 347
                         </a>
-                        <span className="text-sm text-green-600 ml-2 flex items-center mt-1">
+                        <button
+                          onClick={handleWhatsAppClick}
+                          className="text-sm text-green-600 ml-2 flex items-center mt-1 hover:text-green-700 transition-colors cursor-pointer bg-transparent border-0 p-0"
+                          data-testid="button-whatsapp"
+                        >
                           <FaWhatsapp className="mr-1" />
                           WhatsApp
-                        </span>
+                        </button>
                       </p>
                     </div>
                   </div>
