@@ -6,6 +6,7 @@ import voluntar1 from "@assets/20240802181219_IMG_0099_1751305891721.jpg";
 import voluntar2 from "@assets/20240802181210_IMG_0098_1751305947271.jpg";
 import voluntar3 from "@assets/20240802181140_IMG_0092 (1)_1751308595731.jpg";
 import voluntar4 from "@assets/20240802181003_IMG_0085_1751305947375.jpg";
+
 import voluntar8 from "@assets/20230817143701_IMG_1542_1751306389939.jpg";
 import voluntar9 from "@assets/20230816170254_IMG_1251_1751306390041.jpg";
 import nouaImagineVoluntar from "@assets/IMG_20241030_125214_1751310249967.jpg";
@@ -1702,7 +1703,7 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
           <section className="mb-8">
             <div className="bg-gradient-to-r from-slate-900 to-slate-700 text-white p-8 rounded-lg shadow-lg mb-8">
               <p className="text-lg mb-6 leading-relaxed">
-                Mintea noastră este obișnuită să măsoare timpul în secunde, zile și ani. Fără exerciții serioase mintea realitatea care nu poate fi experimentată prin simțuri ca pe ceva asbstract. Cum am putea oare să înțelegem miliarde de ani de evoluție? E ca și cum am încerca să cuprindem un ocean cu o găleată. Dar există un truc. Hai să transformăm timpul în ceva ce putem măsura cu pașii noștri: distanța.
+                Mintea noastră este obișnuită să măsoare timpul în secunde, zile și ani. Mintea vede ceea ce nu poate fi experimentat prin simțuri ca pe ceva asbstract (neimportant și uitabil). Cum am putea oare să înțelegem miliarde de ani de evoluție? E ca și cum am încerca să cuprindem un ocean cu o găleată. Dar există un truc. Hai să transformăm timpul în ceva ce putem măsura cu pașii noștri: distanța.
               </p>
             </div>
 
@@ -1718,7 +1719,7 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
               <ul className="space-y-3 mb-6 text-lg">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2 font-bold">•</span>
-                  La doar <span className="font-bold text-orange-600">5.5 milimetri</span> de tine: A început istoria scrisă. <span className="font-bold">Toată</span> istoria cunoașterii umane, de la piramide la internet, se petrece pe o distanță mai mică decât un bob de orez.
+                  La doar <span className="font-bold text-orange-600">5.5 milimetri</span> de tine: A început istoria scrisă. <span className="font-bold">Toată </span> istoria cunoașterii umane, de la piramide la internet, se petrece pe o distanță mai mică decât un bob de orez.
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2 font-bold">•</span>
@@ -1734,7 +1735,7 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2 font-bold">•</span>
-                  La <span className="font-bold text-orange-600">3.8 kilometri</span> distanță: Apare Viața! Primele forme de viață unicelulare.
+                  La <span className="font-bold text-orange-600">3.8 kilometri </span> distanță: Apare Viața! Primele forme de viață unicelulare.
                 </li>
               </ul>
               <div className="bg-white p-4 rounded-lg border-l-4 border-orange-500 mt-4">
