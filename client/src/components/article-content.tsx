@@ -1757,25 +1757,21 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
             <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg mb-8">
               <h2 className="text-2xl font-bold text-primary mb-6">2. Vălul Timpului: O Lățime de Brațe</h2>
               <p className="text-lg mb-4">
-                O altă analogie, la fel de puternică, folosește corpul tău drept instrument. Întinde-ți brațele de-a latul, de la un vârf de deget la celălalt. Această distanță reprezintă <span className="font-bold text-orange-600">întreaga istorie a Pământului</span>.
+                O altă analogie, la fel de puternică, folosește corpul tău drept instrument. Urmărește acest video educativ care explică istoria Pământului pe lungimea brațului tău:
               </p>
-              <ul className="space-y-3 mb-6 text-lg">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2 font-bold">•</span>
-                  Un vârf de deget reprezintă nașterea planetei.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2 font-bold">•</span>
-                  La încheietura mâinii, viața multicelulară apare.
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2 font-bold">•</span>
-                  Pe degetele tale sunt extinși dinozaurii.
-                </li>
-              </ul>
+              <div className="relative w-full rounded-lg overflow-hidden shadow-xl mb-4" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/uMXt0eGXuZc"
+                  title="At Arm's Length - A Short History of Earth"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
               <div className="bg-white p-4 rounded-lg border-l-4 border-orange-500">
                 <p className="text-lg font-semibold">
-                  Dar iată șocul: <span className="font-bold text-orange-600">întreaga istorie a omenirii poate fi ștearsă cu o singură trecere a unei pile de unghii pe vârful degetului tău</span>!
+                  Întreaga istorie a omenirii poate fi ștearsă cu o singură trecere a unei pile de unghii pe vârful degetului tău!
                 </p>
               </div>
             </div>
