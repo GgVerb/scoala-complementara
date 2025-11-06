@@ -1331,6 +1331,8 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
                   src={deCeEuImage}
                   alt="Despre autorul proiectului"
                   className="rounded-lg shadow-md w-full max-w-md mx-auto object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
           
@@ -1499,46 +1501,64 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
               src={voluntar2}
               alt="Energia pozitivă a voluntarilor"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={voluntar3}
               alt="Momentele creative cu voluntarii"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={voluntar4}
               alt="Joacă și învățare împreună"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={voluntar8}
               alt="Moment de învățare în natură"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={voluntar9}
               alt="Tânăr voluntar scout"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={nouaImagineVoluntar}
               alt="Voluntari pe munte"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={nouaImagineVoluntar2}
               alt="Voluntar în drumeție pe pod natural"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={nouaImagineVoluntar3}
               alt="Voluntar cu rucsac pe podul metalic"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <img 
               src={voluntar1}
               alt="Voluntari entuziaști în natură"
               className="rounded-lg shadow-md w-full h-64 object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -1767,6 +1787,7 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                 ></iframe>
               </div>
               <div className="bg-white p-4 rounded-lg border-l-4 border-orange-500">

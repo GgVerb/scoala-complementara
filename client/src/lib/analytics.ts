@@ -23,21 +23,31 @@ export const initGA = () => {
     return;
   }
 
-  // Add Google Analytics script to the head
-  const script1 = document.createElement('script');
-  script1.async = true;
-  script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  document.head.appendChild(script1);
+  // Defer analytics loading until browser is idle for better initial load performance
+  const loadAnalytics = () => {
+    // Add Google Analytics script to the head
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script1);
 
-  // Initialize gtag - use textContent instead of innerHTML to prevent XSS
-  const script2 = document.createElement('script');
-  script2.textContent = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${measurementId}');
-  `;
-  document.head.appendChild(script2);
+    // Initialize gtag - use textContent instead of innerHTML to prevent XSS
+    const script2 = document.createElement('script');
+    script2.textContent = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${measurementId}');
+    `;
+    document.head.appendChild(script2);
+  };
+
+  // Load analytics when browser is idle or after 2 seconds
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadAnalytics, { timeout: 2000 });
+  } else {
+    setTimeout(loadAnalytics, 2000);
+  }
 };
 
 // Track page views - useful for single-page applications

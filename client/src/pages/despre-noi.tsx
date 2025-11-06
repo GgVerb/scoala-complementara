@@ -96,6 +96,8 @@ export default function DespreNoi() {
                   src={fondatorImages[currentImageIndex]}
                   alt={`Fondator ${currentImageIndex + 1}`}
                   className="w-full h-full object-cover transition-opacity duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <p className="text-sm text-gray-600 mt-4">Fondatorii proiectului</p>

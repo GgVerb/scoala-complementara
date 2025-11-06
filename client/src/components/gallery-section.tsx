@@ -143,6 +143,8 @@ export default function GallerySection() {
               alt={images[currentImageIndex].alt}
               className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
               onClick={() => openLightbox(currentImageIndex)}
+              loading="lazy"
+              decoding="async"
             />
 
             {/* Butoane de navigare */}
