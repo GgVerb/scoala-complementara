@@ -2,17 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ChevronLeft, ChevronRight, Home, Users, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import voluntar1 from "@assets/20240802181219_IMG_0099_1751305891721.jpg";
-import voluntar2 from "@assets/20240802181210_IMG_0098_1751305947271.jpg";
-import voluntar3 from "@assets/20240802181140_IMG_0092 (1)_1751308595731.jpg";
-import voluntar4 from "@assets/20240802181003_IMG_0085_1751305947375.jpg";
-
-import voluntar8 from "@assets/20230817143701_IMG_1542_1751306389939.jpg";
-import voluntar9 from "@assets/20230816170254_IMG_1251_1751306390041.jpg";
-import nouaImagineVoluntar from "@assets/IMG_20241030_125214_1751310249967.jpg";
-import nouaImagineVoluntar2 from "@assets/20240802181140_IMG_0092 (1)_1751308595731.jpg";
-import nouaImagineVoluntar3 from "@assets/IMG-20250717-WA0003_1752723434328.jpg";
-import deCeEuImage from "@assets/2c2525d2-88d7-4b14-802d-689156ea1ad8_1751307511629.jpeg";
 
 interface ArticleContentProps {
   articleId: string;
@@ -1327,13 +1316,20 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
         <div className="text-gray-700 leading-relaxed space-y-6">
               {/* Image */}
               <div className="mb-8">
-                <img 
-                  src={deCeEuImage}
-                  alt="Despre autorul proiectului"
-                  className="rounded-lg shadow-md w-full max-w-md mx-auto object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source
+                    media="(min-width: 800px)"
+                    srcSet="/images/articles/de-ce-eu_1200.webp"
+                    type="image/webp"
+                  />
+                  <img
+                    src="/images/articles/de-ce-eu_800.webp"
+                    alt="Despre autorul proiectului"
+                    className="rounded-lg shadow-md w-full max-w-md mx-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
           
               <p className="text-xl font-medium text-primary mb-8">
@@ -1497,69 +1493,32 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
 
           {/* Image Gallery */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <img 
-              src={voluntar2}
-              alt="Energia pozitivă a voluntarilor"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={voluntar3}
-              alt="Momentele creative cu voluntarii"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={voluntar4}
-              alt="Joacă și învățare împreună"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={voluntar8}
-              alt="Moment de învățare în natură"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={voluntar9}
-              alt="Tânăr voluntar scout"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={nouaImagineVoluntar}
-              alt="Voluntari pe munte"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={nouaImagineVoluntar2}
-              alt="Voluntar în drumeție pe pod natural"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={nouaImagineVoluntar3}
-              alt="Voluntar cu rucsac pe podul metalic"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-            <img 
-              src={voluntar1}
-              alt="Voluntari entuziaști în natură"
-              className="rounded-lg shadow-md w-full h-64 object-cover"
-              loading="lazy"
-              decoding="async"
-            />
+            {[
+              { name: "20240802181210_IMG_0098_1751305947271_jp", alt: "Energia pozitivă a voluntarilor" },
+              { name: "20240802181140_IMG_0092_1_1751308595731_", alt: "Momentele creative cu voluntarii" },
+              { name: "20240802181003_IMG_0085_1751305947375_jp", alt: "Joacă și învățare împreună" },
+              { name: "20230817143701_IMG_1542_1751306389939_jp", alt: "Moment de învățare în natură" },
+              { name: "20230816170254_IMG_1251_1751306390041_jp", alt: "Tânăr voluntar scout" },
+              { name: "IMG_20241030_125214_1751310249967_jpg", alt: "Voluntari pe munte" },
+              { name: "20240802181140_IMG_0092_1_1751308595731_", alt: "Voluntar în drumeție pe pod natural" },
+              { name: "IMG_20250717_WA0003_1752723434328_jpg", alt: "Voluntar cu rucsac pe podul metalic" },
+              { name: "20240802181219_IMG_0099_1751305891721_jp", alt: "Voluntari entuziaști în natură" }
+            ].map((img, index) => (
+              <picture key={index}>
+                <source
+                  media="(min-width: 800px)"
+                  srcSet={`/images/volunteers/${img.name}_1200.webp`}
+                  type="image/webp"
+                />
+                <img
+                  src={`/images/volunteers/${img.name}_800.webp`}
+                  alt={img.alt}
+                  className="rounded-lg shadow-md w-full h-64 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            ))}
           </div>
 
           {/* Back button */}

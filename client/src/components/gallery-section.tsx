@@ -2,37 +2,30 @@ import { useState, useEffect } from "react";
 import { Camera, ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import joculImage from "@assets/IMG-20250717-WA0004_1752723512417.jpg";
-import aprinsImage from "@assets/20240802180427_IMG_0080 (1)_1751079248067.jpg";
-import aventuraImage from "@assets/20230816113348_IMG_1074_1751078861340.jpg";
-import pausaImage from "@assets/20230817101244_IMG_1415_1751078861368.jpg";
-import drumImage from "@assets/20230817105227_IMG_1442_1751078861386.jpg";
-import tabereImage from "@assets/20240803064950_IMG_0103_1751305305733.jpg";
-
 export default function GallerySection() {
   const images = [
     {
-      src: joculImage, 
+      name: "IMG_20250717_WA0004_1752723512417_jpg",
       alt: "Grup mare de copii și voluntari în drumeție"
     },
     {
-      src: aprinsImage,
+      name: "20240802180427_IMG_0080_1_1751079248067_",
       alt: "Învățăm să aprindem focul"
     },
     {
-      src: aventuraImage,
+      name: "20230816113348_IMG_1074_1751078861340_jp",
       alt: "Aventură în pădurea cu platforme"
     },
     {
-      src: pausaImage,
+      name: "20230817101244_IMG_1415_1751078861368_jp",
       alt: "Pauză în natură cu tinerii"
     },
     {
-      src: drumImage,
+      name: "20230817105227_IMG_1442_1751078861386_jp",
       alt: "Plimbare pe drumul de țară"
     },
     {
-      src: tabereImage,
+      name: "20240803064950_IMG_0103_1751305305733_jp",
       alt: "Foc de tabără în natură"
     }
   ];
@@ -138,14 +131,25 @@ export default function GallerySection() {
         {/* Galeria principală */}
         <div className="relative max-w-3xl mx-auto">
           <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl cursor-pointer group">
-            <img
-              src={images[currentImageIndex].src}
-              alt={images[currentImageIndex].alt}
-              className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
-              onClick={() => openLightbox(currentImageIndex)}
-              loading="lazy"
-              decoding="async"
-            />
+            <picture onClick={() => openLightbox(currentImageIndex)}>
+              <source
+                media="(min-width: 1200px)"
+                srcSet={`/images/gallery/${images[currentImageIndex].name}_1920.webp`}
+                type="image/webp"
+              />
+              <source
+                media="(min-width: 800px)"
+                srcSet={`/images/gallery/${images[currentImageIndex].name}_1200.webp`}
+                type="image/webp"
+              />
+              <img
+                src={`/images/gallery/${images[currentImageIndex].name}_800.webp`}
+                alt={images[currentImageIndex].alt}
+                className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
 
             {/* Butoane de navigare */}
             <button
@@ -252,11 +256,23 @@ export default function GallerySection() {
               className="relative max-w-full max-h-full mb-16"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={images[lightboxImageIndex].src}
-                alt={images[lightboxImageIndex].alt}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
-              />
+              <picture>
+                <source
+                  media="(min-width: 1200px)"
+                  srcSet={`/images/gallery/${images[lightboxImageIndex].name}_1920.webp`}
+                  type="image/webp"
+                />
+                <source
+                  media="(min-width: 800px)"
+                  srcSet={`/images/gallery/${images[lightboxImageIndex].name}_1200.webp`}
+                  type="image/webp"
+                />
+                <img
+                  src={`/images/gallery/${images[lightboxImageIndex].name}_800.webp`}
+                  alt={images[lightboxImageIndex].alt}
+                  className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                />
+              </picture>
               
               {/* Image info */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6 rounded-b-lg">

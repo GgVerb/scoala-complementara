@@ -2,13 +2,14 @@ import { Button } from "@/components/ui/button";
 import { BookOpen, Home } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
-import fondator1 from "@assets/20240802165449_IMG_0024 (1)_1751308595756.jpg";
-import fondator2 from "@assets/20240802181140_IMG_0092 (1)_1751308595731.jpg";
-import fondator3 from "@assets/20240802181210_IMG_0098_1751305947271.jpg";
 
 export default function DespreNoi() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const fondatorImages = [fondator1, fondator2, fondator3];
+  const fondatorImages = [
+    "20240802165449_IMG_0024_1_1751308595756_",
+    "20240802181140_IMG_0092_1_1751308595731_",
+    "20240802181210_IMG_0098_1751305947271_jp"
+  ];
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -92,13 +93,20 @@ export default function DespreNoi() {
             {/* Founders Photo Gallery */}
             <div className="mb-12">
               <div className="relative w-64 h-64 mx-auto rounded-full overflow-hidden shadow-lg">
-                <img 
-                  src={fondatorImages[currentImageIndex]}
-                  alt={`Fondator ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover transition-opacity duration-500"
-                  loading="lazy"
-                  decoding="async"
-                />
+                <picture>
+                  <source
+                    media="(min-width: 640px)"
+                    srcSet={`/images/founders/${fondatorImages[currentImageIndex]}_800.webp`}
+                    type="image/webp"
+                  />
+                  <img
+                    src={`/images/founders/${fondatorImages[currentImageIndex]}_500.webp`}
+                    alt={`Fondator ${currentImageIndex + 1}`}
+                    className="w-full h-full object-cover transition-opacity duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               <p className="text-sm text-gray-600 mt-4">Fondatorii proiectului</p>
             </div>
