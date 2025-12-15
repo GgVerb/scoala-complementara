@@ -1,3 +1,5 @@
+import { eq, count } from "drizzle-orm";
+import { db } from "./db";
 import { 
   users, newsletterSubscriptions, contactMessages, studentApplications,
   type User, type InsertUser, type NewsletterSubscription, type InsertNewsletterSubscription, 
@@ -14,104 +16,71 @@ export interface IStorage {
   createStudentApplication(application: InsertStudentApplication): Promise<StudentApplication>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private newsletterSubscriptions: Map<number, NewsletterSubscription>;
-  private contactMessages: Map<number, ContactMessage>;
-  private studentApplications: Map<number, StudentApplication>;
-  private currentUserId: number;
-  private currentNewsletterSubscriptionId: number;
-  private currentContactMessageId: number;
-  private currentStudentApplicationId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.newsletterSubscriptions = new Map();
-    this.contactMessages = new Map();
-    this.studentApplications = new Map();
-    this.currentUserId = 1;
-    this.currentNewsletterSubscriptionId = 1;
-    this.currentContactMessageId = 1;
-    this.currentStudentApplicationId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentUserId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db.insert(users).values(insertUser).returning();
     return user;
   }
 
   async createNewsletterSubscription(insertSubscription: InsertNewsletterSubscription): Promise<NewsletterSubscription> {
-    // Check if email already exists
-    const existingSubscription = Array.from(this.newsletterSubscriptions.values()).find(
-      (sub) => sub.email === insertSubscription.email
-    );
+    const [existingSubscription] = await db
+      .select()
+      .from(newsletterSubscriptions)
+      .where(eq(newsletterSubscriptions.email, insertSubscription.email));
     
     if (existingSubscription) {
       if (existingSubscription.isActive) {
         throw new Error("Email already subscribed");
       } else {
-        // Reactivate existing subscription
-        existingSubscription.isActive = true;
-        this.newsletterSubscriptions.set(existingSubscription.id, existingSubscription);
-        return existingSubscription;
+        const [reactivated] = await db
+          .update(newsletterSubscriptions)
+          .set({ isActive: true })
+          .where(eq(newsletterSubscriptions.id, existingSubscription.id))
+          .returning();
+        return reactivated;
       }
     }
 
-    const id = this.currentNewsletterSubscriptionId++;
-    const subscription: NewsletterSubscription = {
-      id,
-      email: insertSubscription.email,
-      subscribedAt: new Date(),
-      isActive: true,
-    };
-    this.newsletterSubscriptions.set(id, subscription);
+    const [subscription] = await db
+      .insert(newsletterSubscriptions)
+      .values(insertSubscription)
+      .returning();
     return subscription;
   }
 
   async getNewsletterSubscriptionsCount(): Promise<number> {
-    return Array.from(this.newsletterSubscriptions.values()).filter(sub => sub.isActive).length;
+    const [result] = await db
+      .select({ count: count() })
+      .from(newsletterSubscriptions)
+      .where(eq(newsletterSubscriptions.isActive, true));
+    return result?.count ?? 0;
   }
 
   async createContactMessage(insertMessage: InsertContactMessage): Promise<ContactMessage> {
-    const id = this.currentContactMessageId++;
-    const message: ContactMessage = {
-      id,
-      ...insertMessage,
-      createdAt: new Date(),
-    };
-    this.contactMessages.set(id, message);
+    const [message] = await db
+      .insert(contactMessages)
+      .values(insertMessage)
+      .returning();
     return message;
   }
 
   async createStudentApplication(insertApplication: InsertStudentApplication): Promise<StudentApplication> {
-    const id = this.currentStudentApplicationId++;
-    const application: StudentApplication = {
-      id,
-      studentName: insertApplication.studentName,
-      parentName: insertApplication.parentName,
-      studentPhone: insertApplication.studentPhone || null,
-      parentPhone: insertApplication.parentPhone,
-      createdAt: new Date(),
-    };
-    this.studentApplications.set(id, application);
+    const [application] = await db
+      .insert(studentApplications)
+      .values(insertApplication)
+      .returning();
     return application;
   }
-
-
-
-
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
