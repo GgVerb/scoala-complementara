@@ -13,6 +13,7 @@ import PentruMentori from "@/pages/pentru-mentori";
 import DespreNoi from "@/pages/despre-noi";
 import Articol from "@/pages/articol";
 import Articole from "@/pages/articole";
+import DisfunctieCognitiva from "@/pages/disfunctie-cognitiva";
 
 import NotFound from "@/pages/not-found";
 
@@ -31,6 +32,7 @@ function Router() {
         <Route path="/despre-noi" component={DespreNoi} />
         <Route path="/articole" component={Articole} />
         <Route path="/articol/:id" component={Articol} />
+        <Route path="/disfunctie-cognitiva" component={DisfunctieCognitiva} />
 
         <Route component={NotFound} />
       </Switch>

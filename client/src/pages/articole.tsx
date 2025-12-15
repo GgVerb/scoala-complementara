@@ -8,6 +8,13 @@ import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 // Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
 const articles = [
   {
+    id: "disfunctie-cognitiva",
+    title: "Ignoranța mulțimii: gândirea disfuncțională în rețelele sociale",
+    description: "Cum gândirea defectuoasă se răspândește prin rețelele sociale și este amplificată de mediile digitale și IA. Un studiu academic despre cogniție, propagandă și contramăsuri.",
+    date: "15 decembrie 2025",
+    isExternal: true
+  },
+  {
     id: "evolutia-calatoria-timp",
     title: "Evoluția: O Călătorie de 4.6 Kilometri",
     description: "O perspectivă fascinantă asupra timpului profund prin analogii creative care transformă miliardele de ani în distanțe măsurabile.",
@@ -180,7 +187,7 @@ export default function Articole() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {articles.map((article) => (
                   <StaggerItem key={article.id}>
-                    <Link href={`/articol/${article.id}`}>
+                    <Link href={(article as any).isExternal ? `/${article.id}` : `/articol/${article.id}`}>
                       <Card className="h-full shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer border-gray-200 hover:border-primary/30">
                         <CardHeader>
                           <CardTitle className="text-lg text-gray-900 line-clamp-2">
