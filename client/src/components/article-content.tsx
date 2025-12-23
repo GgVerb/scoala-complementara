@@ -9,6 +9,7 @@ interface ArticleContentProps {
 
 // Article navigation order (articles that appear in blog section)
 const blogArticles = [
+  { id: "ghid-educatie-experientiala-sintetizat", title: "Educația Experiențială: Ghid Sintetizat" },
   { id: "ghidul-educatie-inovatoare", title: "Ghidul pentru o Educație Inovatoare" },
   { id: "scoala-in-padure", title: "Școala în pădure" },
   { id: "scolile-democratice", title: "Școlile democratice" },
@@ -241,6 +242,262 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
   };
 
   // Handle different article types
+  if (articleId === "ghid-educatie-experientiala-sintetizat") {
+    return (
+      <div className="space-y-8">
+        <div className="prose prose-lg max-w-none">
+          <h1 className="text-3xl font-bold text-primary text-center mb-8">Educația Experiențială: Ghid Sintetizat</h1>
+          
+          <details open className="bg-white border border-gray-200 rounded-lg mb-4 shadow-sm">
+            <summary className="font-bold p-4 cursor-pointer list-none relative pl-8 hover:bg-gray-50">
+              <span className="absolute left-3 top-4 text-sm transition-transform">►</span>
+              <h2 className="inline text-xl text-primary">1. Introducere în Educația Experiențială</h2>
+            </summary>
+            <div className="p-4 pt-0 border-t border-gray-100">
+              <p>Educația experiențială este o filozofie pedagogică ce implică angajarea elevilor în experiențe directe și reflecția conștientă asupra acestora, pentru a le amplifica cunoștințele, a le dezvolta abilitățile și a le consolida capacitatea de a contribui în comunități. Se diferențiază de învățarea tradițională, bazată pe memorare, prin accentul pe aplicarea practică și participarea activă.</p>
+            </div>
+          </details>
+
+          <details className="bg-white border border-gray-200 rounded-lg mb-4 shadow-sm">
+            <summary className="font-bold p-4 cursor-pointer list-none relative pl-8 hover:bg-gray-50">
+              <span className="absolute left-3 top-4 text-sm transition-transform">►</span>
+              <h2 className="inline text-xl text-primary">2. Explicația Metodei de Învățare Experiențială</h2>
+            </summary>
+            <div className="p-4 pt-0 border-t border-gray-100 space-y-4">
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">2.1. Principii Fundamentale</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>Angajament Activ:</strong> Elevii pun întrebări, investighează, experimentează, rezolvă probleme și își asumă responsabilitatea.</li>
+                    <li><strong>Experiență Directă:</strong> Cunoașterea se dobândește prin interacțiune nemijlocită cu situații autentice.</li>
+                    <li><strong>Reflecție Focalizată:</strong> Învățarea profundă apare prin reflecția asupra experiențelor, conectându-le la cunoștințe preexistente.</li>
+                    <li><strong>Învățare Holistică:</strong> Procesul angajează elevii intelectual, emoțional, social și fizic.</li>
+                    <li><strong>Dezvoltarea Relațiilor:</strong> Cultivă relația elevului cu sine, cu ceilalți și cu lumea.</li>
+                    <li><strong>Acceptarea Incertitudinii și a Riscului:</strong> Procesul poate include succesul, eșecul și asumarea de riscuri.</li>
+                    <li><strong>Rolul Facilitatorului:</strong> Educatorul creează experiențe, stabilește limite, sprijină elevii și asigură siguranța.</li>
+                    <li><strong>Context Social:</strong> Cunoștințele sunt construite social, bazându-se pe experiențe într-un mediu social.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">2.2. Teoreticieni Cheie și Evoluția Istorică</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <p className="mb-3">Rădăcinile învățării experiențiale se găsesc la filosofi antici precum Aristotel.</p>
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>John Dewey</strong> (1859–1952): A subliniat importanța învățării active, unde elevii se angajează în experiențe, reflectă și își construiesc cunoștințele. Lucrarea sa <a href="https://eric.ed.gov/?id=ED481922" target="_blank" className="text-blue-600 hover:underline">"Experience and Education"</a> (1938) este fundamentală.</li>
+                    <li><strong>Jean Piaget:</strong> Prin teoria sa a dezvoltării cognitive, a conectat învățarea activă cu procesul de învățare și cunoaștere.</li>
+                    <li><strong>David A. Kolb:</strong> A popularizat conceptul, dezvoltând teoria învățării experiențiale, bazată pe ideea că învățarea este un proces prin care cunoașterea este creată prin transformarea experienței.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">2.3. Ciclul de Învățare Experiențială al lui Kolb</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <p className="mb-3">Kolb a propus un ciclu de învățare din patru etape continue:</p>
+                  <ol className="list-decimal ml-5 space-y-2 mb-4">
+                    <li><strong>Experiență Concretă (CE):</strong> "A simți" – implicarea într-o activitate practică sau situație reală.</li>
+                    <li><strong>Observare Reflectivă (RO):</strong> "A privi" – reflecția asupra experienței pentru a înțelege semnificația.</li>
+                    <li><strong>Conceptualizare Abstractă (AC):</strong> "A gândi" – conectarea experiențelor la cunoștințe existente sau teorii.</li>
+                    <li><strong>Experimentare Activă (AE):</strong> "A face" – aplicarea noilor idei în situații noi pentru a testa și rafina înțelegerea.</li>
+                  </ol>
+                  <p className="mb-3">Kolb a identificat patru stiluri de învățare:</p>
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>Acomodator (CE și AE):</strong> Adaptabil, rezolvator de probleme.</li>
+                    <li><strong>Divergent (CE și RO):</strong> Analitic, preferă să observe și să reflecte.</li>
+                    <li><strong>Asimilator (AC și RO):</strong> Interesat de idei și concepte, observator.</li>
+                    <li><strong>Convergent (AC și AE):</strong> Tehnic, independent, practic, îi place să aplice învățarea.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details className="bg-white border border-gray-200 rounded-lg mb-4 shadow-sm">
+            <summary className="font-bold p-4 cursor-pointer list-none relative pl-8 hover:bg-gray-50">
+              <span className="absolute left-3 top-4 text-sm transition-transform">►</span>
+              <h2 className="inline text-xl text-primary">3. Metodologii și Aplicații Practice</h2>
+            </summary>
+            <div className="p-4 pt-0 border-t border-gray-100 space-y-4">
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">3.1. Învățarea Bazată pe Proiecte (PBL)</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <p className="mb-3">Elevii se angajează în situații reale pentru a dobândi cunoștințe și abilități prin experiență directă și reflecție.</p>
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>Exemple:</strong> Crearea unui site web, producerea unui videoclip, proiectarea unui pod, crearea unei picturi murale comunitare, producerea unui podcast.</li>
+                    <li><strong>Beneficii:</strong> Gândire critică, aplicarea cunoștințelor, colaborare, rezolvare de probleme.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">3.2. Învățarea prin Serviciu în Comunitate</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <p className="mb-3">Elevii colaborează cu organizații non-profit pentru a învăța conținutul cursului, abordând o nevoie reală a comunității.</p>
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>Serviciu Direct:</strong> Angajament interpersonal (tutorat, citire pentru vârstnici).</li>
+                    <li><strong>Serviciu Indirect:</strong> Îndeplinirea unei nevoi comunitare fără angajament direct (planificare strângere de fonduri, curățare parc).</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">3.3. Educația în Aer Liber</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <p className="mb-3">Învățare organizată în mediul natural, utilizându-l ca sală de clasă.</p>
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>Exemple:</strong> Excursii pe teren, programe de aventură, experimente științifice în aer liber, drumeții, camping.</li>
+                    <li><strong>Beneficii:</strong> Sănătate fizică, responsabilitate față de mediu, muncă în echipă, leadership.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">3.4. Alte Forme de Aplicare</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><strong>Stagii și Muncă Clinică:</strong> Expunere directă la lumea reală.</li>
+                    <li><strong>Proiecte de Cercetare Ghidată:</strong> Explorarea aprofundată a subiectelor de interes.</li>
+                    <li><strong>Simulări și Jocuri de Rol:</strong> Replicarea situațiilor reale într-un mediu controlat.</li>
+                    <li><strong>Proiecte de Curs și Lucrări de Licență:</strong> Aplicarea și sintetizarea cunoștințelor.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details className="bg-white border border-gray-200 rounded-lg mb-4 shadow-sm">
+            <summary className="font-bold p-4 cursor-pointer list-none relative pl-8 hover:bg-gray-50">
+              <span className="absolute left-3 top-4 text-sm transition-transform">►</span>
+              <h2 className="inline text-xl text-primary">4. Diferențierea Învățării Experiențiale de Concepte Similare</h2>
+            </summary>
+            <div className="p-4 pt-0 border-t border-gray-100">
+              <ul className="list-disc ml-5 space-y-3">
+                <li><strong>Constructivismul:</strong> O teorie a învățării unde elevii își construiesc propriul sens și cunoștințe prin reflecția și interpretarea experiențelor.</li>
+                <li><strong>Învățarea Activă:</strong> Termen umbrelă cu rădăcini în constructivism, care subliniază învățarea prin construirea pe cunoștințe anterioare.</li>
+                <li><strong>Învățarea Experiențială:</strong> Se definește prin învățarea prin participare semnificativă și reflecție structurată asupra experiențelor reale sau simulate.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details className="bg-white border border-gray-200 rounded-lg mb-4 shadow-sm">
+            <summary className="font-bold p-4 cursor-pointer list-none relative pl-8 hover:bg-gray-50">
+              <span className="absolute left-3 top-4 text-sm transition-transform">►</span>
+              <h2 className="inline text-xl text-primary">5. Instituții și Școli care Utilizează Educația Experiențială</h2>
+            </summary>
+            <div className="p-4 pt-0 border-t border-gray-100 space-y-4">
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">5.1. Exemple Globale</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <h4 className="font-semibold mb-2">Universități:</h4>
+                  <ul className="list-disc ml-5 space-y-1 mb-4">
+                    <li><a href="https://www.collegevine.com/faq/30203/experiential-learning-focused-colleges" target="_blank" className="text-blue-600 hover:underline">Northeastern University</a> (Boston): Renumită pentru programul co-op.</li>
+                    <li><a href="https://www.collegevine.com/faq/30203/experiential-learning-focused-colleges" target="_blank" className="text-blue-600 hover:underline">Drexel University</a> (Philadelphia): Program co-op cu până la 18 luni de experiență.</li>
+                    <li><a href="https://www.collegevine.com/faq/30203/experiential-learning-focused-colleges" target="_blank" className="text-blue-600 hover:underline">College of the Atlantic</a> (Bar Harbor): Model interdisciplinar cu învățare bazată pe proiecte.</li>
+                  </ul>
+                  <h4 className="font-semibold mb-2">Școli Alternative:</h4>
+                  <ul className="list-disc ml-5 space-y-1">
+                    <li><a href="https://eslexpat.com/blog/experimental-education-9-world-famous-alternative-schools/" target="_blank" className="text-blue-600 hover:underline">The Waldorf School</a> (Stuttgart, Germania, 1919)</li>
+                    <li><a href="https://eslexpat.com/blog/experimental-education-9-world-famous-alternative-schools/" target="_blank" className="text-blue-600 hover:underline">Summerhill School</a> (Suffolk, Anglia)</li>
+                    <li><a href="https://eslexpat.com/blog/experimental-education-9-world-famous-alternative-schools/" target="_blank" className="text-blue-600 hover:underline">THINK Global</a> (SUA): Elevii își schimbă țara la fiecare semestru.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">5.2. Educația Experiențială în România</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <h4 className="font-semibold mb-2">Asociații și Organizații:</h4>
+                  <ul className="list-disc ml-5 space-y-2 mb-4">
+                    <li><a href="https://demetrius.ro/" target="_blank" className="text-blue-600 hover:underline">Asociația Demetrius</a> (Iași): Implementează proiecte cu învățare experiențială și non-formală.</li>
+                    <li><a href="https://pedex.ro/" target="_blank" className="text-blue-600 hover:underline">Asociația Juvenala</a> (Piatra Neamț): Proiectul "Pedagogie experiențială".</li>
+                    <li><a href="https://www.scoalababel.ro/formare/" target="_blank" className="text-blue-600 hover:underline">Asociația Părinți în Dialog</a> (Timișoara): Centrul pentru Formare în Educație Experiențială.</li>
+                    <li><a href="https://wwf.ro/ce-facem/educatie/scoli-verzi/" target="_blank" className="text-blue-600 hover:underline">WWF România</a>: Proiectul "Școli Verzi".</li>
+                  </ul>
+                  <h4 className="font-semibold mb-2">Școli:</h4>
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><a href="https://www.scoalababel.ro/formare/" target="_blank" className="text-blue-600 hover:underline">Babel Școală + Liceu</a> (Timișoara): "Singura școală" din România care a adoptat principiile educației experiențiale.</li>
+                    <li>11 școli partenere în județul Neamț și Suceava prin proiectul "Pedagogie experiențială".</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+
+          <details className="bg-white border border-gray-200 rounded-lg mb-4 shadow-sm">
+            <summary className="font-bold p-4 cursor-pointer list-none relative pl-8 hover:bg-gray-50">
+              <span className="absolute left-3 top-4 text-sm transition-transform">►</span>
+              <h2 className="inline text-xl text-primary">6. Informații Suplimentare și Resurse</h2>
+            </summary>
+            <div className="p-4 pt-0 border-t border-gray-100 space-y-4">
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">6.1. Asociații Profesionale și Rețele</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><a href="https://www.aee.org/member-resources" target="_blank" className="text-blue-600 hover:underline">Association for Experiential Education (AEE)</a>: Comunitate globală de cercetători și practicieni.</li>
+                    <li><a href="https://www.societyforee.org/" target="_blank" className="text-blue-600 hover:underline">National Society for Experiential Education (NSEE)</a>: Certificarea Experiential Education Academy.</li>
+                    <li><a href="https://www.iseeninfo.com/" target="_blank" className="text-blue-600 hover:underline">ISEEN</a>: Rețea pentru predarea și învățarea experiențială transformatoare.</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details className="bg-gray-50 border border-gray-200 rounded-lg">
+                <summary className="font-semibold p-3 cursor-pointer list-none relative pl-6 hover:bg-gray-100">
+                  <span className="absolute left-2 top-3 text-xs">►</span>
+                  <h3 className="inline text-lg">6.2. Publicații și Jurnale Academice</h3>
+                </summary>
+                <div className="p-4 pt-0 border-t border-gray-100">
+                  <ul className="list-disc ml-5 space-y-2">
+                    <li><a href="https://www.aee.org/journal-of-experiential-education" target="_blank" className="text-blue-600 hover:underline">Journal of Experiential Education</a></li>
+                    <li><em>Experiential Learning and Teaching in Higher Education</em></li>
+                    <li><em>Active Learning in Higher Education</em></li>
+                  </ul>
+                  <p className="mt-4"><strong>Lucrări Fundamentale:</strong></p>
+                  <ul className="list-disc ml-5 space-y-1">
+                    <li>"Experience and Education" de John Dewey (1938)</li>
+                    <li>"Experiential Learning: Experience as the Source of Learning and Development" de David Kolb (1984)</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </details>
+        </div>
+        <ArticleNavigation currentArticleId={articleId} />
+      </div>
+    );
+  }
+
   if (articleId === "scoala-in-padure") {
     return (
       <div className="space-y-8">

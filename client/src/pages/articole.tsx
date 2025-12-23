@@ -8,6 +8,12 @@ import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 // Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
 const articles = [
   {
+    id: "ghid-educatie-experientiala-sintetizat",
+    title: "Educația Experiențială: Ghid Sintetizat",
+    description: "Un ghid complet despre educația experiențială: principii fundamentale, ciclul Kolb, metodologii practice, instituții și resurse pentru părinți și educatori.",
+    date: "23 decembrie 2025"
+  },
+  {
     id: "disfunctie-cognitiva",
     title: "Ignoranța mulțimii: gândirea disfuncțională în rețelele sociale",
     description: "Cum gândirea defectuoasă se răspândește prin rețelele sociale și este amplificată de mediile digitale și IA. Un studiu academic despre cogniție, propagandă și contramăsuri.",
