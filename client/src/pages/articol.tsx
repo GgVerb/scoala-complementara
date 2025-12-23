@@ -40,6 +40,10 @@ export default function Articol() {
   };
 
   const articles = {
+    "ghid-educatie-experientiala-sintetizat": {
+      date: "23 decembrie 2025",
+      title: "Educația Experiențială: Ghid Sintetizat",
+    },
     "voluntarii": {
       date: "28 iunie 2025",
       title: "Voluntarii",
