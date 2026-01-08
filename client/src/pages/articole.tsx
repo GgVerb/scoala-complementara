@@ -185,10 +185,6 @@ export default function Articole() {
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   Explorează colecția noastră de articole despre educație alternativă, metode inovatoare de învățământ și dezvoltarea personală prin experiențe în natură.
                 </p>
-                <div className="mt-8 p-6 bg-emerald-50 border border-emerald-100 rounded-xl max-w-2xl mx-auto">
-                  <h3 className="text-lg font-semibold text-emerald-900 mb-2">Test Educație Experiențială</h3>
-                  <p className="text-emerald-700">Aici poți găsi ghidul nostru sintetizat pentru o înțelegere profundă a metodelor de învățare activă.</p>
-                </div>
               </div>
             </FadeInWhenVisible>
 
