@@ -9,6 +9,7 @@ interface ArticleContentProps {
 
 // Article navigation order (articles that appear in blog section)
 const blogArticles = [
+  { id: "autoevaluare-spirituala", title: "Testează-ți sănătatea spirituală" },
   { id: "ghid-educatie-experientiala-sintetizat", title: "Educația Experiențială: Ghid Sintetizat" },
   { id: "ghidul-educatie-inovatoare", title: "Ghidul pentru o Educație Inovatoare" },
   { id: "scoala-in-padure", title: "Școala în pădure" },
@@ -243,8 +244,8 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
 
   // Handle different article types
   if (articleId === "autoevaluare-spirituala") {
-    const [scores, setScores] = React.useState({ q1: 5, q2: 5, q3: 5 });
-    const [result, setResult] = React.useState<string | null>(null);
+    const [scores, setScores] = useState({ q1: 5, q2: 5, q3: 5 });
+    const [result, setResult] = useState<string | null>(null);
 
     const showResults = () => {
       let text = "";
