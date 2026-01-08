@@ -8,12 +8,6 @@ import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 // Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
 const articles = [
   {
-    id: "test-sanatate-spirituala-rafinat",
-    title: "Test de Sănătate Spirituală (Rafinat)",
-    description: "O versiune detaliată a testului de sănătate spirituală, explorând profunzimea perspectivelor ontologice, epistemologice și axiologice.",
-    date: "8 ianuarie 2026"
-  },
-  {
     id: "autoevaluare-spirituala",
     title: "Testează-ți sănătatea spirituală",
     description: "Un test interactiv de autoevaluare pe dimensiunile ontologică, epistemologică și axiologică, bazat pe principii de orientare și bucla OODA.",

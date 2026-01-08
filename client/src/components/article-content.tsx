@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { ChevronLeft, ChevronRight, Home, Users, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -246,6 +246,7 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
   if (articleId === "autoevaluare-spirituala") {
     const [scores, setScores] = useState({ q1: 5, q2: 5, q3: 5 });
     const [result, setResult] = useState<string | null>(null);
+    const resultRef = useRef<HTMLDivElement>(null);
 
     const showResults = () => {
       let text = "";
@@ -276,9 +277,12 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
       
       text += "<br/><br/><strong>Câteva sfaturi de orientare:</strong> Observă în fiecare si ce faci și cum reacționezi. În limbaj simplu, bucla OODA (Observă, Orientează-te, Decide, Acționează) te îndeamnă să iei informațiile pas cu pas și să decizi rapid. Punctele tale forte pot fi viteza de a acționa și adaptabilitatea; un dezavantaj poate fi «paralizia prin analiză» – adică să stai prea mult pe gânduri și să nu acționezi din teamă că faci o greșeală.";
       
-      text += "<br/><br/><div class='mt-6 pt-6 border-t border-stone-200 text-center'><p className='mb-4 text-stone-600 font-medium'>Dorești o evaluare mai detaliată?</p><a href='/articol/test-sanatate-spirituala-rafinat' class='inline-flex items-center px-6 py-3 bg-secondary text-white font-bold rounded-lg shadow-md hover:bg-secondary/90 transition-all transform hover:scale-105'>Rafinează testul</a></div>";
+      text += "<br/><br/><div class='mt-8 pt-8 border-t border-stone-200 text-center'><p class='mb-6 text-orange-600 font-bold text-lg'>Dorești o evaluare mai detaliată?</p><a href='/articol/test-sanatate-spirituala-rafinat' class='inline-flex items-center px-10 py-5 bg-secondary text-white font-bold text-xl rounded-xl shadow-lg hover:bg-secondary/90 transition-all transform hover:scale-105 active:scale-95'>RAFINEAZĂ TESTUL</a></div>";
       
       setResult(text);
+      setTimeout(() => {
+        resultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     };
 
     return (
@@ -332,7 +336,7 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
         </button>
         
         {result && (
-          <div className="mt-12 p-8 bg-white border border-stone-200 rounded-2xl shadow-xl animate-in fade-in slide-in-from-top-4 duration-500">
+          <div ref={resultRef} className="mt-12 p-8 bg-white border border-stone-200 rounded-2xl shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-2xl font-bold text-primary mb-4">Rezultat și recomandări:</h2>
             <div className="text-stone-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: result }} />
           </div>
