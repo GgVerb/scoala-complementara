@@ -274,7 +274,9 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
         text += "<br/><br/><strong>Axiologic:</strong> Uneori acțiunile tale nu reflectă toate valorile în care crezi. Poate fi util să identifici clar care sunt acele valori și să găsești modalități simple de a le pune în practică. ";
       }
       
-      text += "<br/><br/><strong>Câteva sfaturi de orientare:</strong> Observă în fiecare zi ce faci și cum reacționezi. În limbaj simplu, bucla OODA (Observă, Orientează-te, Decide, Acționează) te îndeamnă să iei informațiile pas cu pas și să decizi rapid. Punctele tale forte pot fi viteza de a acționa și adaptabilitatea; un dezavantaj poate fi «paralizia prin analiză» – adică să stai prea mult pe gânduri și să nu acționezi din teamă că faci o greșeală.";
+      text += "<br/><br/><strong>Câteva sfaturi de orientare:</strong> Observă în fiecare si ce faci și cum reacționezi. În limbaj simplu, bucla OODA (Observă, Orientează-te, Decide, Acționează) te îndeamnă să iei informațiile pas cu pas și să decizi rapid. Punctele tale forte pot fi viteza de a acționa și adaptabilitatea; un dezavantaj poate fi «paralizia prin analiză» – adică să stai prea mult pe gânduri și să nu acționezi din teamă că faci o greșeală.";
+      
+      text += "<br/><br/><div class='mt-6 pt-6 border-t border-stone-200 text-center'><p className='mb-4 text-stone-600 font-medium'>Dorești o evaluare mai detaliată?</p><a href='/articol/test-sanatate-spirituala-rafinat' class='inline-flex items-center px-6 py-3 bg-secondary text-white font-bold rounded-lg shadow-md hover:bg-secondary/90 transition-all transform hover:scale-105'>Rafinează testul</a></div>";
       
       setResult(text);
     };
@@ -339,6 +341,318 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
         <div className="mt-12">
           <ArticleNavigation currentArticleId="autoevaluare-spirituala" />
         </div>
+      </div>
+    );
+  }
+
+  if (articleId === "test-sanatate-spirituala-rafinat") {
+    const [answers, setAnswers] = useState<Record<string, string>>({});
+    const [result, setResult] = useState<{ evaluation: string; recommendations: string[]; ooda: string } | null>(null);
+
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      
+      // Calculează scorurile pe dimensiuni
+      let ontologicScore = 0;
+      let epistemologicScore = 0;
+      let axiologicScore = 0;
+      
+      // Întrebările 1-3: Ontologice
+      if (answers.q1 === 'individual') ontologicScore += 1;
+      else if (answers.q1 === 'relational') ontologicScore += 3;
+      else if (answers.q1 === 'both') ontologicScore += 2;
+      
+      if (answers.q2 === 'secure') ontologicScore += 3;
+      else if (answers.q2 === 'anxious') ontologicScore += 1;
+      else if (answers.q2 === 'depends') ontologicScore += 2;
+      
+      if (answers.q3 === 'individual') ontologicScore += 1;
+      else if (answers.q3 === 'systemic') ontologicScore += 3;
+      else if (answers.q3 === 'combination') ontologicScore += 2;
+      
+      // Întrebările 4-6: Epistemologice
+      if (answers.q4 === 'intuition') epistemologicScore += 1;
+      else if (answers.q4 === 'authority') epistemologicScore += 2;
+      else if (answers.q4 === 'multiple') epistemologicScore += 3;
+      
+      if (answers.q5 === 'resistant') epistemologicScore += 1;
+      else if (answers.q5 === 'open') epistemologicScore += 3;
+      else if (answers.q5 === 'depends') epistemologicScore += 2;
+      
+      if (answers.q6 === 'clear') epistemologicScore += 3;
+      else if (answers.q6 === 'blurred') epistemologicScore += 1;
+      else if (answers.q6 === 'reconstructed') epistemologicScore += 2;
+      
+      // Întrebările 7-10: Axiologice
+      if (answers.q7 === 'understanding') axiologicScore += 3;
+      else if (answers.q7 === 'improving') axiologicScore += 2;
+      else if (answers.q7 === 'harmony') axiologicScore += 1;
+      
+      if (answers.q8 === 'curious') axiologicScore += 3;
+      else if (answers.q8 === 'wrong') axiologicScore += 1;
+      else if (answers.q8 === 'threatened') axiologicScore += 2;
+      
+      if (answers.q9 === 'tool') axiologicScore += 3;
+      else if (answers.q9 === 'person-like') axiologicScore += 1;
+      else if (answers.q9 === 'uncanny') axiologicScore += 2;
+      
+      if (answers.q10 === 'choices') axiologicScore += 3;
+      else if (answers.q10 === 'circumstances') axiologicScore += 1;
+      else if (answers.q10 === 'balance') axiologicScore += 2;
+      
+      const totalScore = ontologicScore + epistemologicScore + axiologicScore;
+      const percentage = Math.round((totalScore / 30) * 100);
+      
+      let evaluation = "";
+      let recommendations = [];
+      let oodaFeedback = "";
+      
+      if (percentage >= 80) {
+        evaluation = "Ai o perspectivă foarte bine integrată și matură asupra realității. Reușești să echilibrezi nevoia de certitudine cu acceptarea necunoscutului, fiind în același timp aliniat cu valorile tale profunde.";
+        recommendations = [
+          "Continuă să explorezi perspective noi, chiar și pe cele care par contradictorii.",
+          "Folosește-ți echilibrul pentru a-i ghida și pe ceilalți în momente de incertitudine.",
+          "Practică recunoștința pentru claritatea pe care o ai."
+        ];
+        oodaFeedback = "Bucla ta OODA este fluidă și rapidă. Nu te pierzi în detalii inutile și reușești să treci rapid de la observare la acțiune, menținându-ți orientarea corectă.";
+      } else if (percentage >= 50) {
+        evaluation = "Ești într-un proces activ de căutare și definire. Ai momente de mare claritate, dar și perioade în care incertitudinea sau presiunea socială te fac să te îndoiești de propriile valori.";
+        recommendations = [
+          "Alocă timp săptămânal pentru reflecție și 'orientare' personală.",
+          "Identifică momentele în care acțiunile tale nu sunt în acord cu valorile tale și observă de ce se întâmplă asta.",
+          "Învață să fii confortabil cu întrebările care nu au încă un răspuns."
+        ];
+        oodaFeedback = "Te descurci bine la observare, dar uneori te blochezi în etapa de orientare. Prea multe interpretări pot duce la amânarea deciziei. Încearcă să simplifici criteriile după care alegi.";
+      } else {
+        evaluation = "Se pare că treci printr-o perioadă de redefinire majoră sau de confuzie spirituală. Ești foarte receptiv la stimulii externi, dar îți este greu să găsești un punct de sprijin interior stabil.";
+        recommendations = [
+          "Începe cu pași mici: definește o singură valoare pe care să o urmezi astăzi.",
+          "Caută un mentor sau o persoană de încredere cu care să discuți despre sensul vieții.",
+          "Redu zgomotul informațional pentru a-ți putea auzi propria intuiție."
+        ];
+        oodaFeedback = "Bucla ta OODA este adesea întreruptă de zgomot extern. Ești atât de ocupat să observi tot ce se întâmplă în jur încât nu mai ai timp să te orientezi și să decizi pentru tine. Concentrează-te pe o singură acțiune simplă.";
+      }
+      
+      setResult({ evaluation, recommendations, ooda: oodaFeedback });
+    };
+
+    return (
+      <div className="max-w-3xl mx-auto py-12 px-4 bg-stone-900 text-stone-100 rounded-3xl shadow-2xl overflow-hidden">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-200 to-stone-400 bg-clip-text text-transparent">
+            Test de Sănătate Spirituală (Rafinat)
+          </h1>
+          <p className="text-stone-400 italic">O călătorie de autoexplorare pentru a înțelege cum percepi realitatea</p>
+        </div>
+
+        <div className="bg-amber-900/20 border-l-4 border-amber-500/50 p-6 mb-12 rounded-r-xl">
+          <p className="text-stone-300">
+            <strong>Bun venit!</strong> Acest test te va ajuta să explorezi trei dimensiuni fundamentale: 
+            <strong> ontologia</strong> (ce există), <strong> epistemologia</strong> (cum știm) și <strong> axiologia</strong> (ce prețuim). 
+            Nu există răspunsuri greșite - fii cât mai sincer cu tine însuți.
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-12">
+          {/* Section 1 */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-semibold text-amber-200 flex items-center gap-3">
+              <span className="text-3xl">🌱</span> Cine suntem și ce există
+            </h2>
+            
+            <div className="space-y-8">
+              {[
+                { id: 'q1', text: '1. Când te gândești la cine ești tu cu adevărat, ce simți că te definește cel mai bine?', options: [
+                  { val: 'individual', text: 'Sunt un individ unic, cu gânduri și trăsături care mă fac diferit de alții' },
+                  { val: 'relational', text: 'Sunt definit de relațiile mele - familie, prieteni, comunitate' },
+                  { val: 'both', text: 'Sunt o combinație - am unicitatea mea, dar sunt și influențat de cei din jur' }
+                ]},
+                { id: 'q2', text: '2. Cum reacționezi când ceva în viața ta se schimbă brusc (rutina zilnică)?', options: [
+                  { val: 'secure', text: 'Mă adaptez ușor - schimbarea face parte din viață' },
+                  { val: 'anxious', text: 'Simt anxietate și mă agăț de obiceiuri - îmi place predictibilitatea' },
+                  { val: 'depends', text: 'Depinde de situație - uneori mă deranjează, alteori nu' }
+                ]},
+                { id: 'q3', text: '3. Ce crezi despre succesul în viață - de ce depinde cel mai mult?', options: [
+                  { val: 'individual', text: 'Depinde în mare parte de talentul, munca și alegerile personale' },
+                  { val: 'systemic', text: 'Depinde de sistemul în care trăim - oportunități, context, noroc' },
+                  { val: 'combination', text: 'E o combinație între efortul personal și circumstanțe' }
+                ]}
+              ].map(q => (
+                <div key={q.id} className="bg-stone-800/50 p-6 rounded-2xl border border-stone-700/50 hover:border-amber-500/30 transition-all">
+                  <p className="text-lg mb-4 text-stone-200">{q.text}</p>
+                  <div className="space-y-3">
+                    {q.options.map(opt => (
+                      <label key={opt.val} className="flex items-center gap-3 p-3 rounded-lg hover:bg-stone-700/50 cursor-pointer transition-colors group">
+                        <input 
+                          type="radio" 
+                          name={q.id} 
+                          required 
+                          onChange={() => setAnswers({...answers, [q.id]: opt.val})}
+                          className="w-5 h-5 accent-amber-500"
+                        />
+                        <span className="text-stone-400 group-hover:text-stone-200 transition-colors">{opt.text}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 2 */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-semibold text-amber-200 flex items-center gap-3">
+              <span className="text-3xl">🧭</span> Cum știm ce este adevărat
+            </h2>
+            <div className="space-y-8">
+              {[
+                { id: 'q4', text: '4. Când vezi o știre controversată, cum decizi dacă să o crezi?', options: [
+                  { val: 'intuition', text: 'Îmi folosesc intuiția și judecata personală - simt dacă e adevărat' },
+                  { val: 'authority', text: 'Caut surse autorizate - experți, instituții de încredere' },
+                  { val: 'multiple', text: 'Verific mai multe surse și compar perspectivele' }
+                ]},
+                { id: 'q5', text: '5. Ce faci când cineva îți demonstrează cu dovezi că ai greșit?', options: [
+                  { val: 'resistant', text: 'Mai întâi mă apăr - îmi verific argumentele' },
+                  { val: 'open', text: 'Sunt curios și îmi reconsider poziția - îmi place să învăț' },
+                  { val: 'depends', text: 'Depinde cine îmi spune și cât de sigur sunt' }
+                ]},
+                { id: 'q6', text: '6. Cum îți amintești evenimente importante din trecut?', options: [
+                  { val: 'clear', text: 'Am amintiri clare, independente de fotografii' },
+                  { val: 'blurred', text: 'Uneori nu mai știu dacă îmi amintesc sau doar am văzut poze' },
+                  { val: 'reconstructed', text: 'Amintirile mele se schimbă în timp - le reconstruiesc' }
+                ]}
+              ].map(q => (
+                <div key={q.id} className="bg-stone-800/50 p-6 rounded-2xl border border-stone-700/50 hover:border-amber-500/30 transition-all">
+                  <p className="text-lg mb-4 text-stone-200">{q.text}</p>
+                  <div className="space-y-3">
+                    {q.options.map(opt => (
+                      <label key={opt.val} className="flex items-center gap-3 p-3 rounded-lg hover:bg-stone-700/50 cursor-pointer transition-colors group">
+                        <input 
+                          type="radio" 
+                          name={q.id} 
+                          required 
+                          onChange={() => setAnswers({...answers, [q.id]: opt.val})}
+                          className="w-5 h-5 accent-amber-500"
+                        />
+                        <span className="text-stone-400 group-hover:text-stone-200 transition-colors">{opt.text}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Section 3 */}
+          <section className="space-y-6">
+            <h2 className="text-2xl font-semibold text-amber-200 flex items-center gap-3">
+              <span className="text-3xl">⚖️</span> Ce ne ghidează (Valorile)
+            </h2>
+            <div className="space-y-8">
+              {[
+                { id: 'q7', text: '7. Ce te motivează cel mai mult să acționezi în viață?', options: [
+                  { val: 'understanding', text: 'Să înțeleg lumea și să aflu adevărul' },
+                  { val: 'improving', text: 'Să îmbunătățesc lumea și să lupt pentru dreptate' },
+                  { val: 'harmony', text: 'Să trăiesc în armonie cu mine și cu ceilalți' }
+                ]},
+                { id: 'q8', text: '8. Ce simți despre oamenii care au opinii opuse?', options: [
+                  { val: 'curious', text: 'Sunt curios să înțeleg de ce gândesc așa' },
+                  { val: 'wrong', text: 'Cred că greșesc și nu prea le accept motivele' },
+                  { val: 'threatened', text: 'Simt că sunt o amenințare la valorile mele' }
+                ]},
+                { id: 'q9', text: '9. Cum vezi inteligența artificială (ChatGPT, AI)?', options: [
+                  { val: 'tool', text: 'Sunt doar unelte utile - cod și algoritmi' },
+                  { val: 'person-like', text: 'Par să aibă personalitate - uneori mă atașez' },
+                  { val: 'uncanny', text: 'Sunt ciudate - par reale dar știu că nu sunt' }
+                ]},
+                { id: 'q10', text: '10. Ce crezi că controlează cel mai mult viața ta?', options: [
+                  { val: 'choices', text: 'Alegerile și acțiunile mele personale' },
+                  { val: 'circumstances', text: 'Circumstanțe, noroc și factori externi' },
+                  { val: 'balance', text: 'O combinație echilibrată între cele două' }
+                ]}
+              ].map(q => (
+                <div key={q.id} className="bg-stone-800/50 p-6 rounded-2xl border border-stone-700/50 hover:border-amber-500/30 transition-all">
+                  <p className="text-lg mb-4 text-stone-200">{q.text}</p>
+                  <div className="space-y-3">
+                    {q.options.map(opt => (
+                      <label key={opt.val} className="flex items-center gap-3 p-3 rounded-lg hover:bg-stone-700/50 cursor-pointer transition-colors group">
+                        <input 
+                          type="radio" 
+                          name={q.id} 
+                          required 
+                          onChange={() => setAnswers({...answers, [q.id]: opt.val})}
+                          className="w-5 h-5 accent-amber-500"
+                        />
+                        <span className="text-stone-400 group-hover:text-stone-200 transition-colors">{opt.text}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <button 
+            type="submit" 
+            className="w-full py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-stone-900 font-bold text-xl rounded-2xl shadow-xl hover:from-amber-400 hover:to-amber-500 transition-all transform hover:scale-[1.01] active:scale-[0.98]"
+          >
+            Vezi rezultatele mele
+          </button>
+        </form>
+
+        {result && (
+          <div className="mt-16 space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <div className="bg-stone-800 border-2 border-amber-500/50 p-8 rounded-3xl shadow-2xl">
+              <h2 className="text-3xl font-bold text-amber-200 text-center mb-8">Profilul Tău Spiritual</h2>
+              
+              <div className="space-y-6">
+                <div className="bg-stone-900/50 p-6 rounded-xl border border-stone-700">
+                  <h3 className="text-xl font-semibold text-amber-500 mb-3 flex items-center gap-2">
+                    <span>✨</span> Evaluare Generală
+                  </h3>
+                  <p className="text-stone-300 leading-relaxed">{result.evaluation}</p>
+                </div>
+
+                <div className="bg-amber-900/10 p-6 rounded-xl border border-amber-500/20">
+                  <h3 className="text-xl font-semibold text-amber-500 mb-4 flex items-center gap-2">
+                    <span>💡</span> Recomandări pentru Tine
+                  </h3>
+                  <ul className="space-y-3">
+                    {result.recommendations.map((rec, i) => (
+                      <li key={i} className="flex items-start gap-3 text-stone-300">
+                        <span className="text-amber-500 mt-1">•</span>
+                        <span>{rec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-stone-900/50 p-6 rounded-xl border border-stone-700">
+                  <h3 className="text-xl font-semibold text-stone-400 mb-4 text-center">
+                    Cum funcționează mintea ta - Bucla OODA
+                  </h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                    {['Observare', 'Orientare', 'Decizie', 'Acțiune'].map(step => (
+                      <div key={step} className="bg-stone-800 p-4 rounded-lg text-center border border-stone-700">
+                        <div className="text-amber-500 font-bold mb-1">{step}</div>
+                        <div className="text-[10px] text-stone-500 uppercase tracking-widest">Pasul</div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-stone-400 text-sm italic text-center">{result.ooda}</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center pt-8">
+              <Link href="/articole">
+                <button className="text-stone-400 hover:text-amber-200 transition-colors flex items-center gap-2 mx-auto">
+                  <span>←</span> Înapoi la toate articolele
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

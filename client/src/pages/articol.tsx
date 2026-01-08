@@ -40,6 +40,10 @@ export default function Articol() {
   };
 
   const articles = {
+    "test-sanatate-spirituala-rafinat": {
+      date: "8 ianuarie 2026",
+      title: "Test de Sănătate Spirituală (Rafinat)",
+    },
     "autoevaluare-spirituala": {
       date: "8 ianuarie 2026",
       title: "Testează-ți sănătatea spirituală",

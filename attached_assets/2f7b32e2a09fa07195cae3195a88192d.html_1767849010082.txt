@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Sănătate Spirituală</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e8e3d9;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #c8a464, #6a7b8c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #a0a0a0;
+            font-style: italic;
+        }
+        
+        .intro {
+            background: rgba(200, 164, 100, 0.1);
+            border-left: 4px solid #c8a464;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            color: #c8a464;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .question {
+            background: rgba(106, 123, 140, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #6a7b8c;
+        }
+        
+        .question-text {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #e8e3d9;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .option:hover {
+            background: rgba(200, 164, 100, 0.1);
+        }
+        
+        .option input[type="radio"] {
+            accent-color: #c8a464;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .result-section {
+            display: none;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(200, 164, 100, 0.1), rgba(106, 123, 140, 0.1));
+            border-radius: 15px;
+            border: 2px solid #c8a464;
+        }
+        
+        .score-display {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #c8a464;
+        }
+        
+        .evaluation {
+            background: rgba(22, 33, 62, 0.6);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .recommendations {
+            background: rgba(200, 164, 100, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #c8a464;
+        }
+        
+        .recommendations h3 {
+            color: #c8a464;
+            margin-bottom: 15px;
+        }
+        
+        .recommendations ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .recommendations li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .recommendations li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+        
+        .ooda-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(106, 123, 140, 0.1);
+            border-radius: 15px;
+            border: 2px solid #6a7b8c;
+        }
+        
+        .ooda-section h3 {
+            color: #6a7b8c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .ooda-steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .ooda-step {
+            background: rgba(22, 33, 62, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .ooda-step strong {
+            color: #c8a464;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #c8a464, #6a7b8c);
+            color: #111317;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            transition: transform 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .icon {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test de Sănătate Spirituală</h1>
+        <p class="subtitle">O călătorie de autoexplorare pentru a înțelege cum percepi realitatea</p>
+        
+        <div class="intro">
+            <strong>Bun venit!</strong> Acest test te va ajuta să explorezi trei dimensiuni fundamentale ale felului în care experimentezi lumea: 
+            <strong>ce crezi că există cu adevărat</strong>, <strong>cum știi că ceva este adevărat</strong> și <strong>ce valori te ghidează</strong>. 
+            Nu există răspunsuri "greșite" - fiecare perspectivă are avantajele ei. Suntem aici să înțelegem, nu să judecăm.
+        </div>
+        
+        <form id="spiritualTest">
+            <!-- SECȚIUNEA 1: CINE SUNTEM ȘI CE EXISTĂ (Ontologică) -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🌱</span>
+                    Cine suntem și ce există cu adevărat
+                </h2>
+                
+                <div class="question">
+                    <p class="question-text">1. Când te gândești la cine ești tu cu adevărat, ce simți că te definește cel mai bine?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q1" value="individual">
+                            <span>Sunt un individ unic, cu gânduri și trăsături care mă fac diferit de alții</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="relational">
+                            <span>Sunt definit de relațiile mele - familie, prieteni, comunitatea din care fac parte</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q1" value="both">
+                            <span>Sunt o combinație - am unicitatea mea, dar sunt și influențat de cei din jur</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">2. Cum reacționezi când ceva în viața ta se schimbă brusc (de exemplu, îți strici rutina zilnică)?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q2" value="secure">
+                            <span>Mă adaptez ușor - schimbarea face parte din viață</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="anxious">
+                            <span>Simt anxietate și mă agăț de obiceiuri - îmi place predictibilitatea</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="depends">
+                            <span>Depinde de situație - uneori mă deranjează, alteori nu</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">3. Ce crezi despre succesul în viață - de ce depinde cel mai mult?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q3" value="individual">
+                            <span>Depinde în mare parte de talentul, munca și alegerile personale</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="systemic">
+                            <span>Depinde de sistemul în care trăim - oportunități, context, noroc</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q3" value="combination">
+                            <span>E o combinație între efortul personal și circumstanțe</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECȚIUNEA 2: CUM ȘTIM CE ȘTIM (Epistemologică) -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">🧭</span>
+                    Cum știm că ceva este adevărat
+                </h2>
+                
+                <div class="question">
+                    <p class="question-text">4. Când vezi o știre controversată, cum decizi dacă să o crezi?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q4" value="intuition">
+                            <span>Îmi folosesc intuiția și judecata personală - simt dacă e adevărat</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="authority">
+                            <span>Caut surse autorizate - experți, instituții de încredere</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q4" value="multiple">
+                            <span>Verific mai multe surse și compar perspectivele</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">5. Ce faci când cineva îți demonstrează cu dovezi că ai greșit?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q5" value="resistant">
+                            <span>Mai întâi mă apăr - îmi verific argumentele și caut contra-dovezi</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="open">
+                            <span>Sunt curios și îmi reconsider poziția - îmi place să învăț lucruri noi</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q5" value="depends">
+                            <span>Depinde cine îmi spune și cât de sigur sunt pe poziția mea</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">6. Cum îți amintești evenimente importante din trecut?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q6" value="clear">
+                            <span>Am amintiri clare, independent de fotografii sau povești</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="blurred">
+                            <span>Uneori nu mai știu dacă îmi amintesc sau doar am văzut pozele</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q6" value="reconstructed">
+                            <span>Amintirile mele se schimbă în timp - le reconstruiesc</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECȚIUNEA 3: CE NE GHIDEAZĂ (Axiologică) -->
+            <div class="section">
+                <h2 class="section-title">
+                    <span class="icon">⚖️</span>
+                    Ce ne este cel mai important
+                </h2>
+                
+                <div class="question">
+                    <p class="question-text">7. Ce te motivează cel mai mult să acționezi în viață?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q7" value="understanding">
+                            <span>Să înțeleg lumea și să aflu adevărul - indiferent ce e</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="improving">
+                            <span>Să îmbunătățesc lumea și să lupt pentru ce e corect</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q7" value="harmony">
+                            <span>Să trăiesc în armonție cu mine și cu ceilalți</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">8. Când te gândești la oameni care au opinii opuse față de tine, ce simți?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q8" value="curious">
+                            <span>Sunt curios să înțeleg de ce gândesc așa - poate au puncte bune</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="wrong">
+                            <span>Cred că greșesc și nu prea văd motivele lor ca fiind valide</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q8" value="threatened">
+                            <span>Simt că sunt o amenințare la valorile mele și la ce cred</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">9. Cum vezi inteligența artificială (Siri, Alexa, asistenți virtuali)?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q9" value="tool">
+                            <span>Sunt doar unelte utile - cod și algoritmi, nimic mai mult</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="person-like">
+                            <span>Par să aibă personalitate - uneori mă simt atașat de ele</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q9" value="uncanny">
+                            <span>Sunt ciudate - par reale dar știu că nu sunt</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p class="question-text">10. Ce crezi că controlează cel mai mult viața ta?</p>
+                    <div class="options">
+                        <label class="option">
+                            <input type="radio" name="q10" value="choices">
+                            <span>Alegerile mele personale și acțiunile mele</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="circumstances">
+                            <span>Circumstanțe, noroc și lucruri în afara controlului meu</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q10" value="balance">
+                            <span>O combinație între ce pot controla și ce nu pot</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Vezi rezultatele mele</button>
+        </form>
+        
+        <!-- SECȚIUNEA DE REZULTATE -->
+        <div id="results" class="result-section">
+            <h2 class="score-display">Evaluarea ta</h2>
+            <div id="evaluation" class="evaluation"></div>
+            <div id="recommendations" class="recommendations"></div>
+            
+            <!-- SECȚIUNEA OODA -->
+            <div class="ooda-section">
+                <h3>Cum funcționează mintea ta - Bucla OODA</h3>
+                <p style="margin-bottom: 20px; text-align: center; color: #a0a0a0;">
+                    Mintea ta procesează lumea în 4 pași. Iată cum lucrezi:
+                </p>
+                
+                <div class="ooda-steps">
+                    <div class="ooda-step">
+                        <strong>Observare</strong>
+                        <span>Ce date colectezi din lume</span>
+                    </div>
+                    <div class="ooda-step">
+                        <strong>Orientare</strong>
+                        <span>Cum interpretezi informațiile</span>
+                    </div>
+                    <div class="ooda-step">
+                        <strong>Decizie</strong>
+                        <span>Ce alegi să faci</span>
+                    </div>
+                    <div class="ooda-step">
+                        <strong>Acțiune</strong>
+                        <span>Cum pui în practică</span>
+                    </div>
+                </div>
+                
+                <div id="ooda-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('spiritualTest').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Colectează răspunsurile
+            const formData = new FormData(this);
+            let answers = {};
+            let allAnswered = true;
+            
+            for (let i = 1; i <= 10; i++) {
+                const answer = formData.get(`q${i}`);
+                if (!answer) {
+                    allAnswered = false;
+                    break;
+                }
+                answers[`q${i}`] = answer;
+            }
+            
+            if (!allAnswered) {
+                alert("Te rog răspunde la toate întrebările pentru o evaluare completă.");
+                return;
+            }
+            
+            // Calculează scorurile pe dimensiuni
+            let ontologicScore = 0;
+            let epistemologicScore = 0;
+            let axiologicScore = 0;
+            
+            // Întrebările 1-3: Ontologice
+            if (answers.q1 === 'individual') ontologicScore += 1;
+            else if (answers.q1 === 'relational') ontologicScore += 3;
+            else ontologicScore += 2;
+            
+            if (answers.q2 === 'secure') ontologicScore += 3;
+            else if (answers.q2 === 'anxious') ontologicScore += 1;
+            else ontologicScore += 2;
+            
+            if (answers.q3 === 'individual') ontologicScore += 1;
+            else if (answers.q3 === 'systemic') ontologicScore += 3;
+            else ontologicScore += 2;
+            
+            // Întrebările 4-6: Epistemologice
+            if (answers.q4 === 'intuition') epistemologicScore += 1;
+            else if (answers.q4 === 'authority') epistemologicScore += 2;
+            else epistemologicScore += 3;
+            
+            if (answers.q5 === 'resistant') epistemologicScore += 1;
+            else if (answers.q5 === 'open') epistemologicScore += 3;
+            else epistemologicScore += 2;
+            
+            if (answers.q6 === 'clear') epistemologicScore += 3;
+            else if (answers.q6 === 'blurred') epistemologicScore += 1;
+            else epistemologicScore += 2;
+            
+            // Întrebările 7-10: Axiologice
+            if (answers.q7 === 'understanding') axiologicScore += 3;
+            else if (answers.q7 === 'improving') axiologicScore += 2;
+            else axiologicScore += 1;
+            
+            if (answers.q8 === 'curious') axiologicScore += 3;
+            else if (answers.q8 === 'wrong') axiologicScore += 1;
+            else axiologicScore += 2;
+            
+            if (answers.q9 === 'tool') axiologicScore += 3;
+            else if (answers.q9 === 'person-like') axiologicScore += 1;
+            else axiologicScore += 2;
+            
+            if (answers.q10 === 'choices') axiologicScore += 3;
+            else if (answers.q10 === 'circumstances') axiologicScore += 1;
+            else axiologicScore += 2;
+            
+            // Calculează scorul total (maxim 30)
+            const totalScore = ontologicScore + epistemologicScore + axiologicScore;
+            const maxScore = 30;
+            const percentage = Math.round((totalScore / maxScore) * 100);
+            
+            // Generează evaluarea
+            let evaluation = '';
+            let recommendations = [];
+            let oodaFeedback = '';
+            
+            if (percentage >= 80) {
+                evaluation = `
+                    <h3 style="color: #c8a464; margin-bottom: 15px;">🌟 Felicitări! Ai o sănătate spirituală foarte bună</h3>
+                    <p>Se pare că ai o conexiune solidă cu realitatea ta interioară. Ești flexibil în gândire, deschis la noi perspective și ai încredere în capacitatea ta de a evalua lucrurile. Ești curios, empatic și ai o viziune echilibrată asupra lumii.</p>
+                `;
+                recommendations = [
+                    "Continuă să fii deschis la noi perspective, dar păstrează-ți discernământul",
+                    "Împărtășește din perspectiva ta cu alții - poți fi un model pozitiv",
+                    "Rămâne conștient de momentele când ești influențat prea mult de exterior"
+                ];
+                oodaFeedback = `
+                    <p style="margin-bottom: 15px;"><strong>Punctele tale forte în bucla OODA:</strong></p>
+                    <p style="margin-bottom: 10px;">✅ <strong>Orientare flexibilă:</strong> Poți ajusta ușor interpretările când apar dovezi noi</p>
+                    <p style="margin-bottom: 10px;">✅ <strong>Observare atentă:</strong> Colectezi date din mai multe surse fără prejudecăți</p>
+                    <p style="margin-bottom: 15px;">✅ <strong>Decizii echilibrate:</strong> Îți asumi responsabilitatea pentru alegerile tale</p>
+                    <p style="color: #a0a0a0;"><strong>Posibilă zonă de îmbunătățit:</strong> Când ești foarte sigur pe tine, s-ar putea să nu acorzi suficient timp pentru a asculta perspective complet diferite.</p>
+                `;
+            } else if (percentage >= 60) {
+                evaluation = `
+                    <h3 style="color: #6a7b8c; margin-bottom: 15px;">🌱 Sănătate spirituală bună, cu zone de creștere</h3>
+                    <p>Ai o fundație solidă, dar există și zone unde te poți dezvolta. Ești echilibrat în majoritatea aspectelor, dar uneori poți fi mai rigid sau mai influențabil în anumite domenii. Acesta este un punct de plecare excelent pentru o explorare mai profundă.</p>
+                `;
+                recommendations = [
+                    "Lucrează la flexibilitatea mentală - întreabă-te 'dar dacă mă înșel?' mai des",
+                    "Practica ascultarea activă a perspectivelor opuse fără a te simți amenințat",
+                    "Dezvoltă-ți încrederea în propria judecată în zonele unde te simți nesigur"
+                ];
+                oodaFeedback = `
+                    <p style="margin-bottom: 15px;"><strong>Punctele tale forte în bucla OODA:</strong></p>
+                    <p style="margin-bottom: 10px;">✅ <strong>Procesare echilibrată:</strong> Alternezi între intuiție și logică</p>
+                    <p style="margin-bottom: 15px;">✅ <strong>Acțiuni consecvente:</strong> Te ții de deciziile luate</p>
+                    <p style="margin-bottom: 15px;">⚠️ <strong>Zonă de atenție:</strong> Uneori rămâni blocat în faza de Orientare când informațiile sunt contradictorii</p>
+                    <p style="color: #a0a0a0;"><strong>Sfat:</strong> Când te simți blocat, întoarce-te la Observare - caută mai multe date în loc să forțezi o interpretare.</p>
+                `;
+            } else if (percentage >= 40) {
+                evaluation = `
+                    <h3 style="color: #c8a464; margin-bottom: 15px;">🌊 Oportunitate de explorare și dezvoltare</h3>
+                    <p>Se pare că treci printr-o perioadă de căutare sau incertitudine. Poate te simți copleșit de complexitatea lumii sau influențat de surse externe. Acesta nu este un lucru rău - este un semn că ești conștient de provocările existențiale și vrei să înțelegi mai bine.</p>
+                `;
+                recommendations = [
+                    "Petrece timp în natură pentru a te reconecta cu simțurile tale de bază",
+                    "Practică meditația sau mindfulness pentru a-ți asculta vocea interioară",
+                    "Caută surse diverse de informație, dar stabilește și limite clare",
+                    "Lucrează la încrederea în propria capacitate de a evalua lucrurile"
+                ];
+                oodaFeedback = `
+                    <p style="margin-bottom: 15px;"><strong>Provocările tale în bucla OODA:</strong></p>
+                    <p style="margin-bottom: 10px;">⚠️ <strong>Orientare rigidă:</strong> Tendința de a rămâne blocat în interpretări inițiale</p>
+                    <p style="margin-bottom: 10px;">⚠️ <strong>Observare selectivă:</strong> Cauți doar informații care confirmă ce crezi deja</p>
+                    <p style="margin-bottom: 15px;">✅ <strong>Punct forte:</strong> Ești conștient de complexitate - acesta este primul pas spre claritate</p>
+                    <p style="color: #a0a0a0;"><strong>Sfat practic:</strong> Când te simți copleșit, oprește-te. Respiră. Pune-ți întrebarea 'Ce știu cu adevărat, chiar acum?' și pornește de acolo.</p>
+                `;
+            } else {
+                evaluation = `
+                    <h3 style="color: #6a7b8c; margin-bottom: 15px;">🤗 Un moment de respiro și regăsire</h3>
+                    <p>Se pare că treci printr-o perioadă dificilă sau confuză. Poate te simți deconectat de propria perspectivă sau copleșit de influențe externe. Acesta este un semnal de alarmă blând - un îndemn să încetinești și să te reconectezi cu tine însuți.</p>
+                `;
+                recommendations = [
+                    "Redu expunerea la surse de informație agresive (știri, social media) pentru o perioadă",
+                    "Petrece timp cu oameni de încredere care te ascultă fără să judece",
+                    "Ține un jurnal în care să îți notezi gândurile și sentimentele zilnice",
+                    "Caută sprijin profesional dacă te simți copleșit - este un semn de curaj, nu de slăbiciune"
+                ];
+                oodaFeedback = `
+                    <p style="margin-bottom: 15px;"><strong>Ce se întâmplă în bucla ta OODA:</strong></p>
+                    <p style="margin-bottom: 10px;">🔴 <strong>Orientare compromisă:</strong> Hărțile tale interne par distorsionate de influențe externe</p>
+                    <p style="margin-bottom: 10px;">🔴 <strong>Observare haotică:</strong> Cauți constant validare externă pentru tot</p>
+                    <p style="margin-bottom: 15px;">✅ <strong>Punct forte ascuns:</strong> Faptul că ai făcut acest test arată că ești conștient și vrei să înțelegi - acesta este un semn foarte bun!</p>
+                    <p style="color: #a0a0a0;"><strong>Mesaj important:</strong> Nu ești singur. Să ceri ajutor este OK. Să te simți confuz este OK. Să nu știi toate răspunsurile este OK. Ai permisiunea să fii uman.</p>
+                `;
+            }
+            
+            // Afișează rezultatele
+            document.getElementById('evaluation').innerHTML = evaluation;
+            
+            const recommendationsList = recommendations.map(rec => `<li>${rec}</li>`).join('');
+            document.getElementById('recommendations').innerHTML = `
+                <h3>Sfaturi pentru tine:</h3>
+                <ul>${recommendationsList}</ul>
+            `;
+            
+            document.getElementById('ooda-feedback').innerHTML = oodaFeedback;
+            
+            // Afișează secțiunea de rezultate
+            document.getElementById('results').style.display = 'block';
+            
+            // Scroll la rezultate
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
