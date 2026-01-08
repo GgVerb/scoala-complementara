@@ -648,7 +648,15 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
               </div>
             </div>
             
-            <div className="text-center pt-8">
+            <div className="text-center pt-8 space-y-4">
+              <a 
+                href="/attached_assets/De_la_Hartă_la_Minte_Război_1767858304379.pdf" 
+                download 
+                className="inline-flex items-center px-8 py-4 bg-[#22c55e] text-[#f97316] font-bold text-lg rounded-xl shadow-lg hover:scale-105 transition-all transform active:scale-95"
+              >
+                Descarcă un mic pdf cu schema teoriei
+              </a>
+              
               <Link href="/articole">
                 <button className="text-stone-400 hover:text-amber-200 transition-colors flex items-center gap-2 mx-auto">
                   <span>←</span> Înapoi la toate articolele
