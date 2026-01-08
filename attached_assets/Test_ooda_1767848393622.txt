@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Autoevaluare spirituală</title>
+</head>
+<body>
+  <h1>Testează-ți sănătatea spirituală</h1>
+  <p>Pe o scară de la 1 (deloc) la 10 (total), răspunde sincer la următoarele întrebări:</p>
+  
+  <label>1. Cât simți că viața ta are un sens clar și stabil?<br>
+    <input type="range" id="q1" min="1" max="10" value="5" oninput="o1.value = q1.value">
+    <output name="o1" id="o1">5</output>
+  </label>
+  <br><br>
+  <label>2. Cât de confortabil ești cu ceea ce știi și cu incertitudinea din jurul tău?<br>
+    <input type="range" id="q2" min="1" max="10" value="5" oninput="o2.value = q2.value">
+    <output name="o2" id="o2">5</output>
+  </label>
+  <br><br>
+  <label>3. Cât crezi că acțiunile tale de zi cu zi reflectă valorile tale personale?<br>
+    <input type="range" id="q3" min="1" max="10" value="5" oninput="o3.value = q3.value">
+    <output name="o3" id="o3">5</output>
+  </label>
+  <br><br>
+  <button onclick="showResults()">Afișează evaluarea</button>
+  
+  <h2>Rezultat și recomandări:</h2>
+  <div id="result"></div>
+  
+  <script>
+    function showResults() {
+      // preia răspunsurile
+      var ont = parseInt(document.getElementById('q1').value);
+      var epi = parseInt(document.getElementById('q2').value);
+      var axi = parseInt(document.getElementById('q3').value);
+      
+      // construiește evaluarea pe fiecare domeniu
+      var text = "";
+      // Ontologic
+      if (ont >= 8) {
+        text += "<strong>Ontologic:</strong> Pare că îți găsești destul de bine un scop și un sens al vieții. Continue astfel! ";
+      } else if (ont >= 5) {
+        text += "<strong>Ontologic:</strong> Resimți un anumit sens, dar poate ai clipe când te întrebi „de ce”? Încearcă să petreci mai mult timp reflectând la ce-ți dă motivație. ";
+      } else {
+        text += "<strong>Ontologic:</strong> Te simți cam pierdut sau îndoielnic în privința sensului vieții. Poate ajută să vorbești cu cineva de încredere sau să-ți notezi ce activități ți se par cu adevărat semnificative. ";
+      }
+      // Epistemologic
+      if (epi >= 8) {
+        text += "<br><strong>Epistemologic:</strong> Ești destul de sigur pe ceea ce știi și ești confortabil cu necunoscutul. Aceasta este o zonă de forță pentru tine. ";
+      } else if (epi >= 5) {
+        text += "<br><strong>Epistemologic:</strong> Ai destule cunoștințe, însă uneori te frământă incertitudinea. Încearcă să rămâi curios și să ceri explicații suplimentare când ceva nu-ți este clar. ";
+      } else {
+        text += "<br><strong>Epistemologic:</strong> Simți că multe lucruri sunt incerte sau greu de înțeles. Poate ar ajuta să studiezi mai mult subiectele care te interesează și să accepți că unele întrebări rămân deschise. ";
+      }
+      // Axiologic
+      if (axi >= 8) {
+        text += "<br><strong>Axiologic:</strong> Acțiunile tale sunt bine aliniate cu valorile tale. Continue să acționezi consecvent și autentic! ";
+      } else if (axi >= 5) {
+        text += "<br><strong>Axiologic:</strong> În general trăiești conform valorilor tale, dar uneori simți compromisuri. Gândește-te ce modificări mici poți face pentru a fi mai autentic în viața de zi cu zi. ";
+      } else {
+        text += "<br><strong>Axiologic:</strong> Uneori acțiunile tale nu reflectă toate valorile în care crezi. Poate fi util să identifici clar care sunt acele valori și să găsești modalități simple de a le pune în practică. ";
+      }
+      
+      // Explicații suplimentare și bucla OODA
+      text += "<br><br><strong>Câteva sfaturi de orientare:</strong> Observă în fiecare zi ce faci și cum reacționezi. În limbaj simplu, bucla OODA (Observă, Orientează-te, Decide, Acționează) te îndeamnă să iei informațiile pas cu pas și să decizi rapid. Punctele tale forte pot fi viteza de a acționa și adaptabilitatea; un dezavantaj poate fi «paralizia prin analiză» – adică să stai prea mult pe gânduri și să nu acționezi din teamă că faci o greșeală. Încearcă să echilibrezi aceste lucruri: ascultă-ți intuiția, învață din ce faci și ajustează-te continuu. O atitudine deschisă și recunoscătoare (cum arată rezultatele tale) te va ajuta să te simți bine în propria realitate.";
+      
+      document.getElementById('result').innerHTML = text;
+    }
+  </script>
+</body>
+</html>

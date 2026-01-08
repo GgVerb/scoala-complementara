@@ -242,6 +242,106 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
   };
 
   // Handle different article types
+  if (articleId === "autoevaluare-spirituala") {
+    const [scores, setScores] = React.useState({ q1: 5, q2: 5, q3: 5 });
+    const [result, setResult] = React.useState<string | null>(null);
+
+    const showResults = () => {
+      let text = "";
+      // Ontologic
+      if (scores.q1 >= 8) {
+        text += "<strong>Ontologic:</strong> Pare că îți găsești destul de bine un scop și un sens al vieții. Continue astfel! ";
+      } else if (scores.q1 >= 5) {
+        text += "<strong>Ontologic:</strong> Resimți un anumit sens, dar poate ai clipe când te întrebi „de ce”? Încearcă să petreci mai mult timp reflectând la ce-ți dă motivație. ";
+      } else {
+        text += "<strong>Ontologic:</strong> Te simți cam pierdut sau îndoielnic în privința sensului vieții. Poate ajută să vorbești cu cineva de încredere sau să-ți notezi ce activități ți se par cu adevărat semnificative. ";
+      }
+      // Epistemologic
+      if (scores.q2 >= 8) {
+        text += "<br/><br/><strong>Epistemologic:</strong> Ești destul de sigur pe ceea ce știi și ești confortabil cu necunoscutul. Aceasta este o zonă de forță pentru tine. ";
+      } else if (scores.q2 >= 5) {
+        text += "<br/><br/><strong>Epistemologic:</strong> Ai destule cunoștințe, însă uneori te frământă incertitudinea. Încearcă să rămâi curios și să ceri explicații suplimentare când ceva nu-ți este clar. ";
+      } else {
+        text += "<br/><br/><strong>Epistemologic:</strong> Simți că multe lucruri sunt incerte sau greu de înțeles. Poate ar ajuta să studiezi mai mult subiectele care te interesează și să accepți că unele întrebări rămân deschise. ";
+      }
+      // Axiologic
+      if (scores.q3 >= 8) {
+        text += "<br/><br/><strong>Axiologic:</strong> Acțiunile tale sunt bine aliniate cu valorile tale. Continue să acționezi consecvent și autentic! ";
+      } else if (scores.q3 >= 5) {
+        text += "<br/><br/><strong>Axiologic:</strong> În general trăiești conform valorilor tale, dar uneori simți compromisuri. Gândește-te ce modificări mici poți face pentru a fi mai autentic în viața de zi cu zi. ";
+      } else {
+        text += "<br/><br/><strong>Axiologic:</strong> Uneori acțiunile tale nu reflectă toate valorile în care crezi. Poate fi util să identifici clar care sunt acele valori și să găsești modalități simple de a le pune în practică. ";
+      }
+      
+      text += "<br/><br/><strong>Câteva sfaturi de orientare:</strong> Observă în fiecare zi ce faci și cum reacționezi. În limbaj simplu, bucla OODA (Observă, Orientează-te, Decide, Acționează) te îndeamnă să iei informațiile pas cu pas și să decizi rapid. Punctele tale forte pot fi viteza de a acționa și adaptabilitatea; un dezavantaj poate fi «paralizia prin analiză» – adică să stai prea mult pe gânduri și să nu acționezi din teamă că faci o greșeală.";
+      
+      setResult(text);
+    };
+
+    return (
+      <div className="max-w-2xl mx-auto py-8">
+        <h1 className="text-3xl font-bold text-primary mb-6">Testează-ți sănătatea spirituală</h1>
+        <p className="text-stone-600 mb-8">Pe o scară de la 1 (deloc) la 10 (total), răspunde sincer la următoarele întrebări:</p>
+        
+        <div className="space-y-8 mb-10">
+          <div className="space-y-3">
+            <label className="block font-medium text-stone-800">1. Cât simți că viața ta are un sens clar și stabil?</label>
+            <div className="flex items-center gap-4">
+              <input 
+                type="range" min="1" max="10" value={scores.q1} 
+                onChange={(e) => setScores({ ...scores, q1: parseInt(e.target.value) })}
+                className="flex-grow h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary"
+              />
+              <span className="w-8 h-8 flex items-center justify-center bg-primary/10 text-primary font-bold rounded-full">{scores.q1}</span>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <label className="block font-medium text-stone-800">2. Cât de confortabil ești cu ceea ce știi și cu incertitudinea din jurul tău?</label>
+            <div className="flex items-center gap-4">
+              <input 
+                type="range" min="1" max="10" value={scores.q2} 
+                onChange={(e) => setScores({ ...scores, q2: parseInt(e.target.value) })}
+                className="flex-grow h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary"
+              />
+              <span className="w-8 h-8 flex items-center justify-center bg-primary/10 text-primary font-bold rounded-full">{scores.q2}</span>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <label className="block font-medium text-stone-800">3. Cât crezi că acțiunile tale de zi cu zi reflectă valorile tale personale?</label>
+            <div className="flex items-center gap-4">
+              <input 
+                type="range" min="1" max="10" value={scores.q3} 
+                onChange={(e) => setScores({ ...scores, q3: parseInt(e.target.value) })}
+                className="flex-grow h-2 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-primary"
+              />
+              <span className="w-8 h-8 flex items-center justify-center bg-primary/10 text-primary font-bold rounded-full">{scores.q3}</span>
+            </div>
+          </div>
+        </div>
+
+        <button 
+          onClick={showResults}
+          className="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-[1.02]"
+        >
+          Afișează evaluarea
+        </button>
+        
+        {result && (
+          <div className="mt-12 p-8 bg-white border border-stone-200 rounded-2xl shadow-xl animate-in fade-in slide-in-from-top-4 duration-500">
+            <h2 className="text-2xl font-bold text-primary mb-4">Rezultat și recomandări:</h2>
+            <div className="text-stone-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: result }} />
+          </div>
+        )}
+
+        <div className="mt-12">
+          <ArticleNavigation currentArticleId="autoevaluare-spirituala" />
+        </div>
+      </div>
+    );
+  }
+
   if (articleId === "ghid-educatie-experientiala-sintetizat") {
     return (
       <div className="space-y-8">

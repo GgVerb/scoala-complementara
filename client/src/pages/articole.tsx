@@ -8,6 +8,12 @@ import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 // Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
 const articles = [
   {
+    id: "autoevaluare-spirituala",
+    title: "Testează-ți sănătatea spirituală",
+    description: "Un test interactiv de autoevaluare pe dimensiunile ontologică, epistemologică și axiologică, bazat pe principii de orientare și bucla OODA.",
+    date: "8 ianuarie 2026"
+  },
+  {
     id: "ghid-educatie-experientiala-sintetizat",
     title: "Educația Experiențială: Ghid Sintetizat",
     description: "Un ghid complet despre educația experiențială: principii fundamentale, ciclul Kolb, metodologii practice, instituții și resurse pentru părinți și educatori.",

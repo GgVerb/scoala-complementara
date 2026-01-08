@@ -40,6 +40,10 @@ export default function Articol() {
   };
 
   const articles = {
+    "autoevaluare-spirituala": {
+      date: "8 ianuarie 2026",
+      title: "Testează-ți sănătatea spirituală",
+    },
     "ghid-educatie-experientiala-sintetizat": {
       date: "23 decembrie 2025",
       title: "Educația Experiențială: Ghid Sintetizat",
