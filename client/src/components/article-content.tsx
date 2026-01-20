@@ -650,8 +650,8 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
             
             <div className="text-center pt-8 space-y-4">
               <a 
-                href="/attached_assets/De_la_Hartă_la_Minte_Război_1767858304379.pdf" 
-                download 
+                href="/attached_assets/Gheorghe-Lungu-CV.pdf" 
+                download="Gheorghe-Lungu-CV.pdf" 
                 className="inline-flex items-center px-8 py-4 bg-[#22c55e] text-[#f97316] font-bold text-lg rounded-xl shadow-lg hover:scale-105 transition-all transform active:scale-95"
               >
                 Descarcă un mic pdf cu schema teoriei
