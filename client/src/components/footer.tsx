@@ -27,30 +27,21 @@ export default function Footer() {
           <p className="text-gray-300 text-sm">
             © 2025 Școala Complementară. Toate drepturile rezervate.
           </p>
-          <p className="text-gray-300 text-sm mt-4 md:mt-0 flex items-center gap-4">
-            <span>
-              Un produs{" "}
-              <a 
-                href="/portfolio/index.html" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                data-testid="link-ggverb"
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open('/portfolio/index.html', '_blank');
-                }}
-              >
-                <span className="text-accent hover:text-accent/80 cursor-pointer transition-colors duration-200 underline decoration-accent/50 hover:decoration-accent">
-                  GgVerb
-                </span>
-              </a>
-            </span>
+          <p className="text-gray-300 text-sm mt-4 md:mt-0">
+            Un produs{" "}
             <a 
-              href="/attached_assets/Gheorghe_Lungu_Resume.pdf" 
-              download="Gheorghe_Lungu_CV.pdf"
-              className="px-4 py-1 bg-accent/20 border border-accent/50 text-accent font-bold rounded-md hover:bg-accent/30 transition-all text-xs"
+              href="/portfolio/index.html" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              data-testid="link-ggverb"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open('/portfolio/index.html', '_blank');
+              }}
             >
-              DOWNLOAD CV (PDF)
+              <span className="text-accent hover:text-accent/80 cursor-pointer transition-colors duration-200 underline decoration-accent/50 hover:decoration-accent">
+                GgVerb
+              </span>
             </a>
           </p>
         </div>
