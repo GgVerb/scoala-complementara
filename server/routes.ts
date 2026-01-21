@@ -8,7 +8,22 @@ import {
 } from "@shared/schema";
 import { z } from "zod";
 
+import path from "path";
+import fs from "fs";
+
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Static PDF serving with correct MIME type
+  app.get("/Gheorghe-Lungu-FlowCV.pdf", (req, res) => {
+    const filePath = path.resolve(process.cwd(), "client", "public", "Gheorghe-Lungu-FlowCV.pdf");
+    if (fs.existsSync(filePath)) {
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", "attachment; filename=Gheorghe-Lungu-FlowCV.pdf");
+      res.sendFile(filePath);
+    } else {
+      res.status(404).send("File not found");
+    }
+  });
+
   // Newsletter subscription endpoint
   app.post("/api/newsletter/subscribe", async (req, res) => {
     try {
