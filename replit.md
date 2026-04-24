@@ -1,32 +1,48 @@
 # Școala Complementară Web Application
 
 ## Overview
-This full-stack web application, "Școala Complementară," is an experiential education platform focused on outdoor learning and character development. It serves as an informational website and a management system for educational programs. The platform includes student applications, newsletter subscriptions, contact forms, and a blog with educational resources, aiming to provide an accessible and engaging online presence for the initiative. The project's ambition is to offer an alternative educational approach and reach a wide audience interested in experiential learning.
+A static React 18 application for "Școala Complementară," a Romanian experiential education platform. The site provides educational content, articles, and interactive self-assessment tools. All forms redirect to direct contact channels — no backend server or database required.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
 Site philosophy: Keep the site simple and publicly accessible without login requirements.
 
 ## System Architecture
-The application is a static React 18 application built with TypeScript and Vite. It uses Tailwind CSS with shadcn/ui for styling, Wouter for client-side routing, and relies on pure React state. The UI components are built with Radix UI primitives. The architecture is designed for cost optimization, eliminating the need for a backend server, database, or API endpoints by redirecting all interactive forms (newsletter, contact, applications) to direct communication channels (email/phone).
+Pure static React 18 + Vite + TypeScript application. No backend, no database, no API server.
+
+**Frontend Stack:**
+- React 18 with TypeScript
+- Vite (dev server and build tool)
+- Tailwind CSS + shadcn/ui (Radix UI)
+- Wouter (client-side routing)
+- Framer Motion (page transitions)
+- TanStack Query v5
+- React Hook Form + Zod
 
 **Key Features:**
-*   **Educational Content Management**: Blog system for articles and dedicated content pages for various audiences (students, parents, institutions, mentors), optimized for SEO.
-*   **User Interaction**: Newsletter subscription, contact forms, and student applications all redirect to direct contact information.
-*   **UI/UX**: Responsive design with a mobile-first approach, comprehensive shadcn/ui component library, sticky navigation with smooth scrolling, and toast notifications.
-*   **Analytics**: Google Analytics (GA4) integration for tracking page views and custom events.
+- Educational articles on experiential learning, democratic schools, innovative education
+- Interactive spiritual health self-assessment test (basic + refined versions)
+- PDF download for theory schema
+- Newsletter / contact / application forms → redirect to email/phone
+- Google Analytics (GA4) via `VITE_GA_MEASUREMENT_ID`
 
-**Technical Implementations:**
-*   **Frontend Framework**: React 18 with TypeScript.
-*   **Build Tool**: Vite.
-*   **Styling**: Tailwind CSS, shadcn/ui, Radix UI.
-*   **Routing**: Wouter.
-*   **UI/UX Decisions**: Animated page transitions using `framer-motion`, responsive design, and accessible component library integration.
-*   **System Design Choices**: Conversion to a completely static site to minimize hosting costs, with all interactive elements funneled to direct communication.
+## Project Structure
+- `client/` — all React source code (do not add backend imports here)
+- `shared/` — shared TypeScript types (schema.ts exists for type reuse; drizzle imports are unused by client)
+- `attached_assets/` — static assets (images, PDFs)
+- `public/` — Vite public folder
 
-## External Dependencies
+## Scripts
+- `npm run dev` — start Vite dev server on port 5000
+- `npm run build` — production build to `dist/public/`
+- `npm run check` — TypeScript type check
 
-*   **Static Hosting**: Any CDN or static hosting service (e.g., Netlify, Vercel, GitHub Pages, Replit Static).
-*   **Google Analytics**: Optional, configured via `VITE_GA_MEASUREMENT_ID`.
-*   **NPM Dependencies**: React, TypeScript, Vite, Tailwind CSS, Radix UI, shadcn/ui components, Zod, date-fns, clsx, lucide-react.
-*   **No Database or Email Service Required**: All communications are handled via direct email (`ggverb@gmail.com`) and phone (`+40 721 879 347`).
+## Deployment
+- Deployment target: **static** (Replit static hosting)
+- Build output: `dist/public/`
+- Custom domain: `ggverb.ro` (configure in Replit deployment settings)
+- GitHub: `https://github.com/GgVerb/scoala-complementara`
+
+## Contact Info (used in forms)
+- Email: ggverb@gmail.com
+- Phone: +40 721 879 347
