@@ -1,6 +1,6 @@
 [build]
   publish = "dist/public"
-  command = "npm run build"
+  command = "npm install --include=dev && npm run build"
 
 [build.environment]
   NODE_VERSION = "20"
