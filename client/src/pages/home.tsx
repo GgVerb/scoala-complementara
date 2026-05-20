@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import AboutSection from "@/components/about-section";
+import RangerSection from "@/components/ranger-section";
 import AudienceSection from "@/components/audience-section";
 import GallerySection from "@/components/gallery-section";
 import BlogSection from "@/components/blog-section";
@@ -10,7 +11,6 @@ import Footer from "@/components/footer";
 import { SectionTransition, FadeInWhenVisible } from "@/components/page-transition";
 
 export default function Home() {
-  // Handle URL hash scrolling on page load
   useEffect(() => {
     const handleHashScroll = () => {
       const hash = window.location.hash.replace('#', '');
@@ -21,19 +21,14 @@ export default function Home() {
             const navHeight = 80;
             const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
             const targetPosition = elementTop - navHeight;
-            
-            window.scrollTo({
-              top: targetPosition,
-              behavior: "smooth"
-            });
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
           }
-        }, 200); // Reduced delay for faster response
+        }, 200);
       }
     };
 
     handleHashScroll();
     window.addEventListener('hashchange', handleHashScroll);
-    
     return () => window.removeEventListener('hashchange', handleHashScroll);
   }, []);
 
@@ -45,6 +40,9 @@ export default function Home() {
       </SectionTransition>
       <FadeInWhenVisible>
         <AboutSection />
+      </FadeInWhenVisible>
+      <FadeInWhenVisible>
+        <RangerSection />
       </FadeInWhenVisible>
       <FadeInWhenVisible>
         <GallerySection />
