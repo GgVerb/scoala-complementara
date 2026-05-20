@@ -8,6 +8,12 @@ import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 // Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
 const articles = [
   {
+    id: "tpack-genai",
+    title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative",
+    description: "Cum trebuie să se schimbe cunoștințele profesorilor în era IA generative? Mishra, Warr și Islam analizează cadrul TPACK și implicațiile GenAI pentru educație — un text de referință tradus în română.",
+    date: "20 mai 2026"
+  },
+  {
     id: "autoevaluare-spirituala",
     title: "Testează-ți sănătatea spirituală",
     description: "Un test interactiv de autoevaluare pe dimensiunile ontologică, epistemologică și axiologică, bazat pe principii de orientare și bucla OODA.",

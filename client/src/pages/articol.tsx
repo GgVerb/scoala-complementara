@@ -40,6 +40,10 @@ export default function Articol() {
   };
 
   const articles = {
+    "tpack-genai": {
+      date: "20 mai 2026",
+      title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative",
+    },
     "test-sanatate-spirituala-rafinat": {
       date: "8 ianuarie 2026",
       title: "Test de Sănătate Spirituală (Rafinat)",
