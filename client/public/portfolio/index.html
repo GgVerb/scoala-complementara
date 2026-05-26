@@ -1,41 +1,560 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gheorghe Lungu - Environmental Educator | Wilderness Guide | Nature Steward</title>
-    <meta
-      name="description"
-      content="Environmental professional with expertise in nature conservation, ecological education, and wilderness guiding. Over 6 years protecting Romanian national parks and mentoring through experiential outdoor education."
-    />
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gheorghe Lungu — Educator de Mediu | Ghid Wilderness | Custode al Naturii</title>
+<meta name="description" content="Profesionist în mediu cu expertiză în conservarea naturii, educație ecologică și ghidaj wilderness. Peste 8 ani de protejare a parcurilor naționale românești și mentorat prin educație experiențială în aer liber."/>
+<meta property="og:title" content="Gheorghe Lungu — Educator de Mediu | Ghid Wilderness | Custode al Naturii"/>
+<meta property="og:description" content="Profesionist în mediu cu expertiză în conservarea naturii, educație ecologică și ghidaj wilderness. Peste 8 ani de protejare a parcurilor naționale românești și mentorat prin educație experiențială în aer liber."/>
+<meta property="og:type" content="website"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green: #16a34a;
+  --green-light: rgba(22,163,74,0.1);
+  --green-mid: rgba(22,163,74,0.25);
+  --dark: #0f172a;
+  --mid: #334155;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --blue: #1e40af;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--mid); background: var(--bg); line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
 
-    <!-- Open Graph tags -->
-    <meta
-      property="og:title"
-      content="Gheorghe Lungu - Environmental Educator | Wilderness Guide | Nature Steward"
-    />
-    <meta
-      property="og:description"
-      content="Environmental professional with expertise in nature conservation, ecological education, and wilderness guiding. Over 6 years protecting Romanian national parks and mentoring through experiential outdoor education."
-    />
-    <meta property="og:type" content="website" />
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+.nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.nav-logo { font-weight: 700; font-size: 1rem; color: var(--dark); }
+.nav-logo span { color: var(--green); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--green); }
+@media(max-width:640px){ .nav-links { display:none; } }
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" crossorigin src="/portfolio/assets/index-CWJEyrDD.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-C2Rdl-Jn.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script
-      type="text/javascript"
-      src="https://replit.com/public/js/replit-dev-banner.js"
-    ></script>
-  </body>
+/* HERO */
+section { padding: 72px 24px; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.section-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+.section-subtitle { font-size: 1rem; color: var(--muted); max-width: 560px; }
+
+#hero { background: linear-gradient(135deg, #0f172a 0%, #1a3a1f 50%, #0f172a 100%); color: white; padding: 80px 24px 72px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+@media(max-width:768px){ .hero-inner { grid-template-columns: 1fr; } .hero-photo { display:none; } }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--green-light); border: 1px solid var(--green-mid); color: #4ade80; font-size: 0.75rem; font-weight: 600; padding: 5px 14px; border-radius: 999px; margin-bottom: 20px; }
+.hero-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
+.hero-name { font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+.hero-name span { color: #4ade80; }
+.hero-title { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+.hero-bio { font-size: 1rem; color: rgba(255,255,255,0.6); max-width: 540px; line-height: 1.75; margin-bottom: 32px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.chip { font-size: 0.8rem; font-weight: 500; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.75); }
+.chip.green { background: var(--green-light); border-color: var(--green-mid); color: #4ade80; }
+.hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: white; font-weight: 600; font-size: 0.9rem; padding: 12px 24px; border-radius: 8px; margin-right: 12px; transition: opacity .2s; }
+.hero-cta:hover { opacity: .88; }
+.hero-cta-sec { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); font-weight: 500; font-size: 0.9rem; padding: 12px 24px; border-radius: 8px; transition: all .2s; }
+.hero-cta-sec:hover { background: rgba(255,255,255,0.1); }
+.hero-photo img { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 4px solid #4ade80; box-shadow: 0 0 40px rgba(74,222,128,0.25); }
+
+/* STATS */
+#stats { background: white; padding: 48px 24px; border-bottom: 1px solid var(--border); }
+.stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+@media(max-width:640px){ .stats-grid { grid-template-columns: repeat(2,1fr); } }
+.stat { text-align: center; }
+.stat-num { font-size: 2rem; font-weight: 900; color: var(--green); }
+.stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 6px; }
+
+/* ABOUT */
+#about { background: white; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+@media(max-width:768px){ .about-grid { grid-template-columns: 1fr; } }
+.about-text p { color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+.mission-box { background: var(--dark); color: white; border-radius: 16px; padding: 28px; border-left: 4px solid var(--green); margin-top: 24px; }
+.mission-box p { font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.75; font-size: 0.95rem; }
+.mission-box cite { display: block; margin-top: 12px; font-style: normal; font-size: 0.8rem; color: #4ade80; font-weight: 600; }
+.about-cards { display: grid; gap: 16px; }
+.about-card { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.about-card-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.about-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.about-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* AVAILABILITY */
+#disponibilitate { background: var(--bg); }
+.avail-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 32px; }
+@media(max-width:768px){ .avail-grid { grid-template-columns: 1fr; } }
+.avail-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.avail-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+.avail-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+.avail-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); border: 1px solid var(--green-mid); color: var(--green); font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 20px; }
+.avail-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+
+/* EXPERIENCE */
+#experienta { background: var(--bg); }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, var(--green), rgba(22,163,74,0.1)); }
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-dot { position: absolute; left: -29px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--green); border: 3px solid white; box-shadow: 0 0 0 2px var(--green-mid); }
+.tl-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: box-shadow .2s; }
+.tl-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.tl-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+.tl-title { font-size: 1rem; font-weight: 700; color: var(--dark); }
+.tl-period { font-size: 0.75rem; font-weight: 600; color: var(--green); background: var(--green-light); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.tl-company { font-size: 0.9rem; font-weight: 600; color: var(--blue); margin-bottom: 8px; }
+.tl-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin-bottom: 8px; }
+.tl-tag { display: inline-block; font-size: 0.72rem; font-weight: 500; background: var(--bg); border: 1px solid var(--border); color: var(--muted); padding: 2px 8px; border-radius: 4px; }
+
+/* SKILLS */
+#competente { background: white; }
+.skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+@media(max-width:768px){ .skills-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px){ .skills-grid { grid-template-columns: 1fr; } }
+.skill-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+.skill-card-icon { width: 40px; height: 40px; background: var(--green-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px; }
+.skill-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+.skill-list { list-style: none; }
+.skill-list li { font-size: 0.82rem; color: var(--muted); padding: 4px 0; display: flex; align-items: center; gap: 8px; }
+.skill-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+/* DOMENII */
+#domenii { background: var(--bg); padding: 56px 24px; }
+.domenii-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.domeniu-tag { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 10px 18px; font-size: 0.875rem; font-weight: 500; color: var(--mid); }
+
+/* CONTACT */
+#contact { background: linear-gradient(135deg, #0f172a 0%, #0f2d1a 100%); color: white; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+@media(max-width:768px){ .contact-grid { grid-template-columns: 1fr; } }
+.contact-info h3 { font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 24px; }
+.contact-item { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.contact-item-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(74,222,128,0.15); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.contact-item-text { font-size: 0.875rem; color: rgba(255,255,255,0.75); }
+.contact-item-text strong { display: block; font-size: 0.75rem; color: #4ade80; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 2px; }
+.contact-note { margin-top: 28px; padding: 18px; background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.2); border-radius: 12px; font-size: 0.875rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.contact-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+.form-group input, .form-group textarea { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 10px 14px; color: white; font-size: 0.875rem; outline: none; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+.form-group textarea { min-height: 100px; resize: vertical; }
+.form-submit { width: 100%; background: var(--green); color: white; font-weight: 600; font-size: 0.9rem; padding: 12px; border-radius: 8px; border: none; cursor: pointer; transition: opacity .2s; }
+.form-submit:hover { opacity: .88; }
+
+footer { background: #060e1a; color: rgba(255,255,255,0.45); text-align: center; padding: 24px; font-size: 0.8rem; }
+footer span { color: #4ade80; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Gheorghe <span>Lungu</span></div>
+    <div class="nav-links">
+      <a href="#about">Despre</a>
+      <a href="#disponibilitate">Disponibilitate</a>
+      <a href="#experienta">Experiență</a>
+      <a href="#competente">Competențe</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Deschis pentru colaborări în voluntariat</div>
+      <h1 class="hero-name">Gheorghe <span>Lungu</span></h1>
+      <p class="hero-title">Educator de Mediu · Ghid Wilderness · Custode al Naturii</p>
+      <p class="hero-bio">Conectez lumea digitală cu autenticitatea naturală prin învățare experiențială, conservarea mediului și înțelegere interculturală în comunitățile montane îndepărtate.</p>
+      <div class="hero-chips">
+        <span class="chip green">🌿 Domogled-Valea Cernei NP</span>
+        <span class="chip">🇷🇴 România</span>
+        <span class="chip">🏔️ Comunități montane</span>
+        <span class="chip">📚 1000+ persoane însoțite</span>
+        <span class="chip">⏱️ 8+ ani în arii protejate</span>
+      </div>
+      <a href="mailto:ggverb@gmail.com" class="hero-cta">Contactează-mă</a>
+      <a href="#disponibilitate" class="hero-cta-sec">Programează o consultație</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Ani în arii protejate</div></div>
+    <div class="stat"><div class="stat-num">22.725</div><div class="stat-label">Hectare administrate</div></div>
+    <div class="stat"><div class="stat-num">1000+</div><div class="stat-label">Persoane însoțite</div></div>
+    <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Roluri profesionale</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">Despre mine</div>
+    <h2 class="section-title">Pasionat de conectarea oamenilor cu natura</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>După o carieră diversă care a cuprins conducerea afacerilor, educația și publicitatea, mi-am găsit chemarea în conservarea mediului și predarea experiențială. Drumul meu din sălile de consiliu corporatiste spre zonele montane protejate reflectă un angajament profund față de conectarea comunităților umane cu lumea naturală.</p>
+        <p>Lucrez în Parcul Național Domogled-Valea Cernei — administrând și patrulând 22.725 de hectare de arie protejată, inclusiv peste 2.000 de hectare de Zonă de Protecție Integrală. Activitatea mea se concentrează pe impactul protecției naturii și al turismului asupra comunităților montane izolate, bogate cultural.</p>
+        <div class="mission-box">
+          <p>"Misiunea mea este să transmit conexiunea profundă și unică dintre viața umană și Viața mai-mult-decât-umană: Natura. Prin evoluția carierei mele — de la business, prin reciclare, spre munca de mediu — mă concentrez pe conectarea lumii digitale cu autenticitatea naturală."</p>
+          <cite>— Gheorghe Lungu</cite>
+        </div>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-card-icon">🌲</div>
+          <h4>Leadership în mediu</h4>
+          <p>Peste 8 ani de administrare a ariilor protejate și lucru cu comunități îndepărtate, specializare în antropologie și conservarea patrimoniului cultural.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🌍</div>
+          <h4>Experiență interculturală</h4>
+          <p>Fluent în mai multe limbi, cu experiență extinsă în medii multinaționale — publicitate, vânzări, HR și servicii clienți în context european.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🎓</div>
+          <h4>Educație prin natură</h4>
+          <p>Am lucrat cu 10 școli și peste 1.000 de copii și adulți, oferind programe de educație ecologică în aer liber — nu pentru a preda natura, ci pentru a crea condițiile în care natura să devină parte din ei.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🧭</div>
+          <h4>Ghidaj wilderness</h4>
+          <p>Facilitez experiențe în sălbăticie și experiențe culturale, construind punți între comunitățile tradiționale și eforturile moderne de conservare.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISPONIBILITATE -->
+<section id="disponibilitate">
+  <div class="container">
+    <div class="section-label">Status curent</div>
+    <h2 class="section-title">Disponibilitate</h2>
+    <div class="avail-badge">Deschis pentru colaborare</div>
+    <div class="avail-grid">
+      <div class="avail-card">
+        <h4>🤝 Disponibilitate actuală</h4>
+        <p>Deschis ca voluntar pentru ghidaj de experiențe wilderness și predare experiențială, cu accent pe educație ecologică și conștientizarea conservării.</p>
+      </div>
+      <div class="avail-card">
+        <h4>📍 Regiuni preferate</h4>
+        <p>Zonele montane din Sud-Vestul României și regiunile protejate, cu accent pe comunitățile îndepărtate și conservarea culturală.</p>
+      </div>
+      <div class="avail-card">
+        <h4>🎯 Domenii de interes</h4>
+        <p>Educație ecologică, ghidaj wilderness, predare experiențială și construirea de punți culturale în comunitățile montane.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:0.9rem; color:var(--muted);">Pregătit să colaborez la proiecte semnificative de conservare și educație.</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experienta">
+  <div class="container">
+    <div class="section-label">Parcurs profesional</div>
+    <h2 class="section-title">Experiență</h2>
+    <p class="section-subtitle" style="margin-bottom:40px;">Trei decenii în industrii diverse — de la România post-comunistă timpurie la conservarea parcurilor naționale.</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Ranger</span>
+            <span class="tl-period">Aug 2020 — prezent</span>
+          </div>
+          <div class="tl-company">Romsilva — Parcul Național Domogled-Valea Cernei</div>
+          <p class="tl-desc">Administrarea și patrularea a 22.725 de hectare de arie protejată, inclusiv peste 2.000 de hectare de Zonă de Protecție Integrală. Activități legate de impactul protecției naturii și al turismului asupra comunităților montane izolate, bogate cultural.</p>
+          <span class="tl-tag">Protecția mediului</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Design grafic &amp; Tipar</span>
+            <span class="tl-period">Mar 2015 — Iun 2015</span>
+          </div>
+          <div class="tl-company">Zonadepublicitate (Danart)</div>
+          <p class="tl-desc">Design grafic Corel, imprimante, cuttere, gravoare. Tipărire pe diverse materiale cu responsabilități la ghișeul cu publicul.</p>
+          <span class="tl-tag">Publicitate &amp; Design</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Profesor de Matematică</span>
+            <span class="tl-period">Sep 1997 — 2014</span>
+          </div>
+          <div class="tl-company">Diverse instituții de învățământ</div>
+          <p class="tl-desc">Predarea Matematicii timp de 2 ani în Timișoara și alți 6 ani exclusiv în sate izolate. Lecții antropologice valoroase, din teren.</p>
+          <span class="tl-tag">Educație</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Supervisor — Reciclare Fier Vechi</span>
+            <span class="tl-period">2009–2011 &amp; 2006–2008</span>
+          </div>
+          <div class="tl-company">Remat Scholz Filiala Oltenia (companie germană)</div>
+          <p class="tl-desc">Progres de la operator calculator la managementul sitului. Supervizarea transporturilor pe Dunăre pentru export. Responsabil de managementul calității, recepția stocurilor, sortare și livrare. Am operat excavatoare și stivuitoare.</p>
+          <span class="tl-tag">Reciclare &amp; Mediu</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Manager Active</span>
+            <span class="tl-period">2008–2009</span>
+          </div>
+          <div class="tl-company">New Company Recycling</div>
+          <p class="tl-desc">Administrarea operațiunilor de reciclare a fierului vechi și a deșeurilor electronice. Organizarea procedurilor de lucru și a sistemelor de gestionare a documentelor.</p>
+          <span class="tl-tag">Reciclare &amp; Mediu</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Vânzări &amp; Reparații IT</span>
+            <span class="tl-period">2004–2005</span>
+          </div>
+          <div class="tl-company">CNDPI Romsoft SA</div>
+          <p class="tl-desc">Vânzarea, asamblarea și repararea calculatoarelor, servind până la 100 de clienți zilnic. Am obținut certificarea Microsoft Licensed Specialist.</p>
+          <span class="tl-tag">Tehnologie &amp; IT</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Antreprenor independent</span>
+            <span class="tl-period">2002–2003</span>
+          </div>
+          <div class="tl-company">Verb Resurse</div>
+          <p class="tl-desc">Distribuitor de produse chimice în județul Mehedinți. Reprezentant al „Azur SA".</p>
+          <span class="tl-tag">Distribuție &amp; Chimie</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Reprezentant Vânzări</span>
+            <span class="tl-period">2001–2002</span>
+          </div>
+          <div class="tl-company">ING Nederlanden (acum ING Asigurări)</div>
+          <p class="tl-desc">Vânzarea produselor de asigurări de viață și economii clienților individuali și corporativi, cu traininguri specifice de tehnici de vânzare.</p>
+          <span class="tl-tag">Servicii financiare</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Specialist Resurse Umane</span>
+            <span class="tl-period">1999–2001</span>
+          </div>
+          <div class="tl-company">BBDO Romania</div>
+          <p class="tl-desc">Recrutare și selecție de personal pentru o agenție de publicitate de top. Managementul relațiilor cu clienții și servicii de suport administrativ.</p>
+          <span class="tl-tag">Publicitate &amp; Design</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <span class="tl-title">Reprezentant Vânzări</span>
+            <span class="tl-period">1997–1999</span>
+          </div>
+          <div class="tl-company">Pepsi Cola România</div>
+          <p class="tl-desc">Vânzări și distribuție de băuturi în zona Sud-Vest a României. Managementul relațiilor cu clienții și monitorizarea stocurilor.</p>
+          <span class="tl-tag">Distribuție</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="competente">
+  <div class="container">
+    <div class="section-label">Expertiză</div>
+    <h2 class="section-title">Competențe</h2>
+    <p class="section-subtitle" style="margin-bottom:36px;">Set complet de abilități care acoperă educația ecologică, ghidajul wilderness, comunicarea interculturală și managementul ariilor protejate.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-icon">🌿</div>
+        <h4>Supraviețuire în natură</h4>
+        <ul class="skill-list">
+          <li>Navigație în sălbăticie</li>
+          <li>Metode de aprindere a focului</li>
+          <li>Identificarea plantelor și animalelor</li>
+          <li>Evaluarea riscurilor</li>
+          <li>Culesul și construirea adăposturilor</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🎓</div>
+        <h4>Predare experiențială</h4>
+        <ul class="skill-list">
+          <li>Programe de educație în aer liber</li>
+          <li>Storytelling ecologic</li>
+          <li>Leadership de grup</li>
+          <li>Tururi patrimoniu cultural</li>
+          <li>Fotografie de natură</li>
+          <li>Turism de aventură</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🗣️</div>
+        <h4>Comunicare</h4>
+        <ul class="skill-list">
+          <li>Prezentări (nivel BBDO)</li>
+          <li>Training vânzări (ING/Pepsi)</li>
+          <li>Storytelling</li>
+          <li>Livrare educație ecologică</li>
+          <li>Servicii clienți multilingv</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🏔️</div>
+        <h4>Management arii protejate</h4>
+        <ul class="skill-list">
+          <li>Operațiuni parc național</li>
+          <li>Supervizare echipe</li>
+          <li>Management calitate</li>
+          <li>Evaluarea impactului turismului</li>
+          <li>Relații cu comunitatea</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🤝</div>
+        <h4>Mentorat</h4>
+        <ul class="skill-list">
+          <li>Ghidaj wilderness</li>
+          <li>Educație ecologică</li>
+          <li>Predare matematică</li>
+          <li>Voluntariat în natură</li>
+          <li>Mentorat intercultural</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">💼</div>
+        <h4>Business &amp; Operațiuni</h4>
+        <ul class="skill-list">
+          <li>HR &amp; Recrutare</li>
+          <li>Vânzări &amp; Account Management</li>
+          <li>Stocuri &amp; Logistică</li>
+          <li>Antreprenoriat</li>
+          <li>Publicitate &amp; Marketing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMENII -->
+<section id="domenii">
+  <div class="container">
+    <div class="section-label">Sectoare</div>
+    <h2 class="section-title" style="margin-bottom:8px;">Domenii de activitate</h2>
+    <p class="section-subtitle">Experiență acumulată în industrii diverse de-a lungul a trei decenii.</p>
+    <div class="domenii-grid">
+      <span class="domeniu-tag">🌱 Tehnologie &amp; Servicii IT</span>
+      <span class="domeniu-tag">⛽ Distribuție Petrol &amp; Gaze</span>
+      <span class="domeniu-tag">💰 Servicii Financiare</span>
+      <span class="domeniu-tag">♻️ Reciclare &amp; Mediu</span>
+      <span class="domeniu-tag">📢 Publicitate &amp; Design</span>
+      <span class="domeniu-tag">🎓 Educație</span>
+      <span class="domeniu-tag">🏔️ Protecția Naturii</span>
+      <span class="domeniu-tag">🧭 Ghidaj Wilderness</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Să colaborăm</h3>
+        <div class="contact-item">
+          <div class="contact-item-icon">📧</div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            ggverb@gmail.com
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Locație</strong>
+            Sud-Vestul României, Parcul Național Domogled-Valea Cernei
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🌐</div>
+          <div class="contact-item-text">
+            <strong>Blog</strong>
+            <a href="https://ggverb.com" target="_blank" style="color:#4ade80;">ggverb.com</a>
+          </div>
+        </div>
+        <div class="contact-note">
+          <strong>Canal YouTube</strong> — Educație de Mediu<br/>
+          Trimite-mi un mesaj pentru a discuta proiecte de colaborare în conservare și educație.
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3 style="color:white; font-size:1rem; margin-bottom:20px;">Trimite un mesaj</h3>
+        <div class="form-group">
+          <label>Nume</label>
+          <input type="text" placeholder="Numele tău"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@exemplu.com"/>
+        </div>
+        <div class="form-group">
+          <label>Mesaj</label>
+          <textarea placeholder="Descrie proiectul sau colaborarea propusă..."></textarea>
+        </div>
+        <button class="form-submit">Trimite mesajul</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 <span>Gheorghe Lungu</span>. Toate drepturile rezervate.</p>
+  <p style="margin-top:6px;">Construit cu tehnologii web moderne</p>
+</footer>
+
+</body>
 </html>
