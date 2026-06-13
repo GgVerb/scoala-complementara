@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 
 // Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
-const articles = [
+// NOTĂ: lista e exportată ca să fie folosită și de homepage (BlogSection) — o singură sursă de adevăr.
+export const articles = [
   {
     id: "tpack-genai",
     title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative",

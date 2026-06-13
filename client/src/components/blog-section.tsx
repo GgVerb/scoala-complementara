@@ -4,28 +4,39 @@ import { BookOpen, ArrowRight, Calendar } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { StaggerContainer, StaggerItem, ScaleOnHover } from "@/components/page-transition";
+import { articles } from "@/pages/articole";
+
+// Convertește o dată în format românesc ("20 mai 2026") într-un număr sortabil (AAAALLZZ).
+const LUNI: Record<string, number> = {
+  ianuarie: 1,
+  februarie: 2,
+  martie: 3,
+  aprilie: 4,
+  mai: 5,
+  iunie: 6,
+  iulie: 7,
+  august: 8,
+  septembrie: 9,
+  octombrie: 10,
+  noiembrie: 11,
+  decembrie: 12,
+};
+
+function dateToSortable(dateStr: string): number {
+  const parts = dateStr.trim().toLowerCase().split(/\s+/);
+  if (parts.length < 3) return 0;
+  const day = parseInt(parts[0], 10) || 0;
+  const month = LUNI[parts[1]] || 0;
+  const year = parseInt(parts[2], 10) || 0;
+  return year * 10000 + month * 100 + day;
+}
 
 export default function BlogSection() {
-  const featuredArticles = [
-    {
-      id: "evolutia-calatoria-timp",
-      date: "26 septembrie 2025",
-      title: "Evoluția: O Călătorie de 4.6 Kilometri",
-      summary: "O perspectivă fascinantă asupra timpului profund prin analogii creative care transformă miliardele de ani în distanțe măsurabile."
-    },
-    {
-      id: "ghidul-educatie-inovatoare",
-      date: "17 iunie 2025",
-      title: "Ghidul pentru o Educație Inovatoare",
-      summary: "Explorați un univers de soluții educaționale alternative, de la învățarea în natură și metode experiențiale, la parenting conștient și modele școlare democratice."
-    },
-    {
-      id: "educatie-experientiala",
-      date: "15 iunie 2025",
-      title: "Educație experiențială",
-      summary: "Principiile și metodele educației experiențiale și contribuțiile marilor educatori în acest domeniu."
-    }
-  ];
+  // Ultimele 3 articole, ordonate cronologic (cele mai recente primele),
+  // derivate din aceeași listă ca pagina /articole — o singură sursă de adevăr.
+  const featuredArticles = [...articles]
+    .sort((a, b) => dateToSortable(b.date) - dateToSortable(a.date))
+    .slice(0, 3);
 
   return (
     <section id="blog" className="py-24 bg-white">
@@ -38,25 +49,24 @@ export default function BlogSection() {
             <span className="gradient-text">Articole și info utile</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Descoperiți articole și resurse valoroase despre educația alternativă, 
+            Descoperiți articole și resurse valoroase despre educația alternativă,
             dezvoltarea copiilor și metodele educaționale inovatoare
           </p>
         </div>
-
         {/* Featured Articles */}
         <StaggerContainer>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {featuredArticles.map((article) => (
               <StaggerItem key={article.id}>
                 <ScaleOnHover>
-                  <Link href={`/articol/${article.id}`}>
+                  <Link href={(article as any).isExternal ? `/${article.id}` : `/articol/${article.id}`}>
                     <Card className="group card-premium h-full overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow duration-300">
                       <motion.div
                         whileHover={{ y: -2 }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
                       >
                         <CardContent className="p-8">
-                          <motion.div 
+                          <motion.div
                             className="flex items-center text-sm text-muted-foreground mb-4"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -65,7 +75,7 @@ export default function BlogSection() {
                             <Calendar className="h-4 w-4 mr-2" />
                             {article.date}
                           </motion.div>
-                          <motion.h3 
+                          <motion.h3
                             className="text-2xl font-semibold text-primary mb-4 group-hover:text-accent transition-colors"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -73,13 +83,13 @@ export default function BlogSection() {
                           >
                             {article.title}
                           </motion.h3>
-                          <motion.p 
+                          <motion.p
                             className="text-foreground line-clamp-3 leading-relaxed"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
                           >
-                            {article.summary}
+                            {article.description}
                           </motion.p>
                         </CardContent>
                       </motion.div>
@@ -90,7 +100,6 @@ export default function BlogSection() {
             ))}
           </div>
         </StaggerContainer>
-
         {/* View All Articles Button */}
         <div className="text-center">
           <Link href="/articole#articole-top">
