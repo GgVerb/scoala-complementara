@@ -20,8 +20,10 @@ export default function RangerSection() {
             <p className="text-sm font-semibold text-accent uppercase tracking-widest mb-3">
               Cine ține poteca
             </p>
-            <h2 className="text-3xl font-bold text-primary mb-4 leading-snug">
-              Gheorghe Lungu — ranger la Parcul Național Domogled-Valea Cernei
+            <h2 className="text-2xl font-bold text-primary mb-4 leading-snug">
+              Sunt foarte mulți iubitori de natură și sunt părinți și/sau pedagogi
+              iubitori de natură. Gheorghe Lungu este ranger la Parcul Național
+              Domogled-Valea Cernei și este unul dintre ei.
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               Lucrez cu muntele de peste opt ani. Nu predau natura — o arăt. 
@@ -31,11 +33,7 @@ export default function RangerSection() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               Poteca există. Eu o țin liberă. Fiecare o parcurge în ritmul lui.
             </p>
-            <a 
-              href="https://gheorghe.netlify.app" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
+            <a href="/portfolio/index.html">
               <Button 
                 variant="outline" 
                 className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 font-semibold"
