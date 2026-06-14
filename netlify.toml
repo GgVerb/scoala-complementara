@@ -1,14 +1,45 @@
 [build]
   publish = "dist/public"
   command = "npm install --include=dev && npm run build"
-
+ 
 [build.environment]
   NODE_VERSION = "20"
-
+ 
+[context.production.environment]
+  NODE_ENV = "production"
+ 
+# ─────────────────────────────────────────────────────────────
+#  SECURITY HEADERS  (adăugat — partea nouă)
+#  Se aplică la toate rutele. Headerele de mai jos NU pot strica
+#  site-ul. Singurul care POATE rupe ceva e CSP — de aceea e pus
+#  în modul "Report-Only" (doar raportează în consolă, nu blochează).
+#  Vezi nota de la final ca să-l activezi de-a binelea.
+# ─────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Forțează HTTPS 2 ani inclusiv pe subdomenii
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+    # Blochează interpretarea greșită a tipului de fișier (anti-MIME-sniffing)
+    X-Content-Type-Options = "nosniff"
+    # Anti-clickjacking: nimeni nu te poate pune în iframe
+    X-Frame-Options = "DENY"
+    # Cât referrer trimiți către alte site-uri (minim necesar)
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Dezactivează API-uri de browser pe care nu le folosești
+    Permissions-Policy = "geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=()"
+    # CSP în mod monitorizare (nu blochează nimic încă) — vezi nota de la final
+    Content-Security-Policy-Report-Only = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+ 
+# Cache lung pentru asset-urile cu hash (Vite le versionează în nume)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+ 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[context.production.environment]
-  NODE_ENV = "production"
+ 
+# ─────────────────────────────────────────────────────────────
