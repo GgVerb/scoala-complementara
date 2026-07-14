@@ -104,7 +104,11 @@ section { padding: 72px 24px; }
 #extra-exp { display: none; }
 
 /* BLOG */
-#blog { background: white; }
+#proiecte { background: white; }
+.proj-card { display: block; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+.proj-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.06); border-color: var(--green-mid); }
+.proj-link { display: inline-block; margin-top: 12px; color: var(--green); font-weight: 600; font-size: 0.8rem; }
+.proj-note { font-size: 0.95rem; color: var(--muted); max-width: 820px; margin-top: 28px; line-height: 1.7; }
 .blog-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 8px; }
 @media(max-width:768px){ .blog-grid { grid-template-columns: 1fr; } }
 .blog-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
@@ -254,7 +258,7 @@ footer p + p { margin-top: 6px; }
         <div class="about-card">
           <div class="about-card-icon">🌍</div>
           <h4>Povestitor al naturii</h4>
-          <p>Scriu pe ggverb.ro despre ecologie profundă, ontologie și ce se întâmplă când un om intră cu adevărat într-o pădure. Blog activ din 2013.</p>
+          <p>Scriu pe ggverb.wordpress.com despre ecologie profundă, ontologie și ce se întâmplă când un om intră cu adevărat într-o pădure. Blog activ din 2013.</p>
         </div>
         <div class="about-card">
           <div class="about-card-icon">🧭</div>
@@ -483,30 +487,42 @@ footer p + p { margin-top: 6px; }
   </div>
 </section>
 
-<!-- BLOG -->
-<section id="blog">
+<!-- PROIECTE -->
+<section id="proiecte">
   <div class="container">
-    <div class="section-label">Dovada muncii</div>
-    <h2 class="section-title">Blogul ggverb.ro</h2>
-    <p class="section-subtitle" style="margin-bottom:36px;">Scriu din 2014 despre ecologie profundă, ontologie, epistemologie și ce se întâmplă cu un om când intră cu adevărat într-o pădure. Nu recenzii ale naturii — investigații despre cum cunoaștem lumea mai-mult-decât-umană.</p>
+    <h2 class="section-title">Proiecte</h2>
+    <p class="section-subtitle" style="margin-bottom:36px;">În diverse stadii de lucru.</p>
     <div class="blog-grid">
-      <div class="blog-card">
+      <a class="blog-card proj-card" href="https://ggverb.ro/" target="_blank" rel="noopener">
+        <div class="blog-card-icon">🎓</div>
+        <h4>Școala complementară</h4>
+        <p>O încercare de a pune în folosul comunității — și mai ales în educarea tinerilor adolescenți — experiența și cunoștințele mele în natură și despre zona Cernei-Mehedinți. Un proiect în derulare, deși încă nu văd luminița de la capătul tunelului.</p>
+        <span class="proj-link">ggverb.ro ↗</span>
+      </a>
+      <a class="blog-card proj-card" href="https://silvascoala.netlify.app/" target="_blank" rel="noopener">
         <div class="blog-card-icon">🌲</div>
-        <h4>Ecologie profundă</h4>
-        <p>David Abram, Arne Næss și ce înseamnă să fii parte din lume, nu spectator al ei.</p>
+        <h4>SilvaȘcoală</h4>
+        <p>Un proiect de educație ecologică aflat deocamdată doar în stadiu de proiect. Așteaptă aprobarea instituțiilor implicate și găsirea unei metode de finanțare.</p>
+        <span class="proj-link">silvascoala.netlify.app ↗</span>
+      </a>
+      <a class="blog-card proj-card" href="https://pndvc.netlify.app/#acasa" target="_blank" rel="noopener">
+        <div class="blog-card-icon">🏔️</div>
+        <h4>Noul site al Parcului Național Domogled–Valea Cernei</h4>
+        <p>Editat prin Vibe Coding și menit să înlocuiască vechiul site al parcului. Va fi finalizat în 2026 și sper să fie adoptat de administrație. Altfel, rămâne o dovadă a ceea ce pot realiza în materie de design web.</p>
+        <span class="proj-link">pndvc.netlify.app ↗</span>
+      </a>
+      <div class="blog-card">
+        <div class="blog-card-icon">🛰️</div>
+        <h4>Rangerul digital</h4>
+        <p>O viziune pentru următorii zece ani: cum am putea folosi ultimele tehnologii în protecția naturii. Deocamdată în stadiu incipient, dar promite mult. Aștept profesioniști din domenii de top ale tehnologiei și reprezentanți ai Ministerului Mediului care să încurajeze această viziune.</p>
       </div>
       <div class="blog-card">
-        <div class="blog-card-icon">🧠</div>
-        <h4>Ontologie &amp; Epistemologie</h4>
-        <p>Constantin Noica, cunoașterea prin prezență, limitele cunoașterii naturii.</p>
-      </div>
-      <div class="blog-card">
-        <div class="blog-card-icon">🤖</div>
-        <h4>AI &amp; Educație</h4>
-        <p>Cum folosesc inteligența artificială în cercetarea ecologică și storytelling.</p>
+        <div class="blog-card-icon">📖</div>
+        <h4>Traducerea cărții „The Spell of the Sensuous" (David Abram)</h4>
+        <p>Tot ceea ce cred și simt despre umanitate e bine fundamentat de David Abram. Atât de entuziasmat de filozofia cărții, am început traducerea fără nicio abilitate conexă. Caut o editură care să confirme sau să infirme calitatea traducerii și, în cel mai bun caz, să mă încurajeze să o termin. Lucrez la asta de peste patru ani și probabil va mai dura.</p>
       </div>
     </div>
-    <a href="/" class="blog-cta">Citește blogul ↗</a>
+    <p class="proj-note">La toate aceste proiecte lucrez voluntar, în speranța că vor fi puse în aplicare și că nevoile sociale le vor valida. Lucrez la ele și pentru a dovedi că pot. Nu sunt un tip harnic și nu sunt dispus să renunț la imersiunea în ceea ce este viu și mai-mult-decât-uman — imersiunea în natură — pentru a le finaliza.</p>
   </div>
 </section>
 
