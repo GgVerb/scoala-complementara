@@ -40,6 +40,10 @@ export default function Articol() {
   };
 
   const articles = {
+    "scrisoare-deschisa-2026": {
+      date: "19 noiembrie 2026",
+      title: "Scrisoare deschisă 2026",
+    },
     "tpack-genai": {
       date: "20 mai 2026",
       title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative",

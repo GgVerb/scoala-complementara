@@ -9,6 +9,12 @@ import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 // NOTĂ: lista e exportată ca să fie folosită și de homepage (BlogSection) — o singură sursă de adevăr.
 export const articles = [
   {
+    id: "scrisoare-deschisa-2026",
+    title: "Scrisoare deschisă 2026",
+    description: "Către familiile care simt că lipsește ceva esențial: ce este Școala Complementară, pe cine căutăm și ce nu suntem.",
+    date: "19 noiembrie 2026"
+  },
+  {
     id: "tpack-genai",
     title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative",
     description: "Cum trebuie să se schimbe cunoștințele profesorilor în era IA generative? Mishra, Warr și Islam analizează cadrul TPACK și implicațiile GenAI pentru educație — un text de referință tradus în română.",

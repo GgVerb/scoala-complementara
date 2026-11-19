@@ -21,7 +21,8 @@ const blogArticles = [
   { id: "einstein-problema", title: "O variantă a problemei lui Einstein" },
   { id: "curriculum-propunere", title: "Curriculum - propunere" },
   { id: "evolutia-calatoria-timp", title: "Evoluția: O Călătorie de 4.6 Kilometri" },
-  { id: "tpack-genai", title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative" }
+  { id: "tpack-genai", title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative" },
+  { id: "scrisoare-deschisa-2026", title: "Scrisoare deschisă 2026" }
 ];
 
 // Component for navigation buttons
@@ -2902,6 +2903,132 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
               https://doi.org/10.1080/21532974.2023.2247480
             </a>
           </p>
+        </div>
+
+        <ArticleNavigation currentArticleId={articleId} />
+      </div>
+    );
+  }
+
+
+  if (articleId === "scrisoare-deschisa-2026") {
+    return (
+      <div className="not-prose">
+        <div
+          className="rounded-sm shadow-md px-6 sm:px-12 py-8 sm:py-10"
+          style={{
+            background: "#fdf8f0",
+            border: "1px solid #d4b896",
+            fontFamily: "'Georgia', 'Times New Roman', serif"
+          }}
+        >
+          <p className="text-xs text-stone-400 uppercase tracking-widest mb-6">Domogled — Cerna, 2026</p>
+
+          <p className="text-center text-stone-500 text-base mb-8 italic">
+            — către familiile care simt că lipsește ceva esențial —
+          </p>
+          <div className="w-24 h-px mx-auto mb-8" style={{ background: "#2d5a27", opacity: 0.3 }} />
+
+          <div className="space-y-5 text-stone-700 leading-relaxed" style={{ fontSize: "1.1rem" }}>
+            <p>Dragilor,</p>
+
+            <p>
+              Văd tinerii aflați în pragul pădurii.
+              Îi văd simțind-o ca pe ceva periculos, plin de sălbăticiuni, dar acolo curiozitatea
+              lor este maximă. Această curiozitate este cel mai puternic motor al învățării.
+              Au nevoie să audă doar atât:
+            </p>
+
+            <p
+              className="text-center font-bold"
+              style={{ color: "#2d5a27", fontStyle: "italic", fontSize: "1.15rem", padding: "0.25rem 0" }}
+            >
+              "ești ok, dă-i înainte, în caz de ceva, sunt aici pentru tine".
+            </p>
+
+            <p>
+              Copiii știu să se întoarcă la lume. Au nevoie doar de spațiu și de un adult
+              care nu le stă în cale.
+            </p>
+
+            <p>
+              Școala Complementară nu e o alternativă la sistemul de educație. E un adaos —
+              un spațiu în care tinerii descoperă că natura nu e fundal, ci interlocutor.
+              Că emoțiile nu se gestionează după o metodă, ci se înțeleg prin contact direct cu lumea.
+              Că autonomia nu se acordă — se dobândește, pas cu pas, cu rucsacul în spate.
+            </p>
+
+            <h2 className="text-xl font-semibold pt-2" style={{ color: "#2d5a27" }}>Ce căutăm în 2026:</h2>
+
+            <p>
+              Familii care simt că lipsește ceva esențial — nu mai multă educație, ci un alt tip de
+              contact cu lumea. Tineri care sunt dispuși să se obosească. Părinți care înțeleg că
+              un copil comod nu e neapărat un copil pregătit.
+            </p>
+
+            <p>
+              Eu voi ieși în continuare în natură cu turiști, cu tineri dispuși la efort, cu oameni
+              care împărtășesc mai mult sau mai puțin vibrația. Lucrez mai departe ca ranger dar am timp.
+              Am timp pentru un proiect în care credem împreună.
+            </p>
+
+            <h2 className="text-xl font-semibold pt-2" style={{ color: "#2d5a27" }}>Ce nu suntem:</h2>
+
+            <p>
+              Nu suntem o tabără de vacanță. Nu suntem terapie în natură.
+              Nu transformăm pe nimeni — lăsăm natura să facă asta, și ea știe mai bine decât noi.
+            </p>
+
+            <p>
+              Nu vreau să învăț pe nimeni ceva anume. Vreau să fiu prezent — ofer experiența mea
+              la confluența dintre un spirit unic și natura mai mult decât umană care ne cuprinde pe toți.
+            </p>
+
+            <p>
+              Dacă te regăsești în aceste cuvinte, scrie-mi. Orice formă e bună:
+              un email, un mesaj pe WhatsApp.
+              Sunt la intrarea în pădure, vă aștept.
+            </p>
+
+            <p>Cu respect,</p>
+          </div>
+
+          <div className="mt-6 mb-2">
+            <p
+              style={{
+                fontFamily: "'Dancing Script', 'Brush Script MT', cursive",
+                color: "#2d5a27",
+                fontSize: "1.8rem",
+                marginBottom: "4px"
+              }}
+            >
+              Gheorghe Lungu
+            </p>
+            <p className="text-sm text-stone-400 italic">
+              Ranger, Parcul Național Domogled-Valea Cernei
+            </p>
+          </div>
+
+          <div className="mt-10 pt-6 border-t border-stone-200">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="mailto:ggverb@gmail.com"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold text-white no-underline transition-all duration-200 hover:opacity-90"
+                style={{ background: "#2d5a27" }}
+              >
+                Scrie-mi un email
+              </a>
+              <a
+                href="https://wa.me/40721879347"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm text-sm font-semibold no-underline transition-all duration-200 hover:opacity-90"
+                style={{ background: "rgba(45,90,39,0.1)", color: "#2d5a27", border: "1px solid #2d5a27" }}
+              >
+                WhatsApp
+              </a>
+            </div>
+          </div>
         </div>
 
         <ArticleNavigation currentArticleId={articleId} />

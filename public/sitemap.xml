@@ -53,6 +53,12 @@
 
   <!-- Articole -->
   <url>
+    <loc>https://ggverb.ro/articol/scrisoare-deschisa-2026</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ggverb.ro/articol/tpack-genai</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
