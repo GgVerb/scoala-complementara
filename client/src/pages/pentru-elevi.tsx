@@ -1,20 +1,17 @@
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
+import PrivacyNote from "@/components/privacy-note";
 import { Card, CardContent } from "@/components/ui/card";
 import { BookOpen, Users, Target, Lightbulb, Heart, Trophy, Home, GraduationCap } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function PentruElevi() {
+  usePageMeta({ title: "Pentru elevi", description: "Pentru tineri de 10–18 ani: autodisciplină, autocontrol emoțional și aventură în natură, într-un mediu care te susține și te provoacă.", path: "/pentru-elevi" });
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const handleApplicationClick = () => {
-    const subject = "pare interesant";
-    const body = "Va transmit mai jos numărul adultului cu care trebuie sa stați de vorba tată /mamă telefon:";
-    const email = "ggverb@gmail.com";
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-  };
 
   // Scroll animation effects
   useEffect(() => {
@@ -112,15 +109,20 @@ export default function PentruElevi() {
             Alătură-te comunității noastre de elevi curioși și descoperă potențialul tău adevărat într-un mediu care te susține și te provoacă.
           </p>
           
+          {/* L2: copiii nu ne trimit date direct; contactul trece prin părinți */}
           <div className="flex justify-center">
-            <Button 
-              size="lg"
-              className="bg-gradient-to-r from-accent to-orange-500 text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg px-10 py-4"
-              onClick={handleApplicationClick}
-            >
-              Aplică acum
-            </Button>
+            <Link href="/pentru-adulti#contact">
+              <Button 
+                size="lg"
+                className="bg-gradient-to-r from-accent to-orange-500 text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg px-10 py-4"
+              >
+                Roagă un părinte să ne scrie
+              </Button>
+            </Link>
           </div>
+          <PrivacyNote className="mt-4">
+            Primul contact îl face un părinte, pe pagina pentru adulți.
+          </PrivacyNote>
         </div>
       </section>
 
@@ -192,6 +194,7 @@ export default function PentruElevi() {
       </section>
 
 
+      <Footer />
     </div>
   );
 }

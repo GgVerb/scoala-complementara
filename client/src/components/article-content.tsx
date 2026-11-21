@@ -1,82 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import PrivacyNote from "@/components/privacy-note";
 import { Link } from "wouter";
 import { ChevronLeft, ChevronRight, Home, Users, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ArticleContentProps {
   articleId: string;
-}
-
-// Article navigation order (articles that appear in blog section)
-const blogArticles = [
-  { id: "autoevaluare-spirituala", title: "Testează-ți sănătatea spirituală" },
-  { id: "ghid-educatie-experientiala-sintetizat", title: "Educația Experiențială: Ghid Sintetizat" },
-  { id: "ghidul-educatie-inovatoare", title: "Ghidul pentru o Educație Inovatoare" },
-  { id: "scoala-in-padure", title: "Școala în pădure" },
-  { id: "scolile-democratice", title: "Școlile democratice" },
-  { id: "outward-bound-experimente", title: "Outward Bound și alte experimente" },
-  { id: "educatie-experientiala", title: "Educație experiențială" },
-  { id: "natura-ca-profesor", title: "Natura ca profesor" },
-  { id: "abilitati-complementare", title: "Abilități complementare" },
-  { id: "einstein-problema", title: "O variantă a problemei lui Einstein" },
-  { id: "curriculum-propunere", title: "Curriculum - propunere" },
-  { id: "evolutia-calatoria-timp", title: "Evoluția: O Călătorie de 4.6 Kilometri" },
-  { id: "tpack-genai", title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative" },
-  { id: "scrisoare-deschisa-2026", title: "Scrisoare deschisă 2026" }
-];
-
-// Component for navigation buttons
-function ArticleNavigation({ currentArticleId }: { currentArticleId: string }) {
-  const currentIndex = blogArticles.findIndex(article => article.id === currentArticleId);
-  
-  if (currentIndex === -1) return null; // Article not in blog list
-  
-  const previousArticle = currentIndex > 0 ? blogArticles[currentIndex - 1] : null;
-  const nextArticle = currentIndex < blogArticles.length - 1 ? blogArticles[currentIndex + 1] : null;
-  
-  return (
-    <div className="space-y-6 mt-12 pt-8 border-t border-gray-200">
-      {/* Back to Articles button */}
-      <div className="text-center">
-        <Link href="/articole">
-          <Button variant="default" className="bg-primary hover:bg-primary/90 text-white px-6 py-2">
-            Toate articolele
-          </Button>
-        </Link>
-      </div>
-      
-      {/* Previous/Next navigation */}
-      <div className="flex justify-between items-center">
-        <div className="flex-1">
-          {previousArticle && (
-            <Link href={`/articol/${previousArticle.id}`}>
-              <Button variant="outline" className="flex items-center space-x-2 hover:bg-primary hover:text-white transition-colors">
-                <ChevronLeft className="h-4 w-4" />
-                <div className="text-left">
-                  <div className="text-xs text-gray-500">Articolul precedent</div>
-                  <div className="font-medium">{previousArticle.title}</div>
-                </div>
-              </Button>
-            </Link>
-          )}
-        </div>
-        
-        <div className="flex-1 text-right">
-          {nextArticle && (
-            <Link href={`/articol/${nextArticle.id}`}>
-              <Button variant="outline" className="flex items-center space-x-2 hover:bg-primary hover:text-white transition-colors">
-                <div className="text-right">
-                  <div className="text-xs text-gray-500">Articolul următor</div>
-                  <div className="font-medium">{nextArticle.title}</div>
-                </div>
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          )}
-        </div>
-      </div>
-    </div>
-  );
 }
 
 // Enhanced resource data for Romanian educational organizations with functional links
@@ -345,7 +274,6 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
         )}
 
         <div className="mt-12">
-          <ArticleNavigation currentArticleId="autoevaluare-spirituala" />
         </div>
       </div>
     );
@@ -922,7 +850,6 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
             </div>
           </details>
         </div>
-        <ArticleNavigation currentArticleId={articleId} />
       </div>
     );
   }
@@ -2222,145 +2149,6 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
     );
   }
 
-  if (articleId === "curriculum-propunere") {
-    return (
-      <div className="prose prose-lg max-w-none">
-        <div className="text-gray-700 leading-relaxed space-y-6">
-          <p className="text-lg">
-            Această propunere de curriculum este rezultatul unei reflecții profunde asupra nevoilor educaționale reale ale tinerilor de astăzi. În loc să urmez rigiditatea sistemelor tradiționale, propun o abordare flexibilă și adaptabilă care pune experiența practică în centrul învățării.
-          </p>
-
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg border border-primary/20">
-            <h3 className="text-xl font-bold text-primary mb-4">Principiile fundamentale</h3>
-            <ul className="space-y-2 text-lg">
-              <li>• <strong>Învățarea prin experiență:</strong> Fiecare concept este explorat prin practică directă</li>
-              <li>• <strong>Dezvoltarea holistică:</strong> Echilibru între intelect, emoții și abilități practice</li>
-              <li>• <strong>Conexiunea cu natura:</strong> Mediul natural ca sală de clasă și laborator</li>
-              <li>• <strong>Responsabilitate socială:</strong> Proiecte care contribuie la comunitate</li>
-            </ul>
-          </div>
-
-          <h2 className="text-2xl font-bold text-primary mt-8 mb-4">
-            Structura curriculumului
-          </h2>
-
-          <div className="space-y-6">
-            <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h3 className="text-xl font-bold text-primary mb-3">Modulul 1: Cunoașterea de sine</h3>
-              <p className="text-lg mb-3">Dezvoltarea conștiinței de sine și a inteligenței emotionale prin:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Reflecție personală și jurnal de dezvoltare</li>
-                <li>Exerciții de mindfulness în natură</li>
-                <li>Identificarea punctelor forte și a pasiunilor</li>
-                <li>Gestionarea emoțiilor și a stresului</li>
-              </ul>
-            </div>
-
-            <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-              <h3 className="text-xl font-bold text-primary mb-3">Modulul 2: Abilități de viață practică</h3>
-              <p className="text-lg mb-3">Competențe esențiale pentru autonomia personală:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Gestionarea financiară personală și bugetarea</li>
-                <li>Abilități domestice și întreținerea locuinței</li>
-                <li>Nutriție și gătit sănătos</li>
-                <li>Planificarea timpului și organizarea activităților</li>
-              </ul>
-            </div>
-
-            <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
-              <h3 className="text-xl font-bold text-primary mb-3">Modulul 3: Comunicare și relații</h3>
-              <p className="text-lg mb-3">Dezvoltarea abilităților interpersonale prin:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Ascultare activă și empatie</li>
-                <li>Comunicare asertivă și rezolvarea conflictelor</li>
-                <li>Leadership și lucrul în echipă</li>
-                <li>Prezentare publică și storytelling</li>
-              </ul>
-            </div>
-
-            <div className="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
-              <h3 className="text-xl font-bold text-primary mb-3">Modulul 4: Gândire critică și creativitate</h3>
-              <p className="text-lg mb-3">Dezvoltarea capacității de analiză și inovație:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Analiza informațiilor și evaluarea surselor</li>
-                <li>Rezolvarea creativă de probleme (design thinking)</li>
-                <li>Experimentare științifică și observație</li>
-                <li>Proiecte artistice și exprimarea creativă</li>
-              </ul>
-            </div>
-
-            <div className="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
-              <h3 className="text-xl font-bold text-primary mb-3">Modulul 5: Responsabilitate socială și civică</h3>
-              <p className="text-lg mb-3">Formarea cetățenilor activi și responsabili:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Înțelegerea sistemelor democratice și a drepturilor civice</li>
-                <li>Proiecte de voluntariat în comunitate</li>
-                <li>Educație ecologică și sustenabilitate</li>
-                <li>Antreprenoriat social și inițiative locale</li>
-              </ul>
-            </div>
-
-            <div className="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
-              <h3 className="text-xl font-bold text-primary mb-3">Modulul 6: Aventura și provocări</h3>
-              <p className="text-lg mb-3">Construirea încrederii prin depășirea limitelor:</p>
-              <ul className="list-disc list-inside space-y-1">
-                <li>Expediții în natură și supraviețuire de bază</li>
-                <li>Sporturi de aventură și activități outdoor</li>
-                <li>Provocări fizice și mentale progresive</li>
-                <li>Dezvoltarea resilienței și a curajului</li>
-              </ul>
-            </div>
-          </div>
-
-          <h2 className="text-2xl font-bold text-primary mt-8 mb-4">
-            Metodologia de predare
-          </h2>
-
-          <p className="text-lg">
-            Curriculumul se bazează pe <strong>învățarea experiențială</strong>, unde fiecare modul combină teoria cu practica intensivă. Mentorilor li se oferă libertatea de a adapta conținutul în funcție de nevoile specifice ale grupului și de contextul local.
-          </p>
-
-          <div className="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
-            <h3 className="text-xl font-bold text-primary mb-3">Ciclul de învățare</h3>
-            <ol className="list-decimal list-inside space-y-2 text-lg">
-              <li><strong>Experiența directă:</strong> Activități practice și provocări reale</li>
-              <li><strong>Reflecția:</strong> Discuții de grup și auto-analiză</li>
-              <li><strong>Conceptualizarea:</strong> Legarea experiențelor de principii generale</li>
-              <li><strong>Aplicarea:</strong> Testarea cunoștințelor în contexte noi</li>
-            </ol>
-          </div>
-
-          <h2 className="text-2xl font-bold text-primary mt-8 mb-4">
-            Evaluarea progresului
-          </h2>
-
-          <p className="text-lg">
-            În loc de note tradiționale, evaluarea se face prin:
-          </p>
-
-          <ul className="list-disc list-inside space-y-2 text-lg ml-4">
-            <li><strong>Portofolii de dezvoltare:</strong> Documentarea călătoriei de învățare</li>
-            <li><strong>Proiecte concrete:</strong> Realizări tangibile care demonstrează competențele</li>
-            <li><strong>Auto-evaluarea:</strong> Reflecția critică asupra propriului progres</li>
-            <li><strong>Feedback-ul comunității:</strong> Aprecierea contribuțiilor la grup</li>
-          </ul>
-
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg border border-primary/20 mt-8">
-            <h3 className="text-xl font-bold text-primary mb-3">Obiectivul final</h3>
-            <p className="text-lg">
-              Absolvenții acestui curriculum vor fi tineri autonomi, responsabili și creativi, capabili să navigheze cu încredere în lumea complexă de astăzi. Vor avea nu doar cunoștințe teoretice, ci și competențele practice și emoționale necesare pentru a contribui pozitiv la societate.
-            </p>
-          </div>
-
-          <p className="text-lg">
-            Această propunere nu este finală - ea evoluează în funcție de feedback-ul primit de la mentori, tineri și părinți. Flexibilitatea și adaptabilitatea sunt cheia succesului oricărui program educațional autentic.
-          </p>
-        </div>
-        
-      </div>
-    );
-  }
-
   if (articleId === "evolutia-calatoria-timp") {
     return (
       <div className="space-y-8">
@@ -2422,19 +2210,18 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
             <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg mb-8">
               <h2 className="text-2xl font-bold text-primary mb-6">2. Vălul Timpului: O Lățime de Brațe</h2>
               <p className="text-lg mb-4">
-                O altă analogie, la fel de puternică, folosește corpul tău drept instrument. Urmărește acest video educativ care explică istoria Pământului pe lungimea brațului tău:
+                O altă analogie, la fel de puternică, folosește corpul tău drept instrument. Urmărește video-ul educativ care explică istoria Pământului pe lungimea brațului tău:
               </p>
-              <div className="relative w-full rounded-lg overflow-hidden shadow-xl mb-4" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/uMXt0eGXuZc"
-                  title="At Arm's Length - A Short History of Earth"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              </div>
+              <p className="text-lg mb-4">
+                <a
+                  href="https://www.youtube.com/watch?v=uMXt0eGXuZc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-semibold text-primary underline hover:text-primary/80"
+                >
+                  ▶ Vezi video-ul „At Arm's Length – A Short History of Earth” pe YouTube
+                </a>
+              </p>
               <div className="bg-white p-4 rounded-lg border-l-4 border-orange-500">
                 <p className="text-lg font-semibold">
                   Întreaga istorie a omenirii poate fi ștearsă cu o singură trecere a unei pile de unghii pe vârful degetului tău!
@@ -2507,405 +2294,6 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
             </div>
           </section>
         </div>
-        <ArticleNavigation currentArticleId={articleId} />
-      </div>
-    );
-  }
-
-
-  if (articleId === "tpack-genai") {
-    return (
-      <div className="space-y-10 text-gray-800">
-
-        {/* Attribution */}
-        <div className="bg-green-50 border-l-4 border-green-600 p-5 rounded-r-lg">
-          <p className="text-sm font-semibold text-green-800 mb-1">Notă editorială</p>
-          <p className="text-sm text-green-700">
-            Articolul de mai jos este o traducere în limba română a lucrării academice{" "}
-            <em>„TPACK in the age of ChatGPT and Generative AI"</em>, publicată în{" "}
-            <em>Journal of Digital Learning in Teacher Education</em> (2023) de Punya Mishra,
-            Melissa Warr și Rezwana Islam. Traducerea a fost realizată cu scopul de a face
-            ideile accesibile comunității educatoare din România. Toate drepturile aparțin
-            autorilor originali.
-          </p>
-        </div>
-
-        {/* Abstract */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Rezumat</h2>
-          <p className="text-lg leading-relaxed bg-gray-50 p-5 rounded-lg border border-gray-200">
-            Impactul educațional al tehnologiilor de IA generativă (GenAI), precum ChatGPT, a beneficiat
-            de o atenție semnificativă. Folosim cadrul TPACK pentru a analiza tipurile de cunoștințe de
-            care au nevoie profesorii pentru a utiliza în mod eficient instrumentele GenAI. Evidențiem
-            caracteristicile GenAI care o aseamănă cu alte tehnologii digitale — sunt proteice, opace și
-            instabile — dar și caracteristicile care o fac revoluționară: este generativă și socială.
-            Pledăm pentru o descriere mai amplă a cunoașterii contextuale (XK), care să depășească
-            contextul imediat pentru a include considerații privind modul în care GenAI va schimba
-            indivizii, societatea și contextul educațional mai larg.
-          </p>
-        </section>
-
-        {/* 1. Introduction */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Introducere</h2>
-          <p className="mb-4 leading-relaxed">
-            Inteligența artificială generativă (GenAI) a cucerit lumea. În ultimul an, instrumentele
-            GenAI — ChatGPT, MidJourney, Stable Diffusion, Bard, DALL-E, Bing Chat — au devenit parte
-            integrantă a discursului cotidian. Au existat multe îngrijorări și unele motive de bucurie
-            cu privire la impactul lor asupra educației. Cadrele didactice au primit mesaje contradictorii,
-            iar incertitudinea cu privire la ce înseamnă aceste tehnologii pentru practica didactică este
-            mare.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Cadrul TPACK (Cunoașterea Pedagogică Tehnologică a Conținutului) susține că cunoștințele
-            necesare pentru integrarea cu succes a tehnologiei nu includ doar cunoașterea conținutului,
-            a abordărilor pedagogice sau a tehnologiei, ci necesită o combinație dinamică a tuturor
-            celor trei. Aceste baze de cunoștințe există într-o „tensiune creativă", în care schimbările
-            dintr-una le afectează pe celelalte. Apariția GenAI prezintă noi provocări și ridică întrebări
-            semnificative despre ce trebuie să știe profesorii pentru a avea succes.
-          </p>
-          <p className="leading-relaxed">
-            Cercetarea în domeniul TPACK a crescut constant: de la 29 de lucrări publicate în 2008 la
-            2.941 de publicații până în iunie 2023. Cu toate acestea, există riscul ca un cadru atât de
-            prolific să devină „fosilizat" — memorat și reprodus, mai degrabă decât trăit și aplicat.
-            Schimbările rapide ale tehnologiei, cum ar fi ascensiunea GenAI, ridică întrebări cu privire
-            la relevanța și valoarea cadrului. Cum arată TPACK în era GenAI? Articolul de față încearcă
-            să răspundă la această întrebare.
-          </p>
-        </section>
-
-        {/* 2. Ce este GenAI */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Ce este GenAI?</h2>
-          <p className="mb-4 leading-relaxed">
-            Termenul „GenAI" se referă la aplicațiile de inteligență artificială concepute să genereze
-            conținut nou — text, imagini, videoclipuri, muzică, date sintetice — ca răspuns la solicitările
-            utilizatorilor. Aceste programe nu sunt programate să producă un conținut specific; mai degrabă,
-            ele învață reguli și structuri statistice dintr-un set de date vast și generează conținut nou
-            cu structuri similare. Exemple: ChatGPT, Bard, DALL-E, Midjourney, DeepMind.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Un model lingvistic de mari dimensiuni (LLM) este un tip de GenAI concentrat pe generarea
-            de text. Antrenat pe miliarde de propoziții, un LLM poate efectua sarcini diverse: rezumare,
-            traducere, analiză, predicție. GPT-3 și GPT-4 ale companiei OpenAI sunt populare datorită
-            capacității lor de a crea răspunsuri realiste și contextuale.
-          </p>
-          <p className="leading-relaxed">
-            O neînțelegere frecventă: GPT-4 și alte GenAI nu sunt înlocuitori ai motoarelor de căutare.
-            Ele nu creează o arhivă a textelor de antrenare și nu se referă la ele. În schimb, funcționează
-            ca o fuziune rafinată a informațiilor, formulând răspunsuri bazate pe tipare împletite în
-            datele de antrenare. Acesta este ceea ce le face generative și incredibil de puternice.
-          </p>
-        </section>
-
-        {/* 3. Discuții actuale */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Discuții actuale despre GenAI în educație</h2>
-          <p className="mb-4 leading-relaxed">
-            De la lansarea ChatGPT3 în noiembrie 2022, reacțiile cadrelor didactice au variat de la
-            consternare la entuziasm. Primele temeri au vizat creșterea cazurilor de plagiat. Unele
-            instituții au intrat în panică; au existat apeluri pentru interzicerea completă a acestor
-            instrumente — o strategie puțin probabilă, dat fiind că GenAI este deja integrată în
-            instrumente standard de productivitate.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            O preocupare majoră este tendința GenAI de a „halucina" — de a inventa fapte cu aparentă
-            încredere. Deoarece aceste instrumente recreează tipare din datele de antrenare, ele nu au
-            nicio înțelegere a adevărului. Vor genera cu mare încredere informații false, iar din cauza
-            naturii lor de „cutie neagră", este dificil să identifici când halucinează și când raportează
-            fapte reale.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Există și preocupări legate de echitate: elevii cu acces la aceste instrumente vor avea un
-            avantaj față de cei care nu au, exacerbând decalajul digital. La fel, prejudecățile din datele
-            de antrenare se reflectă în output: experimentele au demonstrat tendința ChatGPT de a reproduce
-            prejudecăți de gen și rasiale.
-          </p>
-          <p className="leading-relaxed">
-            Cu toate acestea, mulți susțin beneficiile potențiale: învățare personalizată, feedback în
-            timp real, reducerea volumului de muncă al profesorilor, noi căi de exprimare creativă,
-            medii de învățare imersive și interactive.
-          </p>
-        </section>
-
-        {/* 4. Armonizarea */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Dincolo de falsele dihotomii</h2>
-          <p className="mb-4 leading-relaxed">
-            Juxtapunerea temerilor și a potențialelor beneficii poate genera disonanță cognitivă și
-            false dihotomii: aceste instrumente sunt îngrozitoare / uimitoare, ar trebui să le interzicem /
-            să le acceptăm, vor transforma lumea în bine / în rău. Dacă este ceva ce ne-a învățat istoria
-            schimbărilor tehnologice, este să fim precauți față de o astfel de gândire dihotomică.
-          </p>
-          <p className="leading-relaxed">
-            Trebuie să recunoaștem că GenAI are puncte forte și puncte slabe unice, că este întruchipată
-            cu moduri specifice de gândire — caracteristici inerente naturii mass-mediei în sine, adesea
-            invizibile pentru utilizatori. Educatorii trebuie să înțeleagă tehnologia și tipurile de
-            cunoaștere pe care le susține cel mai bine.
-          </p>
-        </section>
-
-        {/* 5. TPACK si GenAI */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">TPACK și GenAI</h2>
-          <p className="mb-4 leading-relaxed">
-            Cadrul TPACK nu se concentrează pe o anumită tehnologie, ci pe relația dintre tehnologie,
-            pedagogie și conținut. Deși a apărut din nevoia de a aborda provocările tehnologiilor digitale,
-            TPACK se aplică la fel de bine și la tehnologii analogice. Faptul că TPACK este agnostic din
-            punct de vedere tehnologic îl face un cadru adecvat pentru a analiza modul în care GenAI poate
-            fi utilizat în predare.
-          </p>
-          <p className="leading-relaxed">
-            Totuși, trebuie să recunoaștem că tehnologiile diferite oferă posibilități și constrângeri
-            diferite. Schimbările tehnologice ne determină să reconsiderăm modul în care percepem conținutul
-            și abordarea pedagogică. O mare parte din discursul actual privind GenAI s-a concentrat pe
-            plagiat și calitatea conținutului generat, în timp ce întrebările mai ample privind schimbările
-            în natura predării și a învățării au primit mai puțină atenție.
-          </p>
-        </section>
-
-        {/* 6. TK */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Cunoașterea Tehnologică (TK): înțelegând GenAI</h2>
-          <p className="mb-4 leading-relaxed">
-            Koehler și Mishra (2008) au identificat trei proprietăți cheie comune tuturor tehnologiilor
-            digitale: sunt <strong>proteice</strong>, <strong>opace</strong> și <strong>instabile</strong>.
-          </p>
-          <ul className="space-y-4 mb-6">
-            <li className="flex items-start">
-              <span className="text-primary font-bold mr-3 mt-0.5">•</span>
-              <div>
-                <strong>Proteice:</strong> pot simula dinamic multe formate media (imagine, sunet, text,
-                numere), făcând din digital un meta-mediu cu un potențial vast de reprezentare. La GenAI
-                această proprietate este amplificată prin capacitatea de a interacționa cu diverse conținuturi
-                printr-o interfață de limbaj natural extrem de accesibilă. Această versatilitate susține
-                scrierea creativă, rezumarea, traducerea, analiza datelor și programarea.
-              </div>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary font-bold mr-3 mt-0.5">•</span>
-              <div>
-                <strong>Instabile:</strong> predispuse la erori. La GenAI, instabilitatea depășește erorile
-                umane și de sistem — procesul generativ poate duce la „halucinații", adică rezultate care
-                nu se bazează pe date reale. Calitatea output-ului reflectă adesea calitatea input-ului.
-                Aceste modele au un sentiment iluzoriu de încredere, chiar și atunci când generează conținut
-                complet incorect.
-              </div>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary font-bold mr-3 mt-0.5">•</span>
-              <div>
-                <strong>Opace:</strong> funcționarea lor internă este ascunsă utilizatorilor și chiar
-                propriilor creatori. GenAI devine o „cutie neagră" în care înțelegerea sau prezicerea
-                modului de funcționare este practic imposibilă. La aceasta se adaugă costurile ascunse
-                ale antrenării — resurse computaționale și umane substanțiale, cu implicații semnificative
-                asupra mediului și societății.
-              </div>
-            </li>
-          </ul>
-          <p className="mb-4 font-semibold text-primary">Pe lângă aceste trei proprietăți, GenAI prezintă două caracteristici unice:</p>
-          <ul className="space-y-4">
-            <li className="flex items-start">
-              <span className="text-primary font-bold mr-3 mt-0.5">•</span>
-              <div>
-                <strong>Generativă:</strong> fiecare răspuns la o solicitare este unic, creat în timp real.
-                Capacitatea GenAI de a genera concluzii „pe loc", prin observarea tiparelor, este motivul
-                pentru care ne surprinde adesea cu răspunsuri neașteptate. Chiar și aceleași solicitări
-                identice generează rezultate diferite de fiecare dată. Dovezi ale acestei generativități:
-                instrumentele GenAI au dezvoltat, fără antrenament direct, capacitatea de a traduce între
-                limbi, de a scrie cod sofisticat, chiar de a înșela și a minți.
-              </div>
-            </li>
-            <li className="flex items-start">
-              <span className="text-primary font-bold mr-3 mt-0.5">•</span>
-              <div>
-                <strong>Socială:</strong> GenAI oferă o formă nouă de „social media" — nu instrumente
-                pentru conexiunea dintre oameni, ci o interacțiune socială prin intermediul instrumentului
-                însuși. Interacțiunile cu GenAI se desfășoară prin limbaj (o capacitate specific umană),
-                iar instrumentele înțeleg și răspund pe baza contextului și istoricului. Aceasta înseamnă
-                că modalitățile cele mai productive de interacțiune sunt de natură conversațională. Oamenii
-                vor antropomorfiza inevitabil GenAI — creierele noastre sociale nu sunt antrenate să facă
-                față acestor „obiecte de graniță". Cel mai corect este să considerăm GenAI ca „alți
-                psihologici" creativi și generativi, nu simple instrumente. Potențialul lor real se
-                manifestă atunci când sunt folosiți ca <em>colaboratori experți care greșesc adesea</em> —
-                un „stagiar inteligent și beat", cum l-a descris Mishra (2023).
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        {/* 7. TPK */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Reimaginând TPK — Cunoașterea Pedagogică Tehnologică</h2>
-          <p className="mb-4 leading-relaxed">
-            TPK descrie înțelegerea modului în care GenAI poate sprijini procesele pedagogice generale.
-            GenAI poate deveni un partener de studiu sau tutore, creând teste și oferind feedback. Gama
-            largă de produse media care pot fi realizate cu ușurință — și ușurința relativă de a dezvolta
-            reprezentări creative — oferă noi instrumente pentru comunicarea și exprimarea cunoștințelor.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Faptul că aceste instrumente pot genera răspunsuri complexe și unice sugerează că educatorii
-            ar putea fi nevoiți să își reimagineze evaluările, concentrându-se pe idei de meta-nivel.
-            De pildă, profesorul poate cere elevului să folosească GenAI pentru o primă schiță, iar
-            apoi să adauge adnotări pentru a identifica punctele tari și slabe ale răspunsului generat.
-            Acest lucru permite elevilor să se gândească mai mult la idei profunde legate de compoziție,
-            argumentare și cursivitate.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Profesorii trebuie să îi sprijine pe elevi în înțelegerea problemelor asociate cu GenAI:
-            tendința de a reproduce inechități, de a genera informații false, de a-și asuma personalități
-            asemănătoare celei umane. Explorarea domeniului emergent al „prompt engineering-ului" —
-            strategii pentru a înțelege cum „gândesc" aceste instrumente — poate deveni parte din
-            curriculum.
-          </p>
-          <p className="leading-relaxed">
-            Impulsul de a antropomorfiza GenAI va fi puternic, ceea ce necesită activarea facultăților
-            critice și învățarea „gândirii lente" (Kahneman, 2011) — procese analitice, deliberate, care
-            necesită efort conștient. O parte din TPK constă tocmai în a cunoaște utilizările adecvate
-            și inadecvate ale instrumentelor și în a-i sprijini pe elevi în dezvoltarea acestei
-            conștiințe.
-          </p>
-        </section>
-
-        {/* 8. TCK */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Reimaginând TCK — Cunoașterea Tehnologică a Conținutului</h2>
-          <p className="mb-4 leading-relaxed">
-            S-a sugerat că fiecare domeniu al activității umane va fi afectat de GenAI — de la jurnalism
-            la educație, de la programare la cinematografie, de la drept la fizică, de la marketing la
-            muzică. IA va reduce gradul de ocupare a forței de muncă printre lucrătorii cu studii
-            superioare, prin automatizarea unor sarcini considerate anterior de înaltă calificare.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Relativ neafectate vor fi profesiile profund conectate de lumea fizică: cei care întrețin
-            dispozitive mecanice, cei implicați în spectacole live, cei care îngrijesc persoane vulnerabile.
-            Rezultatul este o <strong>inversare a ierarhiei standard</strong>: în termeni pur economici,
-            profesiile gulerelor albastre vor deveni mai valoroase decât cele intelectuale.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Există două implicații. În primul rând, o apreciere reînnoită a disciplinelor de creație
-            fizică și a artelor. În al doilea rând, profesioniștii orientați cognitiv vor fi valoroși
-            dacă pot folosi GenAI pentru gândire critică și creativitate: avocatul care structurează
-            argumente (nu doar cercetează jurisprudența), jurnalistul care dezvoltă noi forme de
-            cunoaștere (nu doar raportează fapte), analistul de date care caută noi moduri de reprezentare.
-          </p>
-          <p className="leading-relaxed">
-            Sistemele educaționale trebuie să reconsidere obiectivele curriculare: ce este cu adevărat
-            important să știe elevii pentru a fi pregătiți pentru un viitor imprevizibil, în care
-            tecnologiile IA vor duce la transformarea locurilor de muncă?
-          </p>
-        </section>
-
-        {/* 9. XK */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Reimaginând XK — Cunoașterea Contextuală</h2>
-          <p className="mb-4 leading-relaxed">
-            Cunoașterea Contextuală (XK) recunoaște că educatorii nu funcționează în izolare — ei
-            operează în sisteme și contexte culturale mai largi: sisteme de evaluare, politici de district,
-            constrângeri bugetare, standarde de stat. Un profesor care înțelege acești factori sistemici
-            îi poate utiliza inteligent pentru a se poziționa, atât pe sine cât și pe elevi, pe o
-            traiectorie spre succes.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Pe măsură ce apar noi tehnologii, profesorii nu trebuie doar să își actualizeze cunoștințele,
-            ci să înțeleagă factorii sistemici care le dau putere sau care le limitează ceea ce pot face.
-            Un profesor creativ, cu o înțelegere sofisticată a modului în care poate folosi GenAI în
-            clasă, își poate vedea încercările blocate de politicile de district care interzic utilizarea
-            acestor instrumente. XK poate reprezenta diferența cheie dintre implementarea cu succes a
-            inovației sau eșecul acesteia.
-          </p>
-        </section>
-
-        {/* 10. Reimaginand TPACK */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Reimaginând TPACK în era GenAI</h2>
-          <p className="mb-4 leading-relaxed">
-            Cea mai importantă perspectivă privind TPACK în era GenAI este de natură filosofică. Aceste
-            tehnologii necesită o schimbare de perspectivă: de la o abordare pur utilitară la una
-            <strong> relațională</strong>. Dihotomiile tradiționale — mașină versus instrument, instrument
-            versus obiect — se estompează. GenAI nu funcționează în izolare; interacționează, învață și
-            se dezvoltă prin dialog cu oamenii.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Nu suntem doar utilizatori sau operatori — suntem co-creatori, modelând și fiind modelați
-            de aceste tehnologii într-un proces continuu de co-constituire. Aceasta este o schimbare
-            critică de înțelegere.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Spațiul de învățare, care până astăzi a fost locuit de oameni ca agenți activi de creare a
-            sensului, se va schimba. Instrumente precum KhanMigo (tutore construit pe ChatGPT-4) pot
-            juca rolul unui „ghid spiritual" — un rol descris de obicei ca unic uman. Viitoarele sisteme
-            de tutorat vor deține cunoștințe TPACK integrate în structura lor: cunoștințe despre conținut,
-            despre nivelul de înțelegere al elevului, combinate cu capacitatea de a lucra pe o gamă
-            largă de medii de reprezentare.
-          </p>
-          <p className="leading-relaxed">
-            Tipurile de cunoștințe pe care profesorii trebuie să le posede vor evolua. Cunoștințele
-            profesorilor ar putea fi nevoite să se concentreze mai mult pe aspectele sociale și psihologice
-            ale creșterii și mai puțin pe expertiza de conținut pur.
-          </p>
-        </section>
-
-        {/* 11. Tabloul mai larg */}
-        <section>
-          <h2 className="text-2xl font-bold text-primary mb-4">Tabloul mai larg: lecțiile rețelelor sociale</h2>
-          <p className="mb-4 leading-relaxed">
-            Thomas Edison prezisese că filmul cinematografic va revoluționa educația, că „sistemul nostru
-            școlar va fi complet schimbat în zece ani". S-a înșelat. Aceste citate sunt adesea folosite
-            pentru a argumenta două perspective opuse: trufia tehnologilor care văd în fiecare instrument
-            nou un efect transformator, și intransigența educatorilor care rezistă la schimbare. Ambele
-            perspective ratează esențialul.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Tehnologiile au schimbat profund educația, nu direct — ci schimbând lumea în care funcționează
-            educația. Filmul a schimbat lumea, contextul socio-cultural în care există școlile. O viziune
-            similară se aplică GenAI: trebuie să luăm în considerare nu doar cum afectează clasa de azi,
-            ci cum va afecta viața personală și profesională a elevilor în viitor.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Lecția rețelelor sociale este relevantă. În urmă cu un deceniu, educatorii se întrebau cum
-            să folosească Twitter și YouTube în clasă — dar nu s-au gândit la impactul social mai larg.
-            Nu au fost pregătiți pentru dezinformarea masivă, pentru polarizarea politică, pentru criza
-            de sănătate mintală a adolescenților. Datele CDC arată că proporția elevilor de liceu care
-            raportează „sentimente persistente de tristețe sau deznădejde" a crescut de la 28% în 2011
-            la 42% în 2021.
-          </p>
-          <p className="mb-4 leading-relaxed">
-            Întrebările pe care ar fi trebuit să le punem rețelelor sociale în urmă cu un deceniu sunt
-            întrebările pe care trebuie să le punem astăzi GenAI: Cum va afecta GenAI încrederea în
-            sursele de informații, în instituții? Va consolida sau va eroda credințele sociale acceptate?
-            Va alimenta confuzia, scepticismul, anxietatea? Cum va complica tendința noastră de a
-            antropomorfiza entitățile non-umane? Ce va însemna acest lucru pentru copiii care își
-            dezvoltă încă simțul sinelui?
-          </p>
-          <p className="leading-relaxed">
-            Scopul nu este pesimismul. GenAI este un instrument puternic, cu potențialul de a transforma
-            cu adevărat sălile de clasă. Pactul faustian cu tehnologia — acceptăm binele odată cu răul —
-            este real. Dar, pe măsură ce educatorii își dezvoltă modelul TPACK, trebuie să adopte o
-            perspectivă pe termen lung: nu doar cum îi afectează GenAI astăzi, ci cum va afecta, posibil,
-            viața elevilor lor în viitor. GenAI — proteică, opacă, instabilă, generativă și socială —
-            a venit pentru a rămâne. Treaba noastră este să ne pregătim pentru acest viitor emergent.
-          </p>
-        </section>
-
-        {/* Citation */}
-        <div className="bg-gray-100 p-5 rounded-lg border border-gray-300 text-sm text-gray-600">
-          <p className="font-semibold mb-2 text-gray-700">Citare originală:</p>
-          <p>
-            Mishra, P., Warr, M., & Islam, R. (2023). TPACK in the age of ChatGPT and Generative AI.{" "}
-            <em>Journal of Digital Learning in Teacher Education</em>.{" "}
-            <a
-              href="https://doi.org/10.1080/21532974.2023.2247480"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary underline hover:text-primary/80"
-            >
-              https://doi.org/10.1080/21532974.2023.2247480
-            </a>
-          </p>
-        </div>
-
-        <ArticleNavigation currentArticleId={articleId} />
       </div>
     );
   }
@@ -2958,18 +2346,18 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
               Că autonomia nu se acordă — se dobândește, pas cu pas, cu rucsacul în spate.
             </p>
 
-            <h2 className="text-xl font-semibold pt-2" style={{ color: "#2d5a27" }}>Ce căutăm în 2026:</h2>
+            <h2 className="text-xl font-semibold pt-2" style={{ color: "#2d5a27" }}>Pe cine căutăm în 2026:</h2>
 
             <p>
-              Familii care simt că lipsește ceva esențial — nu mai multă educație, ci un alt tip de
+              Familii care simt această lipsă — nu mai multă educație, ci un alt tip de
               contact cu lumea. Tineri care sunt dispuși să se obosească. Părinți care înțeleg că
               un copil comod nu e neapărat un copil pregătit.
             </p>
 
             <p>
               Eu voi ieși în continuare în natură cu turiști, cu tineri dispuși la efort, cu oameni
-              care împărtășesc mai mult sau mai puțin vibrația. Lucrez mai departe ca ranger dar am timp.
-              Am timp pentru un proiect în care credem împreună.
+              care împărtășesc mai mult sau mai puțin vibrația. Lucrez mai departe ca ranger, dar am timp.
+              Am timp pentru un proiect în care să credem împreună.
             </p>
 
             <h2 className="text-xl font-semibold pt-2" style={{ color: "#2d5a27" }}>Ce nu suntem:</h2>
@@ -2981,11 +2369,11 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
 
             <p>
               Nu vreau să învăț pe nimeni ceva anume. Vreau să fiu prezent — ofer experiența mea
-              la confluența dintre un spirit unic și natura mai mult decât umană care ne cuprinde pe toți.
+              la confluența dintre un spirit unic și natura mai-mult-decât-umană care ne cuprinde pe toți.
             </p>
 
             <p>
-              Dacă te regăsești în aceste cuvinte, scrie-mi. Orice formă e bună:
+              Dacă vă regăsiți în aceste cuvinte, scrieți-mi. Orice formă e bună:
               un email, un mesaj pe WhatsApp.
               Sunt la intrarea în pădure, vă aștept.
             </p>
@@ -3028,10 +2416,9 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
                 WhatsApp
               </a>
             </div>
+            <PrivacyNote className="mt-4 text-center" />
           </div>
         </div>
-
-        <ArticleNavigation currentArticleId={articleId} />
       </div>
     );
   }

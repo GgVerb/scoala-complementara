@@ -5,10 +5,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --port 5000 --host 0.0.0.0",
-    "build": "vite build",
-    "check": "tsc"
+    "build": "node scripts/generate-routes.mjs && vite build",
+    "check": "tsc",
+    "routes": "node scripts/generate-routes.mjs"
   },
   "dependencies": {
+    "@fontsource/dancing-script": "^5.3.0",
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
     "@radix-ui/react-accordion": "^1.2.4",

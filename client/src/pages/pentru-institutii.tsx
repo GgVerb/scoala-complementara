@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
+import PrivacyNote from "@/components/privacy-note";
 import { ArrowLeft, Building, Home } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function PentruInstitutii() {
+  usePageMeta({ title: "Pentru instituții", description: "Colaborare cu Școala Complementară: proiecte comune de învățare experiențială care dezvoltă abilități esențiale pentru viață.", path: "/pentru-institutii" });
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -138,6 +142,7 @@ Telefonul meu:`;
                   >
                     Contactează-ne pentru colaborare
                   </Button>
+                  <PrivacyNote className="mt-4" />
                 </div>
 
                 <div className="text-right">
@@ -154,6 +159,7 @@ Telefonul meu:`;
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

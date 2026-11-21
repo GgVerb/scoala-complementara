@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
+import PrivacyNote from "@/components/privacy-note";
 import { Users, Home } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function PentruAdulti() {
+  usePageMeta({ title: "Pentru părinți și adulți", description: "Cum funcționează educația experiențială la Școala Complementară, cum vă puteți implica și cum ne contactați ca părinte.", path: "/pentru-adulti" });
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -41,6 +45,13 @@ Telefon:`;
   };
 
   useEffect(() => {
+    // Venit din „Roagă un părinte să ne scrie” (/pentru-adulti#contact): du-te la butonul de contact.
+    if (window.location.hash === "#contact") {
+      const t = setTimeout(() => {
+        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 500);
+      return () => clearTimeout(t);
+    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -99,7 +110,7 @@ Telefon:`;
               Aceste activități îi ajută să se pregătească pentru viață într-un mod pe care școala clasică nu îl poate oferi. Elevii vor încerca practic și își vor clădi mai întâi inteligența emoțională și autodisciplina. Pe aceste baze vor deprinde abilități de comunicare, reziliență și adaptare. Atunci când decid să se dedice unei pasiuni, vor avea abilitățile necesare de a învăța și de a munci singuri. Dacă apăsați pe butonul de mai jos:
             </p>
 
-            <div className="text-center mb-12">
+            <div id="contact" className="text-center mb-12 scroll-mt-24">
               <Button 
                 size="lg"
                 className="bg-gradient-to-r from-primary to-secondary text-white hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-lg px-12 py-4"
@@ -107,13 +118,14 @@ Telefon:`;
               >
                 Hai să discutăm
               </Button>
+              <PrivacyNote className="mt-4" />
             </div>
 
             <h3 className="text-2xl font-semibold text-primary mb-4">
               Procesul de înscriere și comunicare
             </h3>
             <p className="text-lg mb-8">
-              Veți fi contactați și o să stam de vorbă. Dacă fiul/fiica dvs completează formularul de înscriere (aflat la pagina dedicată elevilor) o să vă sunăm pe dvs mai întâi. Până atunci puteți citi mai departe.
+              Veți fi contactați și o să stam de vorbă. Nu le cerem copiilor să ne scrie direct: primul contact îl faceți dumneavoastră, ca părinte, prin butonul de mai sus. Până atunci puteți citi mai departe.
             </p>
 
             <div className="bg-white rounded-lg shadow-lg p-8 mb-8 border border-gray-200">
@@ -234,6 +246,7 @@ Telefon:`;
       </section>
 
 
+      <Footer />
     </div>
   );
 }

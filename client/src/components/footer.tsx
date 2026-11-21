@@ -26,6 +26,10 @@ export default function Footer() {
         <div className="border-t border-secondary/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300 text-sm">
             © 2025 Școala Complementară. Toate drepturile rezervate.
+            <span className="mx-2" aria-hidden="true">·</span>
+            <Link href="/confidentialitate" className="underline underline-offset-2 hover:text-white">
+              Confidențialitate
+            </Link>
           </p>
           <p className="text-gray-300 text-sm mt-4 md:mt-0">
             Un produs{" "}

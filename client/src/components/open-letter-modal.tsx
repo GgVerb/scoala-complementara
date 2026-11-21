@@ -4,8 +4,7 @@ import { X } from "lucide-react";
 
 // Fereastra deschisă din butonul-plic din Hero.
 // Conținutul anterior („Scrisoare deschisă 2026”) a fost mutat ca articol:
-// /articol/scrisoare-deschisa-2026. Deocamdată fereastra conține doar titlul;
-// textul pentru 2027 urmează să fie adăugat sub titlu.
+// /articol/scrisoare-deschisa-2026. Textul pentru 2027 e provizoriu („Lucrăm la asta”).
 
 interface OpenLetterModalProps {
   isOpen: boolean;
@@ -73,7 +72,10 @@ export function OpenLetterModal({ isOpen, onClose }: OpenLetterModalProps) {
                 >
                   Proiecte și vise pentru 2027
                 </h2>
-                {/* Textul pentru 2027 se adaugă aici. */}
+                <div className="w-24 h-px mx-auto mt-6 mb-6" style={{background: "#2d5a27", opacity: 0.3}} />
+                <p className="text-center text-stone-700 leading-relaxed" style={{fontSize: "1.1rem"}}>
+                  Lucrăm la asta
+                </p>
               </div>
             </div>
           </motion.div>
@@ -83,13 +85,15 @@ export function OpenLetterModal({ isOpen, onClose }: OpenLetterModalProps) {
   );
 }
 
-export function OpenLetterButton({ onClick }: { onClick: () => void }) {
+// T7: poziția vine din `className` — în Hero se folosesc două instanțe:
+// în flux sub butoane pe ecrane mici, în colțul din dreapta jos pe desktop.
+export function OpenLetterButton({ onClick, className = "" }: { onClick: () => void; className?: string }) {
   return (
     <motion.button
       onClick={onClick}
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.97 }}
-      className="absolute bottom-20 right-6 sm:right-10 z-20"
+      className={`z-20 ${className}`}
       aria-label="Proiecte și vise pentru 2027"
     >
       <div

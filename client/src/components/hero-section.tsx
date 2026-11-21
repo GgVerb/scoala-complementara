@@ -64,7 +64,11 @@ export default function HeroSection() {
         <div className="absolute bottom-40 left-1/4 w-8 h-8 bg-primary/20 rounded-full animate-float" style={{animationDelay: '2s'}} />
 
         {/* Open Letter floating button */}
-        <OpenLetterButton onClick={() => setIsLetterOpen(true)} />
+        {/* Desktop: colțul din dreapta jos */}
+        <OpenLetterButton
+          onClick={() => setIsLetterOpen(true)}
+          className="hidden lg:block absolute bottom-20 right-10"
+        />
         
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <div className="animate-fade-in">
@@ -130,6 +134,11 @@ export default function HeroSection() {
                 <Sprout className="mr-2 h-5 w-5" />
                 Citește articolele
               </Button>
+            </div>
+
+            {/* Mobil și tabletă: sub butoane, în flux, ca să nu acopere nimic */}
+            <div className="lg:hidden mt-10 flex justify-center">
+              <OpenLetterButton onClick={() => setIsLetterOpen(true)} className="relative" />
             </div>
           </div>
         </div>

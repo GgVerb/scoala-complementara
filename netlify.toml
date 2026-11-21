@@ -37,9 +37,9 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
  
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
- 
+# ─────────────────────────────────────────────────────────────
+#  RUTE (T6): sunt în client/public/_redirects, generat la build de
+#  scripts/generate-routes.mjs din lista de pagini și din articles.json.
+#  Paginile și articolele existente răspund cu 200; orice altă adresă
+#  primește aplicația cu status HTTP 404 (pagina 404 în română).
 # ─────────────────────────────────────────────────────────────

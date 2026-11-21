@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
 import { BookOpen, Home } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function DespreNoi() {
+  usePageMeta({ title: "Despre noi și proiect", description: "Cine suntem, de unde a pornit Școala Complementară și ce am făcut până acum: tabere de vară, drumeții și proiecte cu adolescenți.", path: "/despre-noi" });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const fondatorImages = [
     "20240802165449_IMG_0024_1_1751308595756_",
@@ -251,6 +254,7 @@ export default function DespreNoi() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

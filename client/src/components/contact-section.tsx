@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import PrivacyNote from "@/components/privacy-note";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa6";
@@ -54,16 +55,7 @@ export default function ContactSection() {
                     <div className="flex-1">
                       <h4 className="font-semibold text-lg text-primary mb-1">Locația</h4>
                       <p className="text-gray-700">
-                        <a 
-                          href="https://maps.app.goo.gl/3TW4GbNK4y2znCAG9" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="hover:text-primary transition-colors"
-                        >
-                          Drobeta Turnu Severin<br />
-                          Matei Vasilescu 23a<br />
-                          220155 România
-                        </a>
+                        Drobeta Turnu Severin, România
                       </p>
                     </div>
                   </div>
@@ -90,6 +82,7 @@ export default function ContactSection() {
                     </div>
                   </div>
                 </div>
+                <PrivacyNote className="mt-8" />
               </CardContent>
             </Card>
           </div>

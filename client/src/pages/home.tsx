@@ -9,8 +9,10 @@ import BlogSection from "@/components/blog-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import { SectionTransition, FadeInWhenVisible } from "@/components/page-transition";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function Home() {
+  usePageMeta({ path: "/" });
   useEffect(() => {
     const handleHashScroll = () => {
       const hash = window.location.hash.replace('#', '');

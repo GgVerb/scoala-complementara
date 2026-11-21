@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/footer";
+import PrivacyNote from "@/components/privacy-note";
 import { ArrowLeft, Users, Home } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 export default function PentruMentori() {
+  usePageMeta({ title: "Pentru mentori și voluntari", description: "Ce înseamnă să fii mentor voluntar la Școala Complementară: rolul tău alături de tineri și cerințele legale pentru lucrul cu minori.", path: "/pentru-mentori" });
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -219,6 +223,7 @@ export default function PentruMentori() {
                 >
                   Putem discuta despre asta
                 </Button>
+                <PrivacyNote className="mt-4" />
               </div>
 
               <div className="text-right">
@@ -230,10 +235,30 @@ export default function PentruMentori() {
                   P.S. Alte detalii despre proiectul <Link href="/despre-noi" className="text-primary hover:text-secondary font-medium underline">Școala Complementară aici</Link>
                 </p>
               </div>
+
+              {/* L8: cerințele legale pentru voluntarii care lucrează cu minori */}
+              <div className="mt-10 p-6 bg-amber-50 border-l-4 border-amber-500 rounded-r-lg text-left">
+                <h3 className="text-xl font-semibold text-primary mb-3">Cerințe legale pentru mentorii voluntari</h3>
+                <p className="mb-3">
+                  Mentorii voluntari lucrează direct cu minori, așa că pentru această activitate se aplică:
+                </p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>
+                    <strong>Legea nr. 118/2019</strong> privind Registrul național automatizat cu privire la persoanele
+                    care au comis infracțiuni sexuale, de exploatare a unor persoane sau asupra minorilor — fiecare
+                    voluntar prezintă <strong>certificatul de integritate comportamentală</strong>;
+                  </li>
+                  <li>
+                    <strong>Legea nr. 78/2014</strong> privind reglementarea activității de voluntariat în România —
+                    activitatea se desfășoară pe baza unui <strong>contract de voluntariat</strong>.
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

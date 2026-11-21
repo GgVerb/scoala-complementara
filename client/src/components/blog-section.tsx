@@ -4,39 +4,12 @@ import { BookOpen, ArrowRight, Calendar } from "lucide-react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { StaggerContainer, StaggerItem, ScaleOnHover } from "@/components/page-transition";
-import { articles } from "@/pages/articole";
-
-// Convertește o dată în format românesc ("20 mai 2026") într-un număr sortabil (AAAALLZZ).
-const LUNI: Record<string, number> = {
-  ianuarie: 1,
-  februarie: 2,
-  martie: 3,
-  aprilie: 4,
-  mai: 5,
-  iunie: 6,
-  iulie: 7,
-  august: 8,
-  septembrie: 9,
-  octombrie: 10,
-  noiembrie: 11,
-  decembrie: 12,
-};
-
-function dateToSortable(dateStr: string): number {
-  const parts = dateStr.trim().toLowerCase().split(/\s+/);
-  if (parts.length < 3) return 0;
-  const day = parseInt(parts[0], 10) || 0;
-  const month = LUNI[parts[1]] || 0;
-  const year = parseInt(parts[2], 10) || 0;
-  return year * 10000 + month * 100 + day;
-}
+import { listedArticles, formatDate } from "@/lib/articles";
 
 export default function BlogSection() {
   // Ultimele 3 articole, ordonate cronologic (cele mai recente primele),
   // derivate din aceeași listă ca pagina /articole — o singură sursă de adevăr.
-  const featuredArticles = [...articles]
-    .sort((a, b) => dateToSortable(b.date) - dateToSortable(a.date))
-    .slice(0, 3);
+  const featuredArticles = listedArticles.slice(0, 3);
 
   return (
     <section id="blog" className="py-24 bg-white">
@@ -59,7 +32,7 @@ export default function BlogSection() {
             {featuredArticles.map((article) => (
               <StaggerItem key={article.id}>
                 <ScaleOnHover>
-                  <Link href={(article as any).isExternal ? `/${article.id}` : `/articol/${article.id}`}>
+                  <Link href={`/articol/${article.id}`}>
                     <Card className="group card-premium h-full overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow duration-300">
                       <motion.div
                         whileHover={{ y: -2 }}
@@ -73,7 +46,7 @@ export default function BlogSection() {
                             transition={{ delay: 0.1 }}
                           >
                             <Calendar className="h-4 w-4 mr-2" />
-                            {article.date}
+                            <time dateTime={article.date}>{formatDate(article.date)}</time>
                           </motion.div>
                           <motion.h3
                             className="text-2xl font-semibold text-primary mb-4 group-hover:text-accent transition-colors"

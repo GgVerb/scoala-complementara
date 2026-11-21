@@ -5,105 +5,18 @@ import { PageTransition, FadeInWhenVisible, StaggerContainer, StaggerItem } from
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, BookOpen, Home, Calendar } from "lucide-react";
 
-// Articles available in the blog section (excluding "voluntarii" and "de ce eu") - ordered by publication date (most recent first)
-// NOTĂ: lista e exportată ca să fie folosită și de homepage (BlogSection) — o singură sursă de adevăr.
-export const articles = [
-  {
-    id: "scrisoare-deschisa-2026",
-    title: "Scrisoare deschisă 2026",
-    description: "Către familiile care simt că lipsește ceva esențial: ce este Școala Complementară, pe cine căutăm și ce nu suntem.",
-    date: "19 noiembrie 2026"
-  },
-  {
-    id: "tpack-genai",
-    title: "TPACK în era ChatGPT și a Inteligenței Artificiale Generative",
-    description: "Cum trebuie să se schimbe cunoștințele profesorilor în era IA generative? Mishra, Warr și Islam analizează cadrul TPACK și implicațiile GenAI pentru educație — un text de referință tradus în română.",
-    date: "20 mai 2026"
-  },
-  {
-    id: "autoevaluare-spirituala",
-    title: "Testează-ți sănătatea spirituală",
-    description: "Un test interactiv de autoevaluare pe dimensiunile ontologică, epistemologică și axiologică, bazat pe principii de orientare și bucla OODA.",
-    date: "8 ianuarie 2026"
-  },
-  {
-    id: "ghid-educatie-experientiala-sintetizat",
-    title: "Educația Experiențială: Ghid Sintetizat",
-    description: "Un ghid complet despre educația experiențială: principii fundamentale, ciclul Kolb, metodologii practice, instituții și resurse pentru părinți și educatori.",
-    date: "23 decembrie 2025"
-  },
-  {
-    id: "disfunctie-cognitiva",
-    title: "Ignoranța mulțimii: gândirea disfuncțională în rețelele sociale",
-    description: "Cum gândirea defectuoasă se răspândește prin rețelele sociale și este amplificată de mediile digitale și IA. Un studiu academic despre cogniție, propagandă și contramăsuri.",
-    date: "15 decembrie 2025",
-    isExternal: true
-  },
-  {
-    id: "evolutia-calatoria-timp",
-    title: "Evoluția: O Călătorie de 4.6 Kilometri",
-    description: "O perspectivă fascinantă asupra timpului profund prin analogii creative care transformă miliardele de ani în distanțe măsurabile.",
-    date: "26 septembrie 2025"
-  },
-  {
-    id: "ghidul-educatie-inovatoare",
-    title: "Ghidul pentru o Educație Inovatoare",
-    description: "Un ghid interactiv pentru părinți și educatori care doresc să exploreze metode alternative de învățământ și să descopere resurse educaționale din România.",
-    date: "17 iunie 2025"
-  },
-  {
-    id: "educatie-experientiala",
-    title: "Educație experiențială",
-    description: "Principiile și metodele educației experiențiale și contribuțiile marilor educatori în acest domeniu.",
-    date: "15 iunie 2025"
-  },
-  {
-    id: "natura-ca-profesor",
-    title: "Natura ca profesor",
-    description: "Cum natura poate deveni cel mai bun profesor și ce învățăm din observarea ecosistemelor naturale.",
-    date: "15 iunie 2025"
-  },
-  {
-    id: "abilitati-complementare",
-    title: "Abilități complementare",
-    description: "Cele 9 abilități esențiale pentru viață pe care sistemul educațional tradițional nu le predă suficient.",
-    date: "3 februarie 2025"
-  },
-  {
-    id: "scoala-in-padure",
-    title: "Școala în pădure",
-    description: "Explorează conceptul de școală în aer liber și beneficiile educației în natură pentru dezvoltarea copiilor.",
-    date: "29 ianuarie 2025"
-  },
-  {
-    id: "outward-bound-experimente",
-    title: "Outward Bound și alte experimente",
-    description: "Istoria și filosofia programelor Outward Bound și alte experimente în educația experiențială.",
-    date: "29 ianuarie 2025"
-  },
-  {
-    id: "einstein-problema",
-    title: "O variantă a problemei lui Einstein",
-    description: "O provocare logică complexă care testează capacitatea de gândire sistematică și deducție.",
-    date: "29 ianuarie 2025"
-  },
-  {
-    id: "curriculum-propunere",
-    title: "Curriculum - propunere",
-    description: "O propunere comprehensivă pentru un curriculum educațional alternativ bazat pe experiență și dezvoltare holistică.",
-    date: "28 ianuarie 2025"
-  },
-  {
-    id: "scolile-democratice",
-    title: "Școlile democratice",
-    description: "Descoperă cum funcționează școlile democratice și ce le face diferite de sistemul educațional tradițional.",
-    date: "17 ianuarie 2025"
-  }
-];
+import { listedArticles, formatDate } from "@/lib/articles";
+import { usePageMeta } from "@/hooks/use-page-meta";
+
 
 
 
 export default function Articole() {
+  usePageMeta({
+    title: "Articole și info utile",
+    description: "Articole despre educație experiențială, școli democratice, școala în pădure și dezvoltarea tinerilor prin experiențe în natură.",
+    path: "/articole",
+  });
   const [headerVisible, setHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -210,9 +123,9 @@ export default function Articole() {
             {/* Articles list */}
             <StaggerContainer staggerDelay={0.1}>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {articles.map((article) => (
+                {listedArticles.map((article) => (
                   <StaggerItem key={article.id}>
-                    <Link href={(article as any).isExternal ? `/${article.id}` : `/articol/${article.id}`}>
+                    <Link href={`/articol/${article.id}`}>
                       <Card className="h-full shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer border-gray-200 hover:border-primary/30">
                         <CardHeader>
                           <CardTitle className="text-lg text-gray-900 line-clamp-2">
@@ -220,7 +133,7 @@ export default function Articole() {
                           </CardTitle>
                           <div className="flex items-center text-sm text-muted-foreground mt-2">
                             <Calendar className="h-4 w-4 mr-2" />
-                            {article.date}
+                            <time dateTime={article.date}>{formatDate(article.date)}</time>
                           </div>
                         </CardHeader>
                         <CardContent>

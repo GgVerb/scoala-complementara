@@ -1,0 +1,116 @@
+[
+  {
+    "id": "scrisoare-deschisa-2026",
+    "title": "Scrisoare deschisă 2026",
+    "description": "Către familiile care simt că lipsește ceva esențial: ce este Școala Complementară, pe cine căutăm și ce nu suntem.",
+    "date": "2026-11-19",
+    "listed": true
+  },
+  {
+    "id": "autoevaluare-spirituala",
+    "title": "Testează-ți sănătatea spirituală",
+    "description": "Un test interactiv de autoevaluare pe dimensiunile ontologică, epistemologică și axiologică, bazat pe principii de orientare și bucla OODA.",
+    "date": "2026-01-08",
+    "listed": true
+  },
+  {
+    "id": "ghid-educatie-experientiala-sintetizat",
+    "title": "Educația Experiențială: Ghid Sintetizat",
+    "description": "Un ghid complet despre educația experiențială: principii fundamentale, ciclul Kolb, metodologii practice, instituții și resurse pentru părinți și educatori.",
+    "date": "2025-12-23",
+    "listed": true
+  },
+  {
+    "id": "evolutia-calatoria-timp",
+    "title": "Evoluția: O Călătorie de 4.6 Kilometri",
+    "description": "O perspectivă fascinantă asupra timpului profund prin analogii creative care transformă miliardele de ani în distanțe măsurabile.",
+    "date": "2025-09-26",
+    "listed": true
+  },
+  {
+    "id": "ghidul-educatie-inovatoare",
+    "title": "Ghidul pentru o Educație Inovatoare",
+    "description": "Un ghid interactiv pentru părinți și educatori care doresc să exploreze metode alternative de învățământ și să descopere resurse educaționale din România.",
+    "date": "2025-06-17",
+    "listed": true
+  },
+  {
+    "id": "educatie-experientiala",
+    "title": "Educație experiențială",
+    "description": "Principiile și metodele educației experiențiale și contribuțiile marilor educatori în acest domeniu.",
+    "date": "2025-06-15",
+    "listed": true
+  },
+  {
+    "id": "natura-ca-profesor",
+    "title": "Natura ca profesor",
+    "description": "Cum natura poate deveni cel mai bun profesor și ce învățăm din observarea ecosistemelor naturale.",
+    "date": "2025-06-15",
+    "listed": true
+  },
+  {
+    "id": "abilitati-complementare",
+    "title": "Abilități complementare",
+    "description": "Cele 9 abilități esențiale pentru viață pe care sistemul educațional tradițional nu le predă suficient.",
+    "date": "2025-02-03",
+    "listed": true
+  },
+  {
+    "id": "scoala-in-padure",
+    "title": "Școala în pădure",
+    "description": "Explorează conceptul de școală în aer liber și beneficiile educației în natură pentru dezvoltarea copiilor.",
+    "date": "2025-01-29",
+    "listed": true
+  },
+  {
+    "id": "outward-bound-experimente",
+    "title": "Outward Bound și alte experimente",
+    "description": "Istoria și filosofia programelor Outward Bound și alte experimente în educația experiențială.",
+    "date": "2025-01-29",
+    "listed": true
+  },
+  {
+    "id": "einstein-problema",
+    "title": "O variantă a problemei lui Einstein",
+    "description": "O provocare logică complexă care testează capacitatea de gândire sistematică și deducție.",
+    "date": "2025-01-29",
+    "listed": true
+  },
+  {
+    "id": "curriculum-propunere",
+    "title": "Curriculum - propunere",
+    "description": "O propunere comprehensivă pentru un curriculum educațional alternativ bazat pe experiență și dezvoltare holistică.",
+    "date": "2025-01-28",
+    "listed": true
+  },
+  {
+    "id": "scolile-democratice",
+    "title": "Școlile democratice",
+    "description": "Descoperă cum funcționează școlile democratice și ce le face diferite de sistemul educațional tradițional.",
+    "date": "2025-01-17",
+    "listed": true
+  },
+  {
+    "id": "test-sanatate-spirituala-rafinat",
+    "title": "Test de Sănătate Spirituală (Rafinat)",
+    "description": "Versiunea extinsă a testului de autoevaluare: scoruri separate pe dimensiunile ontologică, epistemologică și axiologică.",
+    "date": "2026-01-08",
+    "listed": false
+  },
+  {
+    "id": "voluntarii",
+    "title": "Voluntarii",
+    "description": "Voluntarii Școlii Complementare: educatori, părinți și profesioniști care contribuie la formarea unei generații libere să își urmeze propriul drum.",
+    "date": "2025-06-28",
+    "listed": false,
+    "backTo": "despre-noi"
+  },
+  {
+    "id": "de-ce-eu",
+    "title": "De ce eu?",
+    "description": "De ce inițiez această școală complementară: parcursul unui profesor de matematică desfășurat în afara sistemului clasic de învățământ.",
+    "date": "2025-01-25",
+    "listed": false,
+    "backTo": "despre-noi"
+  }
+]
