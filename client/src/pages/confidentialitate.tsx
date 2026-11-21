@@ -140,7 +140,7 @@ export default function Confidentialitate() {
             <ul className="list-disc pl-6 space-y-1">
               <li>Google (Gmail), pentru email;</li>
               <li>WhatsApp (Meta), dacă alegeți să ne scrieți pe WhatsApp;</li>
-              <li>Netlify, care găzduiește site-ul și înregistrează tehnic, în jurnalele serverului, adresa IP a vizitatorilor, pentru securitate.</li>
+              <li>Netlify, care găzduiește site-ul, și Cloudflare, prin care trece traficul spre site; ambii văd tehnic adresa IP a vizitatorilor și o pot înregistra în jurnale, pentru livrarea paginilor și pentru securitate.</li>
             </ul>
             <p>
               Acești furnizori pot prelucra date și în afara Spațiului Economic European (de exemplu în SUA), cu
