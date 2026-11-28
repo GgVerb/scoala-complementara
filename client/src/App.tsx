@@ -1,9 +1,7 @@
 import { Switch, Route } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Suspense, lazy, useEffect } from "react";
-import { initGA } from "./lib/analytics";
-import { useAnalytics } from "./hooks/use-analytics";
+import { Suspense, lazy } from "react";
 import { PageTransition } from "@/components/page-transition";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
@@ -52,9 +50,6 @@ const Confidentialitate = lazyWithReload(() => import("@/pages/politica-confiden
 
 // Rută nouă aici → adaug-o și în netlify.toml (altfel răspunde cu 404).
 function Router() {
-  // Track page views when routes change
-  useAnalytics();
-
   return (
     <PageTransition>
       <Suspense fallback={<div className="min-h-screen" aria-busy="true" />}>
@@ -76,13 +71,8 @@ function Router() {
 }
 
 function App() {
-  // Google Analytics se inițializează doar dacă VITE_GA_MEASUREMENT_ID e setat.
-  // Atenție: dacă îl activezi, ai nevoie de banner de consimțământ și de
-  // actualizarea paginii /confidentialitate (Legea 506/2004).
-  useEffect(() => {
-    initGA();
-  }, []);
-
+  // Statisticile de trafic vin din Cloudflare Web Analytics (scriptul din client/index.html,
+  // fără cookie-uri). Google Analytics a fost scos intenționat: ar cere banner de consimțământ.
   return (
     <TooltipProvider>
       <Router />

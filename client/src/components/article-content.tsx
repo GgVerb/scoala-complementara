@@ -90,15 +90,19 @@ export default function ArticleContent({ articleId }: ArticleContentProps) {
 
   // Initialize charts after component mounts
   useEffect(() => {
+    // Chart.js e inclus în site (nu de pe un CDN extern, blocat de CSP) și se încarcă
+    // doar pe articolele care chiar au grafice.
     const loadChartsScript = () => {
-      if (typeof window !== 'undefined' && !(window as any).Chart) {
-        const script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/chart.js';
-        script.onload = () => initializeCharts();
-        document.head.appendChild(script);
-      } else if ((window as any).Chart) {
+      if (typeof window === 'undefined') return;
+      if (!document.getElementById('parentingPracticesChart') && !document.getElementById('civicEducationChart')) return;
+      if ((window as any).Chart) {
         initializeCharts();
+        return;
       }
+      import('chart.js/auto').then(({ default: Chart }) => {
+        (window as any).Chart = Chart;
+        initializeCharts();
+      });
     };
 
     const initializeCharts = () => {

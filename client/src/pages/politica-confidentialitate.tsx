@@ -6,8 +6,8 @@ import Footer from "@/components/footer";
 import { usePageMeta } from "@/hooks/use-page-meta";
 
 // L1: politica de confidențialitate (GDPR art. 13).
-// Dacă se activează Google Analytics (VITE_GA_MEASUREMENT_ID) sau se adaugă
-// formulare, video-uri încorporate ori alte servicii externe, pagina trebuie actualizată.
+// Dacă se adaugă formulare, video-uri încorporate, alte servicii de statistică
+// sau alte servicii externe, pagina trebuie actualizată.
 const ULTIMA_ACTUALIZARE = "28 noiembrie 2026";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
