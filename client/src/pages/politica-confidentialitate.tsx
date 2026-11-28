@@ -8,7 +8,7 @@ import { usePageMeta } from "@/hooks/use-page-meta";
 // L1: politica de confidențialitate (GDPR art. 13).
 // Dacă se activează Google Analytics (VITE_GA_MEASUREMENT_ID) sau se adaugă
 // formulare, video-uri încorporate ori alte servicii externe, pagina trebuie actualizată.
-const ULTIMA_ACTUALIZARE = "21 noiembrie 2026";
+const ULTIMA_ACTUALIZARE = "28 noiembrie 2026";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -62,7 +62,8 @@ export default function Confidentialitate() {
           <Section title="Pe scurt">
             <p>
               Site-ul nu are conturi, formulare care trimit date către un server, cookie-uri de analiză sau de
-              marketing. Primim date personale doar atunci când ne scrieți sau ne sunați. Le folosim ca să vă
+              marketing. Numărăm vizitele cu un serviciu de statistică fără cookie-uri, care nu vă identifică
+              (detalii la punctul 7). Primim date personale doar atunci când ne scrieți sau ne sunați. Le folosim ca să vă
               răspundem și nu le vindem nimănui.
             </p>
           </Section>
@@ -154,6 +155,13 @@ export default function Confidentialitate() {
               Site-ul nu folosește cookie-uri de analiză sau de marketing și nu încarcă servicii externe care să
               plaseze cookie-uri. Video-urile recomandate sunt doar linkuri: dacă le deschideți, ajungeți pe YouTube,
               unde se aplică politica Google.
+            </p>
+            <p className="mt-4">
+              Pentru statistici de trafic folosim Cloudflare Web Analytics. Serviciul nu folosește cookie-uri sau
+              stocare locală în browser și nu creează profiluri ale vizitatorilor. Vedem doar date agregate: câte
+              vizite au avut paginile, din ce site-uri ați venit (de ex. Google, Facebook), țara, tipul de dispozitiv
+              și viteza de încărcare. Furnizor: Cloudflare, Inc., conform politicii sale de confidențialitate
+              (cloudflare.com/privacypolicy).
             </p>
           </Section>
 
